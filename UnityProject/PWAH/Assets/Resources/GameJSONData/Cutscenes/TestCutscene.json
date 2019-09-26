@@ -1,0 +1,74 @@
+{
+  "TestObject": [
+    {
+      "GameAction": "eGA_MOVE",
+      "StartTime": 1.0,
+      "Duration": 3.0,
+      "PositionX": 10
+    },
+    {
+      "GameAction": "eGA_ROTATE",
+      "StartTime": 2.0,
+      "Duration": 1.0,
+      "Rotation": 180
+    },
+    {
+      "GameAction": "eGA_ANIMATION",
+      "StartTime": 2.0,
+      "Animation" : "DizzyLoop",
+      "AnimationCommand" : "Play"
+    },
+    {
+      "GameAction": "eGA_MOVE",
+      "StartTime": 5.0,
+      "Duration": 1.0,
+      "PositionX": 0,
+      "PauseType" : "ePT_INPUT"
+    },
+    {
+      "GameAction": "eGA_PATH",
+      "StartTime": 6.0,
+      "Duration": 2.0,
+      "Waypoints" : [
+      [2,0],
+      [3,1],
+      [1,3]
+      ],
+      "PathType" : "CatmullRom",
+      "LookAt" : false,
+      "ForwardVector": [1,0,0],
+      "Ease" : "Linear"
+    },
+    {
+      "GameAction": "eGA_ROTATE",
+      "StartTime": 6.0,
+      "Duration": 2.0,
+      "Rotation": 720,
+      "RotateMode" :"FastBeyond360"
+    }
+  ],
+  "TestObject_2": [
+    {
+      "GameAction": "eGA_MOVE",
+      "StartTime": 2.0,
+      "Duration": 3.0,
+      "PositionX": 10
+    }
+  ],
+  "Camera" : [
+  {
+    "GameAction": "eGA_MOVE",
+    "StartTime" : 6.0,
+    "Duration"  : 3.0,
+    "PositionX" : 2.0,
+    "PositionY" : 3.0
+  },
+  {
+    "GameAction": "eGA_ROTATE",
+    "StartTime": 6.0,
+    "Duration": 2.0,
+    "Rotation": 90,
+    "RotateMode" :"FastBeyond360"
+  }
+  ]
+}

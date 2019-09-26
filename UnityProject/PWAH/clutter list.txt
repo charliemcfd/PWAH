@@ -1,0 +1,29 @@
+Clutter List:
+
+- WindowSills *
+- Fences
+- Shrubbery
+- Fire escape *
+- Ladder
+- Pipe
+- Flower boxes *
+- Fire hydrant *
+- Parking Meter *
+- Car
+- Lamppost
+- Letterbox *
+- Posters *
+- Dumpster*
+- Bins *
+- Traffic Lights*
+- Street Signs *
+- Billboards
+- Traffic Cone *
+- Trash bags *
+- Bollards
+- Thin Trees
+- Railings
+- Crates
+- Telephone booth*
+
+sg15myn
