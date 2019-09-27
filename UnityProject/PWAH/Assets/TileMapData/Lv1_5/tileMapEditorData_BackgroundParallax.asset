@@ -39,70 +39,20 @@ MonoBehaviour:
     paintMode: 0
     tiles:
     - x: 0
-      y: 2
-      layer: 0
-      spriteId: 324
-      blendAmount: 0
-    - x: 1
-      y: 2
-      layer: 0
-      spriteId: 323
-      blendAmount: 0
-    - x: 2
-      y: 2
-      layer: 0
-      spriteId: 324
-      blendAmount: 0
-    - x: 3
-      y: 2
-      layer: 0
-      spriteId: 323
-      blendAmount: 0
-    - x: 0
-      y: 1
-      layer: 0
-      spriteId: 324
-      blendAmount: 0
-    - x: 1
-      y: 1
-      layer: 0
-      spriteId: 325
-      blendAmount: 0
-    - x: 2
-      y: 1
-      layer: 0
-      spriteId: 324
-      blendAmount: 0
-    - x: 3
-      y: 1
-      layer: 0
-      spriteId: 325
-      blendAmount: 0
-    - x: 0
       y: 0
       layer: 0
-      spriteId: 324
+      spriteId: 82
       blendAmount: 0
     - x: 1
       y: 0
       layer: 0
-      spriteId: 326
+      spriteId: 83
       blendAmount: 0
-    - x: 2
-      y: 0
-      layer: 0
-      spriteId: 324
-      blendAmount: 0
-    - x: 3
-      y: 0
-      layer: 0
-      spriteId: 326
-      blendAmount: 0
-    multiSelectTiles: 440100004301000044010000430100004401000045010000440100004501000044010000460100004401000046010000
+    multiSelectTiles: 5200000053000000
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 0
-    brushHash: -887435133
+    brushHash: 825375746
   brushes: []
   paletteBrush:
     name: 
@@ -973,7 +923,7 @@ MonoBehaviour:
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 1
-    brushHash: -399505956
+    brushHash: -1114862244
   paletteTilesPerRow: 8
   setupMode: 32
   showBrush: 1

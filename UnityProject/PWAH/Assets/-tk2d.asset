@@ -17739,3 +17739,22 @@ MonoBehaviour:
     loadable: 0
     assetName: 
     version: 3
+  - name: CloseBuildingsCollection
+    spriteCollectionGUID: 6d9e12d5bc043f74c81ebcc6e5bf603a
+    spriteCollectionDataGUID: 949e69b0ff46d964783fed306c1de3f3
+    spriteNames:
+    - closebuilding2
+    - closebuilding3
+    - closebuilding1
+    spriteTextureGUIDs:
+    - 6231aaf2650055147870710e284b675d
+    - 053c4ad3b4cda1b42af893e01ebc2dc3
+    - 41cc40d65f1d9ba47ae3f52971bc3c1f
+    spriteTextureTimeStamps:
+    - 1569622082.63741
+    - 1569622186.63664
+    - 1569621970.44893
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3

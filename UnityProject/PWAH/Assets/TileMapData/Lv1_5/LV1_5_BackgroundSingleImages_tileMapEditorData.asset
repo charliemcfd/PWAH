@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b78d6060eadde4394ed1d0ba2b8c97, type: 3}
   m_Name: LV1_5_BackgroundSingleImages_tileMapEditorData
   m_EditorClassIdentifier: 
-  editMode: 3
+  editMode: 0
   brushColor: {r: 1, g: 1, b: 1, a: 1}
   brushRadius: 1
   blendStrength: 1
@@ -35,19 +35,39 @@ MonoBehaviour:
     brushHash: 2045914240
   activeBrush:
     name: 
-    type: 0
+    type: 3
     paintMode: 0
     tiles:
     - x: 0
       y: 0
       layer: 0
-      spriteId: 1
+      spriteId: 0
       blendAmount: 0
-    multiSelectTiles: 01000000
+    - x: 1
+      y: 0
+      layer: 0
+      spriteId: 0
+      blendAmount: 0
+    - x: 2
+      y: 0
+      layer: 0
+      spriteId: 0
+      blendAmount: 0
+    - x: 3
+      y: 0
+      layer: 0
+      spriteId: 0
+      blendAmount: 0
+    - x: 4
+      y: 0
+      layer: 0
+      spriteId: 0
+      blendAmount: 0
+    multiSelectTiles: 0000000000000000000000000000000000000000
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 0
-    brushHash: -649663232
+    brushHash: -1823039481
   brushes: []
   paletteBrush:
     name: 
@@ -68,7 +88,7 @@ MonoBehaviour:
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 1
-    brushHash: -1232629824
+    brushHash: -514273024
   paletteTilesPerRow: 8
   setupMode: 32
   showBrush: 1
