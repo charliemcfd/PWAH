@@ -17758,3 +17758,16 @@ MonoBehaviour:
     loadable: 0
     assetName: 
     version: 3
+  - name: CloudsBackdropCollection
+    spriteCollectionGUID: 97b39df537edabf478c1ffaa5e44afbd
+    spriteCollectionDataGUID: aebc1e22beca205429bbb99fc3d4f920
+    spriteNames:
+    - clouds_backdrop
+    spriteTextureGUIDs:
+    - 203d5f1cbfb968a4b9a81c636e62a3ac
+    spriteTextureTimeStamps:
+    - 1569877587.49061
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
