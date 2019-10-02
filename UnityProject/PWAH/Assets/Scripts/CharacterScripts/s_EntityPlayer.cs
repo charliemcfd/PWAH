@@ -1866,21 +1866,22 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	private void RecordAnimation()
 	{
-		/*
+        /*
 		 * Before we record the animation,we must check that the animation for each sprite animator has actually changed. If it has not, we don't wish to
 		 * record it.
 		 * */
-        for(int _iDictionaryIndex = 0; _iDictionaryIndex < m_dAnimationCommands.Count; _iDictionaryIndex++)
+
+        //Using enumerator rather than .ElementAt as it does not allocate memory, therefore better for garbage collection.
+        var enumerator = m_dAnimationCommands.GetEnumerator();
+        while(enumerator.MoveNext())
 		{
-            KeyValuePair<tk2dSpriteAnimator, sAnimationCommand> _Entry = m_dAnimationCommands.ElementAt(_iDictionaryIndex);
+            KeyValuePair<tk2dSpriteAnimator, sAnimationCommand> _Entry = enumerator.Current;
 
-            tk2dSpriteAnimator _Animator = _Entry.Key;
-
-			if(m_dAnimationCommandsPrevious.ContainsKey(_Animator))
+            if (m_dAnimationCommandsPrevious.ContainsKey(_Entry.Key))
 			{
 				bool _bCanAddCommand = true;
 
-				sAnimationCommand _PreviousCommand = m_dAnimationCommandsPrevious[_Animator];
+				sAnimationCommand _PreviousCommand = m_dAnimationCommandsPrevious[_Entry.Key];
 				sAnimationCommand _ThisCommand = _Entry.Value;
 
 				//If all the values are the same, we do NOT want to add the command, unless it is a "Playfrom" command, as these can be used for creating loops
@@ -1898,8 +1899,8 @@ public class s_EntityPlayer : MonoBehaviour {
 
 
 
-				//Regardless of whether the command is different or not, we should record the NEW command as the "last" command
-				m_dAnimationCommandsPrevious[_Animator] = _ThisCommand;
+                //Regardless of whether the command is different or not, we should record the NEW command as the "last" command
+                m_dAnimationCommandsPrevious[_Entry.Key] = _ThisCommand;
 
 				if(_bCanAddCommand)
 				{
@@ -1921,6 +1922,8 @@ public class s_EntityPlayer : MonoBehaviour {
 		}
 
 
+        //TODO: Avoid add/removing unnecessarily by using a flag within the struct to dictate whether or not
+        //it can be immediately overridden next time there is a valid command
 
         // We now need to clear out commands in the "last" dictionary that were NOT updated this frame
         for (int _iDictionaryIndex = 0; _iDictionaryIndex < m_dAnimationCommands.Count; _iDictionaryIndex++)

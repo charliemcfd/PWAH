@@ -9974,6 +9974,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11453730, guid: 0efb9c8862a66d542923278f156ccf27, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efb9c8862a66d542923278f156ccf27, type: 3}
 --- !u!1 &723541128
@@ -16467,6 +16471,10 @@ PrefabInstance:
     - target: {fileID: 377710710, guid: 8a1c469b2d2d7bc4482f3dcd31879956, type: 3}
       propertyPath: m_projectionMatrixMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404410, guid: 8a1c469b2d2d7bc4482f3dcd31879956, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a1c469b2d2d7bc4482f3dcd31879956, type: 3}

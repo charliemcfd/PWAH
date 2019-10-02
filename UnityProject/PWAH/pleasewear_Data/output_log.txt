@@ -2,38 +2,39 @@ Initialize engine version: 5.3.5f1 (960ebf59018a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 680 (ID=0x1180)
-    Vendor:   NVIDIA
-    VRAM:     2017 MB
+    Renderer: Intel(R) UHD Graphics 620 (ID=0x5917)
+    Vendor:   Intel
+    VRAM:     4184 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DemiLib.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DemiLib.dll into Unity Child Domain
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTween.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTween.dll into Unity Child Domain
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTween43.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTween43.dll into Unity Child Domain
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTween46.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTween46.dll into Unity Child Domain
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTween50.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTween50.dll into Unity Child Domain
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTweenPro.dll (this message is harmless)
-Loading C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\DOTweenPro.dll into Unity Child Domain
-- Completed reload, in  0.058 seconds
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Charlie\Documents\PWAH\pleasewear_Data\Managed\System.dll (this message is harmless)
-desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DemiLib.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DemiLib.dll into Unity Child Domain
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween.dll into Unity Child Domain
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween43.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween43.dll into Unity Child Domain
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween46.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween46.dll into Unity Child Domain
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween50.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween50.dll into Unity Child Domain
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTweenPro.dll (this message is harmless)
+Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTweenPro.dll into Unity Child Domain
+- Completed reload, in  0.630 seconds
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\System.dll (this message is harmless)
+desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
 <RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.618009 ms
+UnloadTime: 1.634400 ms
 Tilemap TileMap_LevelGeometry is still in edit mode. Please fix.Building overhead will be significant.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
@@ -66,7 +67,7 @@ Created player manager
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-Full Data Path: C:/Users/Charlie/AppData/LocalLow/CharlieMcFadden/PWAH_Data/Resources/KeyBinds.json
+Full Data Path: C:/Users/strik/AppData/LocalLow/CharlieMcFadden/PWAH_Data/Resources/KeyBinds.json
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
@@ -91,8 +92,8 @@ making new object
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 3b0c -> priority: 1 
-  Thread -> id: 1c88 -> priority: 1 
+  Thread -> id: 212c -> priority: 1 
+  Thread -> id: 2d28 -> priority: 1 
 Could not find instance of GSP
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
