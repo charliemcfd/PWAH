@@ -864,25 +864,19 @@ public class s_EntityPlayer : MonoBehaviour {
             return;
         }
 
-        eInputCommand_Game[] _GameCommandArray = (eInputCommand_Game[])Enum.GetValues(typeof(eInputCommand_Game));
+        int _numCommands = (int)eInputCommand_Game.eIC_Game_MAX;
 
+        //If the state is currently in the "Broken" or "Dizzy" state, we dont want to accept any input
         if (m_eCharacterState == eCharacterState.eCS_Broken || m_eCharacterState == eCharacterState.eCS_Dizzy)
 		{
+            //If the character is broken (dead) and there is thrust input, activate DeathSkipInput. This forces a respawn.
             if (m_eCharacterState == eCharacterState.eCS_Broken)
             {
-                for (int _iCommand = 0; _iCommand < _GameCommandArray.Length; _iCommand++)
+                float _thrustInputValue = _arrayGameCommands[(int)eInputCommand_Game.eIC_Game_Thrust];
+                if(_thrustInputValue != 0)
                 {
-                    float _fInputValue = _arrayGameCommands[_iCommand];
-
-                    //We don't want to do anything if the input value is zero.
-                    if (_fInputValue != 0)
-                    {
-                        if(_GameCommandArray[_iCommand] == eInputCommand_Game.eIC_Game_Thrust)
-                        {
-                            //Note: This bool will not be reset as it is the "final" thing a player can do
-                            m_bDeathSkipInput = true;
-                        }
-                    }
+                    //Note: This bool will not be reset as it is the "final" thing a player can do
+                    m_bDeathSkipInput = true;
                 }
             }
 
@@ -896,13 +890,13 @@ public class s_EntityPlayer : MonoBehaviour {
 
 
 
-        for ( int _iCommand = 0; _iCommand < _GameCommandArray.Length; _iCommand++)
+        for ( int _iCommand = 0; _iCommand < _numCommands; _iCommand++)
 		{
             //Get the value of the input
 			float _fInputValue = _arrayGameCommands[_iCommand];
 
             //Get the enumeration this relates to
-            eInputCommand_Game _GameCommand = _GameCommandArray[_iCommand];
+            eInputCommand_Game _GameCommand = (eInputCommand_Game)_iCommand;
 
             //We don't want to do anything if the input value is zero.
             if (_fInputValue != 0)
@@ -1641,12 +1635,6 @@ public class s_EntityPlayer : MonoBehaviour {
 	private void ActivateDriftCollider(bool _bActivate)
 	{
 		//This should not need to be recorded for replays, as all physics will be turned off for the character anyway.
-
-		MeshCollider _Collider = m_goMainCharacter.GetComponent<MeshCollider>();
-		if(_Collider)
-		{
-		}
-
 		s_DriftCollider _DriftCollider = GetComponentInChildren<s_DriftCollider>();
 		if(_DriftCollider)
 		{
@@ -1926,9 +1914,11 @@ public class s_EntityPlayer : MonoBehaviour {
         //it can be immediately overridden next time there is a valid command
 
         // We now need to clear out commands in the "last" dictionary that were NOT updated this frame
-        for (int _iDictionaryIndex = 0; _iDictionaryIndex < m_dAnimationCommands.Count; _iDictionaryIndex++)
+
+        enumerator = m_dAnimationCommands.GetEnumerator();
+        while (enumerator.MoveNext())
         {
-            KeyValuePair<tk2dSpriteAnimator, sAnimationCommand> _Entry = m_dAnimationCommands.ElementAt(_iDictionaryIndex);
+            KeyValuePair<tk2dSpriteAnimator, sAnimationCommand> _Entry = enumerator.Current;
 
             tk2dSpriteAnimator _Animator = _Entry.Key;
 			if(m_dAnimationCommands.ContainsKey(_Animator) == false)
