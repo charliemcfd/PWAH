@@ -84,9 +84,9 @@ MonoBehaviour:
   forcedTextureHeight: 2048
   textureCompression: 0
   atlasWidth: 512
-  atlasHeight: 512
+  atlasHeight: 1024
   forceSquareAtlas: 0
-  atlasWastage: 34.981537
+  atlasWastage: 48.091698
   allowMultipleAtlases: 0
   removeDuplicates: 1
   allowSpannedDicing: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -150,7 +150,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -191,7 +191,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -232,7 +232,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -273,7 +273,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -314,7 +314,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -355,7 +355,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -396,7 +396,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -437,7 +437,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -478,7 +478,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -519,7 +519,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -560,7 +560,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -601,7 +601,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -642,7 +642,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -683,7 +683,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -724,7 +724,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -1690,11 +1690,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: iso_bg_building_tiles/39
+  - name: 
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    texture: {fileID: 0}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1707,20 +1707,20 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
-    pad: 2
+    pad: 0
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 1
+    hasSpriteSheetId: 0
     spriteSheetId: 0
-    spriteSheetX: 39
+    spriteSheetX: 0
     spriteSheetY: 0
-    extractRegion: 1
-    regionX: 1248
-    regionY: 1248
-    regionW: 32
-    regionH: 32
-    regionId: 39
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -1749,7 +1749,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -1790,7 +1790,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -1831,7 +1831,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -1872,7 +1872,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -1913,7 +1913,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -1954,7 +1954,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -1995,7 +1995,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -2036,7 +2036,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -2077,7 +2077,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -2118,7 +2118,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -2159,7 +2159,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -2200,7 +2200,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -2241,7 +2241,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -2282,7 +2282,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -2323,7 +2323,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -3389,7 +3389,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -3430,7 +3430,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -3471,7 +3471,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -3512,7 +3512,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -3553,7 +3553,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -3594,7 +3594,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -3635,7 +3635,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -3676,7 +3676,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -4970,11 +4970,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: iso_bg_building_tiles/119
+  - name: 
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    texture: {fileID: 0}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4987,20 +4987,20 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
-    pad: 2
+    pad: 0
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 1
+    hasSpriteSheetId: 0
     spriteSheetId: 0
-    spriteSheetX: 39
-    spriteSheetY: 2
-    extractRegion: 1
-    regionX: 1248
-    regionY: 1184
-    regionW: 32
-    regionH: 32
-    regionId: 119
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -5029,7 +5029,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5070,7 +5070,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5111,7 +5111,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5152,7 +5152,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5193,7 +5193,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5234,7 +5234,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5275,7 +5275,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5316,7 +5316,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5357,7 +5357,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5398,7 +5398,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5439,7 +5439,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5480,7 +5480,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5521,7 +5521,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5562,7 +5562,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5603,7 +5603,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -5644,7 +5644,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -6669,7 +6669,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -6710,7 +6710,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -6751,7 +6751,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -6792,7 +6792,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -6833,7 +6833,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -6874,7 +6874,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -6915,7 +6915,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -6956,7 +6956,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -6997,7 +6997,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7038,7 +7038,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7079,7 +7079,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7120,7 +7120,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7161,7 +7161,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7202,7 +7202,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7243,7 +7243,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7284,7 +7284,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7325,7 +7325,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7366,7 +7366,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7407,7 +7407,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7448,7 +7448,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7489,7 +7489,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7530,7 +7530,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7571,7 +7571,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -7612,7 +7612,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8309,7 +8309,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8350,7 +8350,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8391,7 +8391,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8432,7 +8432,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8473,7 +8473,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8514,7 +8514,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8555,7 +8555,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8596,7 +8596,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8637,7 +8637,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8678,7 +8678,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8719,7 +8719,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8760,7 +8760,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8801,7 +8801,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8842,7 +8842,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8883,7 +8883,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8924,7 +8924,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -8965,7 +8965,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9006,7 +9006,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9047,7 +9047,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9088,7 +9088,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9129,7 +9129,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9170,7 +9170,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9211,7 +9211,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9252,7 +9252,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9293,7 +9293,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9334,7 +9334,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9375,7 +9375,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9416,7 +9416,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9457,7 +9457,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9498,7 +9498,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9539,7 +9539,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9580,7 +9580,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9621,7 +9621,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9662,7 +9662,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9703,7 +9703,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9949,7 +9949,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -9990,7 +9990,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10031,7 +10031,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10072,7 +10072,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10113,7 +10113,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10154,7 +10154,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10195,7 +10195,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10236,7 +10236,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10277,7 +10277,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10318,7 +10318,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10359,7 +10359,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10400,7 +10400,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10441,7 +10441,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10482,7 +10482,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10523,7 +10523,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10564,7 +10564,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10605,7 +10605,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10646,7 +10646,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10687,7 +10687,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10728,7 +10728,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10769,7 +10769,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -10810,7 +10810,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -11589,7 +11589,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -11630,7 +11630,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -11671,7 +11671,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -11712,7 +11712,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -11753,7 +11753,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -11794,7 +11794,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -11835,7 +11835,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -11876,7 +11876,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -11917,7 +11917,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -13229,7 +13229,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -13270,7 +13270,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -13311,7 +13311,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -13352,7 +13352,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -13393,7 +13393,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -13434,7 +13434,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -13475,7 +13475,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -13516,7 +13516,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -13557,7 +13557,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -14869,7 +14869,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -14910,7 +14910,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -14951,7 +14951,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -14992,7 +14992,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15033,7 +15033,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15074,7 +15074,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15115,7 +15115,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15156,7 +15156,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15197,7 +15197,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15238,7 +15238,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15279,7 +15279,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15320,7 +15320,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15361,7 +15361,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15402,7 +15402,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15443,7 +15443,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15484,7 +15484,7 @@ MonoBehaviour:
     diceUnitY: 64
     diceFilter: 0
     pad: 2
-    extraPadding: 0
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
@@ -15497,6 +15497,3122 @@ MonoBehaviour:
     regionW: 32
     regionH: 32
     regionId: 375
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/400
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 0
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 400
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/401
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 1
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 32
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 401
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/402
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 2
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 64
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 402
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/403
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 3
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 96
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 403
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/404
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 4
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 128
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 404
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/405
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 5
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 160
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 405
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/406
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 6
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 192
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 406
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/407
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 7
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 224
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 407
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/408
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 8
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 256
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 408
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/409
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 9
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 288
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 409
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/410
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 10
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 320
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 410
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/411
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 11
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 352
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 411
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/412
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 12
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 384
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 412
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/413
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 13
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 416
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 413
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/414
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 14
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 448
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 414
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/415
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 15
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 480
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 415
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/416
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 16
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 512
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 416
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/417
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 17
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 544
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 417
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/418
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 18
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 576
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 418
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/419
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 19
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 608
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 419
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/420
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 20
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 640
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 420
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/421
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 21
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 672
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 421
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/422
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 22
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 704
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 422
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/423
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 23
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 736
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 423
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/424
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 24
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 768
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 424
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/425
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 25
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 800
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 425
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/426
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 26
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 832
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 426
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/427
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 27
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 864
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 427
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/428
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 28
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 896
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 428
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/429
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 29
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 928
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 429
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/430
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 30
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 960
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 430
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/431
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 31
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 992
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 431
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/432
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 32
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 1024
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 432
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/433
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 33
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 1056
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 433
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/434
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 34
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 1088
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 434
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/435
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 35
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 1120
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 435
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/436
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 36
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 1152
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 436
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/437
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 37
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 1184
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 437
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/438
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 38
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 1216
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 438
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/439
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 39
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 1248
+    regionY: 928
+    regionW: 32
+    regionH: 32
+    regionId: 439
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/440
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 0
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 440
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/441
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 1
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 32
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 441
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/442
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 2
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 64
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 442
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/443
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 3
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 96
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 443
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/444
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 4
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 128
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 444
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/445
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 5
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 160
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 445
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/446
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 6
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 192
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 446
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/447
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 7
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 224
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 447
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/448
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 8
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 256
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 448
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/449
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 9
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 288
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 449
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/450
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 10
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 320
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 450
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: iso_bg_building_tiles/451
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 24fed6b401c426b4ba9eb19cf00a08c0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 11
+    spriteSheetY: 11
+    extractRegion: 1
+    regionX: 352
+    regionY: 896
+    regionW: 32
+    regionH: 32
+    regionId: 451
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
