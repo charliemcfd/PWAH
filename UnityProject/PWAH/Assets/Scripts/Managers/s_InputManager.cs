@@ -227,18 +227,19 @@ public class s_InputManager : MonoBehaviour {
 
 	private void ProcessBoundInputs()
 	{
-		//Input is collated for both game an menu regardless of actual game state. Places the input is passed should decide what they're going to do with the data and when.
+        //Input is collated for both game an menu regardless of actual game state. Places the input is passed should decide what they're going to do with the data and when.
 
 
-		/*Notes:: Return value from input processing, 
+        /*Notes:: Return value from input processing, 
 		 * pass to another function along with the 
 		 * Key enumeration. This function will generate commands to pass to the
 		 * relevant game system.
 		*/
 
-        for(int i = 0; i < m_dGameBinds.Count; i++)
+        var _gameBindEnumerator = m_dGameBinds.GetEnumerator();
+        while (_gameBindEnumerator.MoveNext())
         {
-            List<sKeyBind> _BindList = m_dGameBinds.ElementAt(i).Value;
+            List<sKeyBind> _BindList = _gameBindEnumerator.Current.Value;
 
             for (int j = 0; j < _BindList.Count; j++ )
             {
@@ -246,26 +247,27 @@ public class s_InputManager : MonoBehaviour {
                 {
                     case eBindType.eBT_JoystickButton:
                         {
-                            AddGameInput(m_dGameBinds.ElementAt(i).Key, GetJoystickButtonInput(_BindList[j]));
+                            AddGameInput(_gameBindEnumerator.Current.Key, GetJoystickButtonInput(_BindList[j]));
                             break;
                         }
                     case eBindType.eBT_KeyboardButton:
                         {
-                            AddGameInput(m_dGameBinds.ElementAt(i).Key, GetKeyboardInput(_BindList[j]));
+                            AddGameInput(_gameBindEnumerator.Current.Key, GetKeyboardInput(_BindList[j]));
                             break;
                         }
                     case eBindType.eBT_Axis:
                         {
-                            AddGameInput(m_dGameBinds.ElementAt(i).Key, GetAxisInput(_BindList[j]));
+                            AddGameInput(_gameBindEnumerator.Current.Key, GetAxisInput(_BindList[j]));
                             break;
                         }
                 }
             }
         }
 
-        for(int i = 0; i < m_dMenuBinds.Count; i++)
+        var _menuBindEnumerator = m_dMenuBinds.GetEnumerator();
+        while(_menuBindEnumerator.MoveNext())
         {
-            List<sKeyBind> _BindList = m_dMenuBinds.ElementAt(i).Value;
+            List<sKeyBind> _BindList = _menuBindEnumerator.Current.Value;
 
             for (int j = 0; j < _BindList.Count; j++)
             {
@@ -273,17 +275,17 @@ public class s_InputManager : MonoBehaviour {
                 {
                     case eBindType.eBT_JoystickButton:
                         {
-                            AddMenuInput(m_dMenuBinds.ElementAt(i).Key, GetJoystickButtonInput(_BindList[j]));
+                            AddMenuInput(_menuBindEnumerator.Current.Key, GetJoystickButtonInput(_BindList[j]));
                             break;
                         }
                     case eBindType.eBT_KeyboardButton:
                         {
-                            AddMenuInput(m_dMenuBinds.ElementAt(i).Key, GetKeyboardInput(_BindList[j]));
+                            AddMenuInput(_menuBindEnumerator.Current.Key, GetKeyboardInput(_BindList[j]));
                             break;
                         }
                     case eBindType.eBT_Axis:
                         {
-                            AddMenuInput(m_dMenuBinds.ElementAt(i).Key, GetAxisInput(_BindList[j]));
+                            AddMenuInput(_menuBindEnumerator.Current.Key, GetAxisInput(_BindList[j]));
                             break;
                         }
                 }
