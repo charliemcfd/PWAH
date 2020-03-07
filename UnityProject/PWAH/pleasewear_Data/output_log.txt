@@ -2,39 +2,39 @@ Initialize engine version: 5.3.5f1 (960ebf59018a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) UHD Graphics 620 (ID=0x5917)
-    Vendor:   Intel
-    VRAM:     4184 MB
+    Renderer: NVIDIA GeForce GTX 680 (ID=0x1180)
+    Vendor:   NVIDIA
+    VRAM:     2007 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DemiLib.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DemiLib.dll into Unity Child Domain
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween.dll into Unity Child Domain
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween43.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween43.dll into Unity Child Domain
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween46.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween46.dll into Unity Child Domain
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween50.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween50.dll into Unity Child Domain
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTweenPro.dll (this message is harmless)
-Loading C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTweenPro.dll into Unity Child Domain
-- Completed reload, in  0.630 seconds
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\strik\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\System.dll (this message is harmless)
-desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DemiLib.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DemiLib.dll into Unity Child Domain
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween.dll into Unity Child Domain
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween43.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween43.dll into Unity Child Domain
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween46.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween46.dll into Unity Child Domain
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween50.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTween50.dll into Unity Child Domain
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTweenPro.dll (this message is harmless)
+Loading C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\DOTweenPro.dll into Unity Child Domain
+- Completed reload, in  0.111 seconds
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Charlie\Documents\GitHub\PWAH\UnityProject\PWAH\pleasewear_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initialized touch support.
-UnloadTime: 1.634400 ms
+UnloadTime: 0.749800 ms
 Tilemap TileMap_LevelGeometry is still in edit mode. Please fix.Building overhead will be significant.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
@@ -67,7 +67,7 @@ Created player manager
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-Full Data Path: C:/Users/strik/AppData/LocalLow/CharlieMcFadden/PWAH_Data/Resources/KeyBinds.json
+Full Data Path: C:/Users/Charlie/AppData/LocalLow/CharlieMcFadden/PWAH_Data/Resources/KeyBinds.json
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
@@ -91,9 +91,143 @@ making new object
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
+Setting level to reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+FadeInCommplete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Internal Reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Creating player 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Starting new recording
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+making new object
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+FadeOutCommplete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Setting level to reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+FadeInCommplete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Internal Reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Creating player 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Starting new recording
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+making new object
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+FadeOutCommplete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Setting level to reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+FadeInCommplete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Internal Reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Creating player 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Starting new recording
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+making new object
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+FadeOutCommplete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Setting level to reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+FadeInCommplete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Internal Reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+FadeOutCommplete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Creating player 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Creating player 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Creating player 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Creating player 3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Successful replay finished
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Scene 'MenuScene' (-1) couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 520)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at s_LoadingScreen+<AsynchronousLoad>c__Iterator3.MoveNext () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+FadeInCommplete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 212c -> priority: 1 
-  Thread -> id: 2d28 -> priority: 1 
+  Thread -> id: 1328 -> priority: 1 
+  Thread -> id: 2cf4 -> priority: 1 
 Could not find instance of GSP
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
