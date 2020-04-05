@@ -41,33 +41,13 @@ MonoBehaviour:
     - x: 0
       y: 0
       layer: 0
-      spriteId: 340
+      spriteId: 302
       blendAmount: 0
-    - x: 1
-      y: 0
-      layer: 0
-      spriteId: 340
-      blendAmount: 0
-    - x: 2
-      y: 0
-      layer: 0
-      spriteId: 340
-      blendAmount: 0
-    - x: 3
-      y: 0
-      layer: 0
-      spriteId: 340
-      blendAmount: 0
-    - x: 4
-      y: 0
-      layer: 0
-      spriteId: 340
-      blendAmount: 0
-    multiSelectTiles: 5401000054010000540100005401000054010000
+    multiSelectTiles: 2e010000
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 0
-    brushHash: 1823879559
+    brushHash: -1890771709
   brushes: []
   paletteBrush:
     name: 
@@ -658,7 +638,7 @@ MonoBehaviour:
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 1
-    brushHash: -287520014
+    brushHash: 1567594098
   paletteTilesPerRow: 20
   setupMode: 1
   showBrush: 1
