@@ -39,110 +39,70 @@ MonoBehaviour:
     paintMode: 0
     tiles:
     - x: 0
+      y: 2
+      layer: 0
+      spriteId: 2308
+      blendAmount: 0
+    - x: 1
+      y: 2
+      layer: 0
+      spriteId: 2309
+      blendAmount: 0
+    - x: 2
+      y: 2
+      layer: 0
+      spriteId: 2310
+      blendAmount: 0
+    - x: 3
+      y: 2
+      layer: 0
+      spriteId: 2311
+      blendAmount: 0
+    - x: 0
+      y: 1
+      layer: 0
+      spriteId: 2312
+      blendAmount: 0
+    - x: 1
+      y: 1
+      layer: 0
+      spriteId: 2313
+      blendAmount: 0
+    - x: 2
+      y: 1
+      layer: 0
+      spriteId: 2314
+      blendAmount: 0
+    - x: 3
+      y: 1
+      layer: 0
+      spriteId: 2315
+      blendAmount: 0
+    - x: 0
       y: 0
       layer: 0
-      spriteId: 634
+      spriteId: 2316
       blendAmount: 0
     - x: 1
       y: 0
       layer: 0
-      spriteId: 665
+      spriteId: 2317
       blendAmount: 0
     - x: 2
       y: 0
       layer: 0
-      spriteId: 665
+      spriteId: 2318
       blendAmount: 0
     - x: 3
       y: 0
       layer: 0
-      spriteId: 665
+      spriteId: 2319
       blendAmount: 0
-    - x: 4
-      y: 0
-      layer: 0
-      spriteId: 665
-      blendAmount: 0
-    - x: 5
-      y: 0
-      layer: 0
-      spriteId: 888
-      blendAmount: 0
-    - x: 6
-      y: 0
-      layer: 0
-      spriteId: 889
-      blendAmount: 0
-    - x: 7
-      y: 0
-      layer: 0
-      spriteId: 665
-      blendAmount: 0
-    - x: 8
-      y: 0
-      layer: 0
-      spriteId: 665
-      blendAmount: 0
-    - x: 9
-      y: 0
-      layer: 0
-      spriteId: 665
-      blendAmount: 0
-    - x: 10
-      y: 0
-      layer: 0
-      spriteId: 665
-      blendAmount: 0
-    - x: 11
-      y: 0
-      layer: 0
-      spriteId: 880
-      blendAmount: 0
-    - x: 12
-      y: 0
-      layer: 0
-      spriteId: 645
-      blendAmount: 0
-    - x: 13
-      y: 0
-      layer: 0
-      spriteId: 645
-      blendAmount: 0
-    - x: 14
-      y: 0
-      layer: 0
-      spriteId: 645
-      blendAmount: 0
-    - x: 15
-      y: 0
-      layer: 0
-      spriteId: 882
-      blendAmount: 0
-    - x: 16
-      y: 0
-      layer: 0
-      spriteId: 883
-      blendAmount: 0
-    - x: 17
-      y: 0
-      layer: 0
-      spriteId: 645
-      blendAmount: 0
-    - x: 18
-      y: 0
-      layer: 0
-      spriteId: 645
-      blendAmount: 0
-    - x: 19
-      y: 0
-      layer: 0
-      spriteId: 648
-      blendAmount: 0
-    multiSelectTiles: 7a02000099020000990200009902000099020000780300007903000099020000990200009902000099020000700300008502000085020000850200007203000073030000850200008502000088020000
+    multiSelectTiles: 0409000005090000060900000709000008090000090900000a0900000b0900000c0900000d0900000e0900000f090000
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 0
-    brushHash: -860957949
+    brushHash: 219364227
   brushes: []
   paletteBrush:
     name: 
@@ -15513,10 +15473,10 @@ MonoBehaviour:
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 1
-    brushHash: -526325888
+    brushHash: 1819089920
   paletteTilesPerRow: 8
   setupMode: 32
   showBrush: 1
   showPalette: 1
-  layer: 5
+  layer: 6
   scratchpads: []
