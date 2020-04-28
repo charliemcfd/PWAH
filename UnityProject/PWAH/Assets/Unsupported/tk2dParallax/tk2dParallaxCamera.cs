@@ -1,12 +1,18 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class tk2dParallaxLayer
 {
 	public Camera camera = null;
-	public float speed = 1.0f;
-	[HideInInspector][System.NonSerialized]
+    [FormerlySerializedAs("speed")]
+    [SerializeField]
+    public float speedX = 1.0f;
+
+    [SerializeField]
+    public float speedY = 1.0f;
+    [HideInInspector][System.NonSerialized]
 	public Transform transform = null;
 }
 
@@ -44,9 +50,9 @@ public class tk2dParallaxCamera : MonoBehaviour
 		{
 			if (layer.transform != null)
 			{
-				layer.transform.position = rootPosition + rootOffset * layer.speed;
-			}
-		}		
+                layer.transform.position = new Vector3(rootPosition.x + rootOffset.x * layer.speedX, rootPosition.y + rootOffset.y * layer.speedY, rootPosition.z);
+            }
+        }		
 	}
 	
 	// Update is called once per frame
@@ -57,8 +63,8 @@ public class tk2dParallaxCamera : MonoBehaviour
 		{
 			if (layer.transform != null)
 			{
-				layer.transform.position = rootPosition + rootOffset * layer.speed;
-			}
-		}
+                layer.transform.position = new Vector3(rootPosition.x + rootOffset.x * layer.speedX, rootPosition.y + rootOffset.y * layer.speedY, rootPosition.z);
+            }
+        }
 	}
 }
