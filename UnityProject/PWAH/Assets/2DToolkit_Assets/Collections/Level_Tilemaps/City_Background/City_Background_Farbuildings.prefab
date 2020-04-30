@@ -84,9 +84,9 @@ MonoBehaviour:
   forcedTextureHeight: 2048
   textureCompression: 0
   atlasWidth: 512
-  atlasHeight: 512
+  atlasHeight: 1024
   forceSquareAtlas: 0
-  atlasWastage: 53.03688
+  atlasWastage: 41.842842
   allowMultipleAtlases: 0
   removeDuplicates: 1
   allowSpannedDicing: 0
