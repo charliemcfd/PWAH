@@ -38247,3 +38247,2024 @@ MonoBehaviour:
     loadable: 0
     assetName: 
     version: 3
+  - name: Character_3_0_Collection
+    spriteCollectionGUID: f3039a08f093432438c72ceefae83616
+    spriteCollectionDataGUID: bfbbf67acdca6134584f8acfc9a7b186
+    spriteNames:
+    - CharacterAnimations/character_Idle_Idle_0
+    - CharacterAnimations/character_Idle_Idle_1
+    - CharacterAnimations/character_Idle_Idle_2
+    - CharacterAnimations/character_Idle_Idle_3
+    - CharacterAnimations/character_Idle_Idle_4
+    - CharacterAnimations/character_Idle_Idle_5
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_0
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_1
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_2
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_3
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_4
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_5
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_6
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_7
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_8
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_9
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_10
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_11
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_12
+    - CharacterAnimations/character_FlyingNormal_FlyingNormal_13
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_FlyingFast_FlyingFast_0
+    - CharacterAnimations/character_FlyingFast_FlyingFast_1
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_FlyingDanger_FlyingDanger_0
+    - CharacterAnimations/character_FlyingDanger_FlyingDanger_1
+    - CharacterAnimations/character_FlyingDanger_FlyingDanger_2
+    - CharacterAnimations/character_FlyingDanger_FlyingDanger_3
+    - CharacterAnimations/character_FlyingDanger_FlyingDanger_4
+    - CharacterAnimations/character_FlyingDanger_FlyingDanger_5
+    - CharacterAnimations/character_FlyingDanger_FlyingDanger_6
+    - CharacterAnimations/character_FlyingDanger_FlyingDanger_7
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_CantWalk_CantWalk_0
+    - CharacterAnimations/character_CantWalk_CantWalk_1
+    - CharacterAnimations/character_CantWalk_CantWalk_2
+    - CharacterAnimations/character_CantWalk_CantWalk_3
+    - CharacterAnimations/character_CantWalk_CantWalk_4
+    - CharacterAnimations/character_CantWalk_CantWalk_5
+    - CharacterAnimations/character_CantWalk_CantWalk_6
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_Landing_Landing_0
+    - CharacterAnimations/character_Landing_Landing_1
+    - CharacterAnimations/character_Landing_Landing_2
+    - CharacterAnimations/character_Landing_Landing_3
+    - CharacterAnimations/character_Landing_Landing_4
+    - CharacterAnimations/character_Landing_Landing_5
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_DizzyHit_DizzyHit_0
+    - CharacterAnimations/character_DizzyHit_DizzyHit_1
+    - CharacterAnimations/character_DizzyHit_DizzyHit_2
+    - CharacterAnimations/character_DizzyHit_DizzyHit_3
+    - CharacterAnimations/character_DizzyHit_DizzyHit_4
+    - CharacterAnimations/character_DizzyHit_DizzyHit_5
+    - CharacterAnimations/character_DizzyHit_DizzyHit_6
+    - CharacterAnimations/character_DizzyHit_DizzyHit_7
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_Tuck_Tuck_0
+    - CharacterAnimations/character_Tuck_Tuck_1
+    - CharacterAnimations/character_Tuck_Tuck_2
+    - CharacterAnimations/character_Tuck_Tuck_3
+    - CharacterAnimations/character_Tuck_Tuck_4
+    - CharacterAnimations/character_Tuck_Tuck_5
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_Death_Death_0
+    - CharacterAnimations/character_Death_Death_1
+    - CharacterAnimations/character_Death_Death_2
+    - CharacterAnimations/character_Death_Death_3
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_DeathHitLeft_DeathHitLeft_0
+    - CharacterAnimations/character_DeathHitLeft_DeathHitLeft_1
+    - CharacterAnimations/character_DeathHitRight_DeathHitRight_0
+    - CharacterAnimations/character_DeathHitRight_DeathHitRight_1
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_DeathHitSlow_DeathHitSlow_0
+    - CharacterAnimations/character_DeathHitSlow_DeathHitSlow_1
+    - CharacterAnimations/character_DeathHitSlow_DeathHitSlow_2
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_Balance_Balance_0
+    - CharacterAnimations/character_Balance_Balance_1
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - CharacterAnimations/character_BalanceLeft_BalanceLeft_0
+    - CharacterAnimations/character_BalanceLeft_BalanceLeft_1
+    spriteTextureGUIDs:
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 14fb5e22c51c62244b7a779414e45866
+    - 14fb5e22c51c62244b7a779414e45866
+    spriteTextureTimeStamps:
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1588934336.30126
+    - 1588934336.30126
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: Character_3_1_Collection
+    spriteCollectionGUID: 495fe38dd710e774e96ea53789f41045
+    spriteCollectionDataGUID: 2cf464272c0c31e4892dd3089af64fa5
+    spriteNames:
+    - character_Idle/0
+    - character_Balance/0
+    - character_Balance/1
+    - character_Balance_Left/0
+    - character_Balance_Left/1
+    - character_Cantwalk_Left/0
+    - character_Cantwalk_Left/1
+    - character_Cantwalk_Left/2
+    - character_Idle/1
+    - character_Idle/2
+    - character_Idle/3
+    - character_Idle/4
+    - character_Idle/5
+    - character_Cantwalk_Left/3
+    - character_Cantwalk_Left/4
+    - character_Cantwalk_Left/5
+    - character_Cantwalk_Left/6
+    - character_Cantwalk/0
+    - character_Cantwalk/1
+    - character_Cantwalk/2
+    - character_Cantwalk/3
+    - character_Cantwalk/4
+    - character_Cantwalk/5
+    - character_Cantwalk/6
+    - character_Death/0
+    - character_Death/1
+    - character_Death/2
+    - character_Death/3
+    - character_DeathHitLeft/0
+    - character_DeathHitLeft/1
+    - character_DeathHitRight/0
+    - character_DeathHitRight/1
+    - character_DizzyHit/0
+    - character_DizzyHit/1
+    - character_DizzyHit/2
+    - character_DizzyHit/3
+    - character_DizzyHit/4
+    - character_DizzyHit/5
+    - character_DizzyHit/6
+    - character_DizzyHit/7
+    - character_DizzyLoop/0
+    - character_DizzyLoop/1
+    - character_DizzyLoop/2
+    - character_DizzyLoop/3
+    - character_FlyingDanger/0
+    - character_FlyingDanger/1
+    - character_FlyingDanger/2
+    - character_FlyingDanger/3
+    - character_FlyingDanger/4
+    - character_FlyingDanger/5
+    - character_FlyingDanger/6
+    - character_FlyingDanger/7
+    - character_FlyingFast/0
+    - character_FlyingFast/1
+    - character_FlyingNormal/0
+    - character_FlyingNormal/1
+    - character_FlyingNormal/2
+    - character_FlyingNormal/3
+    - character_FlyingNormal/4
+    - character_FlyingNormal/5
+    - character_FlyingNormal/6
+    - character_FlyingNormal/7
+    - character_FlyingNormal/8
+    - character_FlyingNormal/9
+    - character_FlyingNormal/10
+    - character_FlyingNormal/11
+    - character_FlyingNormal/12
+    - character_FlyingNormal/13
+    - character_Landing/0
+    - character_Landing/1
+    - character_Landing/2
+    - character_Landing/3
+    - character_Landing/4
+    - character_Landing/5
+    - character_Tuck/0
+    - character_Tuck/1
+    - character_Tuck/2
+    - character_Tuck/3
+    - character_Tuck/4
+    - character_Tuck/5
+    - character_DeathHitSlow2/0
+    - character_DeathHitSlow2/1
+    - character_DeathHitSlow2/2
+    spriteTextureGUIDs:
+    - 2cbdff94dc4923c4b9dd717432f90651
+    - e0d2bec294d69a746abb6913acdc39b2
+    - e0d2bec294d69a746abb6913acdc39b2
+    - e330cdcab312cbf419d24b2ddc4da92a
+    - e330cdcab312cbf419d24b2ddc4da92a
+    - 60b2f69cabc48cb48a6d8a9681220d16
+    - 60b2f69cabc48cb48a6d8a9681220d16
+    - 60b2f69cabc48cb48a6d8a9681220d16
+    - 2cbdff94dc4923c4b9dd717432f90651
+    - 2cbdff94dc4923c4b9dd717432f90651
+    - 2cbdff94dc4923c4b9dd717432f90651
+    - 2cbdff94dc4923c4b9dd717432f90651
+    - 2cbdff94dc4923c4b9dd717432f90651
+    - 60b2f69cabc48cb48a6d8a9681220d16
+    - 60b2f69cabc48cb48a6d8a9681220d16
+    - 60b2f69cabc48cb48a6d8a9681220d16
+    - 60b2f69cabc48cb48a6d8a9681220d16
+    - 661e96a7101092940a4cf5bf2b814b3d
+    - 661e96a7101092940a4cf5bf2b814b3d
+    - 661e96a7101092940a4cf5bf2b814b3d
+    - 661e96a7101092940a4cf5bf2b814b3d
+    - 661e96a7101092940a4cf5bf2b814b3d
+    - 661e96a7101092940a4cf5bf2b814b3d
+    - 661e96a7101092940a4cf5bf2b814b3d
+    - 6ecfd6fa7b5aabd4c9b34f9e020cc2cb
+    - 6ecfd6fa7b5aabd4c9b34f9e020cc2cb
+    - 6ecfd6fa7b5aabd4c9b34f9e020cc2cb
+    - 6ecfd6fa7b5aabd4c9b34f9e020cc2cb
+    - 916b8b88d7330154ea8751a38715a01e
+    - 916b8b88d7330154ea8751a38715a01e
+    - 6b63b141c739fb04db00ff11a8b33f9c
+    - 6b63b141c739fb04db00ff11a8b33f9c
+    - 05ae30e4fa1c3fc41a7c2de96e85c9ff
+    - 05ae30e4fa1c3fc41a7c2de96e85c9ff
+    - 05ae30e4fa1c3fc41a7c2de96e85c9ff
+    - 05ae30e4fa1c3fc41a7c2de96e85c9ff
+    - 05ae30e4fa1c3fc41a7c2de96e85c9ff
+    - 05ae30e4fa1c3fc41a7c2de96e85c9ff
+    - 05ae30e4fa1c3fc41a7c2de96e85c9ff
+    - 05ae30e4fa1c3fc41a7c2de96e85c9ff
+    - 8a33ba5233f7108448b4f9f288d4632a
+    - 8a33ba5233f7108448b4f9f288d4632a
+    - 8a33ba5233f7108448b4f9f288d4632a
+    - 8a33ba5233f7108448b4f9f288d4632a
+    - afa8e5c80ee96e14297d3263c827c799
+    - afa8e5c80ee96e14297d3263c827c799
+    - afa8e5c80ee96e14297d3263c827c799
+    - afa8e5c80ee96e14297d3263c827c799
+    - afa8e5c80ee96e14297d3263c827c799
+    - afa8e5c80ee96e14297d3263c827c799
+    - afa8e5c80ee96e14297d3263c827c799
+    - afa8e5c80ee96e14297d3263c827c799
+    - 0af3ab4a01ba15249bc962f58ab6f269
+    - 0af3ab4a01ba15249bc962f58ab6f269
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - c5369cf50f7845b40a971f0631901a77
+    - 726afd3db896b6844827e3f60b4e0ce7
+    - 726afd3db896b6844827e3f60b4e0ce7
+    - 726afd3db896b6844827e3f60b4e0ce7
+    - 726afd3db896b6844827e3f60b4e0ce7
+    - 726afd3db896b6844827e3f60b4e0ce7
+    - 726afd3db896b6844827e3f60b4e0ce7
+    - 5ddaa2eb07c4e8847ba7851029cc3799
+    - 5ddaa2eb07c4e8847ba7851029cc3799
+    - 5ddaa2eb07c4e8847ba7851029cc3799
+    - 5ddaa2eb07c4e8847ba7851029cc3799
+    - 5ddaa2eb07c4e8847ba7851029cc3799
+    - 5ddaa2eb07c4e8847ba7851029cc3799
+    - b0f59d1f490cfbb4093e9f2fd267e032
+    - b0f59d1f490cfbb4093e9f2fd267e032
+    - b0f59d1f490cfbb4093e9f2fd267e032
+    spriteTextureTimeStamps:
+    - 1588937650.54892
+    - 1588937653.01519
+    - 1588937653.01519
+    - 1588938100.82863
+    - 1588938100.82863
+    - 1588938083.33936
+    - 1588938083.33936
+    - 1588938083.33936
+    - 1588937650.54892
+    - 1588937650.54892
+    - 1588937650.54892
+    - 1588937650.54892
+    - 1588937650.54892
+    - 1588938083.33936
+    - 1588938083.33936
+    - 1588938083.33936
+    - 1588938083.33936
+    - 1588937652.79337
+    - 1588937652.79337
+    - 1588937652.79337
+    - 1588937652.79337
+    - 1588937652.79337
+    - 1588937652.79337
+    - 1588937652.79337
+    - 1588937652.94631
+    - 1588937652.94631
+    - 1588937652.94631
+    - 1588937652.94631
+    - 1588937652.9635
+    - 1588937652.9635
+    - 1588937652.98008
+    - 1588937652.98008
+    - 1588937652.86242
+    - 1588937652.86242
+    - 1588937652.86242
+    - 1588937652.86242
+    - 1588937652.86242
+    - 1588937652.86242
+    - 1588937652.86242
+    - 1588937652.86242
+    - 1588937652.89071
+    - 1588937652.89071
+    - 1588937652.89071
+    - 1588937652.89071
+    - 1588937652.76021
+    - 1588937652.76021
+    - 1588937652.76021
+    - 1588937652.76021
+    - 1588937652.76021
+    - 1588937652.76021
+    - 1588937652.76021
+    - 1588937652.76021
+    - 1588937652.71632
+    - 1588937652.71632
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588940523.83604
+    - 1588937652.82361
+    - 1588937652.82361
+    - 1588937652.82361
+    - 1588937652.82361
+    - 1588937652.82361
+    - 1588937652.82361
+    - 1588937652.92192
+    - 1588937652.92192
+    - 1588937652.92192
+    - 1588937652.92192
+    - 1588937652.92192
+    - 1588937652.92192
+    - 1588939171.31667
+    - 1588939171.31667
+    - 1588939171.31667
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
