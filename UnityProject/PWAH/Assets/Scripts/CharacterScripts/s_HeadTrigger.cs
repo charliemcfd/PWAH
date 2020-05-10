@@ -7,13 +7,15 @@ public class s_HeadTrigger : MonoBehaviour {
 	private float m_fCollisionVelocity;
     private s_EntityPlayer m_PlayerScript;
 
-
+    private int m_itemsInTrigger;
     // Use this for initialization
     void Start () {
 		
 		m_bTriggered = false;
 
         m_PlayerScript = GetComponentInParent<s_EntityPlayer>();
+
+        m_itemsInTrigger = 0;
 
         if (!m_PlayerScript)
             Debug.Log("HEADTRIGGER Couldnt get player script");
@@ -38,12 +40,23 @@ public class s_HeadTrigger : MonoBehaviour {
 		{
 			return;
 		}
-
+        m_itemsInTrigger++;
+        m_PlayerScript.OnChildTriggerEnter(other, s_EntityPlayer.eTriggerType.eTT_HeadTrigger);
 		m_bTriggered = true;
 	}
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        m_itemsInTrigger--;
+    }
 
-	public float GetCollisionVelocity()
+    public int GetNumItemsInTrigger()
+    {
+        return m_itemsInTrigger;
+    }
+
+
+    public float GetCollisionVelocity()
 	{
 		return m_fCollisionVelocity;
 	}

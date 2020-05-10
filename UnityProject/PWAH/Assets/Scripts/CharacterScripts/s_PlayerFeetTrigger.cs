@@ -36,6 +36,8 @@ public class s_PlayerFeetTrigger : MonoBehaviour {
         //Debug.Log("Collision Trigger");
 
         m_bFeetTriggered = true;
+
+        m_PlayerScript.OnChildTriggerEnter(other, s_EntityPlayer.eTriggerType.eTT_PlayerFeetTrigger);
 	}
 
 	void OnTriggerStay2D(Collider2D other)

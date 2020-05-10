@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5785de637b1e956478c6ed8ca2ab07a8, type: 2}
+  - {fileID: 2100000, guid: 1c3d2c1b010778e42925a37a5aa4d3a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70,6 +70,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -94,10 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fac570381f34f647b768dc5a5aa1364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collection: {fileID: 11468220, guid: 2d3131dcac820144db8f894ac2d02d39, type: 3}
+  collection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
+    type: 3}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _scale: {x: 1, y: 1, z: 1}
-  _spriteId: 76
+  _spriteId: 84
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -200,11 +202,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.051817298, y: 0.1043688}
-      - {x: 0.0036929834, y: 0.15012799}
-      - {x: 0.061676055, y: 0.11099201}
-      - {x: 0.05741488, y: -0.17674243}
-      - {x: 0.05218763, y: -0.24018}
-      - {x: 0.0102621345, y: -0.27436045}
+    - - {x: -0.05398369, y: 0.23222351}
+      - {x: 0.05003357, y: 0.31878424}
+      - {x: 0.11846256, y: 0.2575922}
+      - {x: 0.0959177, y: -0.23351574}
+      - {x: 0.050180435, y: -0.3107853}
       - {x: -0.03398584, y: -0.23781931}
       - {x: -0.04168106, y: -0.18369126}

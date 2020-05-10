@@ -25,6 +25,7 @@ public class s_EventManager : MonoBehaviour {
     //Camera Events
     public static evt_CameraSetPosEvent CameraSetPosEvent = new evt_CameraSetPosEvent();
 
+
     public static s_EventManager instance
     {
         get

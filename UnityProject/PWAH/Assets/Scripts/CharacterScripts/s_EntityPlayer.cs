@@ -24,10 +24,10 @@ public class s_EntityPlayer : MonoBehaviour {
 	};
 
 	enum eCharacterState{
-		eCS_Normal,
-		eCS_Dizzy,
-		eCS_Damaged,
-		eCS_Broken,
+		eCS_Normal, //Normal state - Input
+		eCS_Dizzy, //Dizzy State - No input after a head collision
+		eCS_Damaged, // Damaged state- limited input after a collision
+		eCS_Broken, // The "Dead" state. No input
         eCS_LevelEnd //Character state for when you have completed a level
 	};
 
@@ -44,6 +44,18 @@ public class s_EntityPlayer : MonoBehaviour {
 		eBS_BoostHold,
 		eBS_BoostEnd
 	}
+
+    public enum eTriggerType
+    {
+        eTT_HeadTrigger,
+        eTT_JetPackTrigger,
+        eTT_PlayerFeetTrigger
+    }
+
+    public enum eCollisionType
+    {
+        eCT_DriftCollider
+    }
 	#endregion
 
 
@@ -162,6 +174,9 @@ public class s_EntityPlayer : MonoBehaviour {
     private Vector3 m_PrevRot;
     private Vector3 m_PrevScale;
 
+    //=====Collision Tracking Variables
+    private Collider2D m_DamageTriggeringCollider;
+    private int m_CollisionIFrames;
 
 
 
@@ -215,16 +230,17 @@ public class s_EntityPlayer : MonoBehaviour {
 		m_dAnimationCommands = new Dictionary<tk2dSpriteAnimator, sAnimationCommand>();
 		m_dAnimationCommandsPrevious = new Dictionary<tk2dSpriteAnimator, sAnimationCommand>();
 
-		CreateFlames();
+        m_DamageTriggeringCollider = null;
+        m_CollisionIFrames = 0;
+
+        CreateFlames();
 
 		IndexAnimators();
 
         m_bReplayReachedEnd = false;
-
-
     }
 
-	private void CreateFlames()
+    private void CreateFlames()
 	{
 		GameObject _Flame1 = Instantiate(m_PrefabFlames, new Vector3(0.0f,0.0f,0.0f), Quaternion.identity) as GameObject ;
 		GameObject _Flame2 = Instantiate(m_PrefabFlames, new Vector3(0.0f,0.0f,0.0f), Quaternion.identity) as GameObject;
@@ -308,7 +324,7 @@ public class s_EntityPlayer : MonoBehaviour {
 			    ProcessBoost();
 			    ProcessThrust();
 			    ProcessDrag();
-			    ProcessHeadCollisions();
+			    //ProcessHeadCollisions();
 			
 			
 			    break;
@@ -317,8 +333,8 @@ public class s_EntityPlayer : MonoBehaviour {
 		    case eCharacterState.eCS_Dizzy:
 		    {
 			    //TurnBody(1.0f, m_fDizzyTurnValue, false);
-			    ProcessHeadCollisions();
-			    ProcessFeetCollision();
+			    //ProcessHeadCollisions();
+			    //ProcessFeetCollision();
 			    m_bThrustThisFrame = false;
 			    m_fDizzyTimer -= Time.deltaTime;
 			    if(m_fDizzyTimer <= 0)
@@ -352,7 +368,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		}
 		
 		
-		ProcessCollisions();
+		//ProcessCollisions();
 		ProcessJetpackState();
 		
 		
@@ -372,9 +388,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	void FixedUpdate()
 	{
 		m_uFrameStamp++;
-
-
-
+        m_CollisionIFrames--;
         if (m_bIsReplay)
 		{
 			ProcessReplay();
@@ -1647,32 +1661,43 @@ public class s_EntityPlayer : MonoBehaviour {
 		m_bCollisionThisFrame = true;
 	}
 
-	private void ProcessCollisions( )
+	private void ProcessCollisions(Collider2D other)
 	{
-        bool _bLeftCollision = false;
-        bool _bRightCollision = false;
+        Debug.Log("ProcessCollisions");
+        bool _LeftCollision = m_LeftTrigger.GetTriggered();
+        bool _RightCollision = m_RightTrigger.GetTriggered();
 
-        _bLeftCollision = m_LeftTrigger.GetTriggered();
-        _bRightCollision = m_RightTrigger.GetTriggered();
-
-
-        if (m_bCollisionThisFrame 
-            || _bRightCollision
-            || _bLeftCollision)
+        //If collision has happened on both triggers simultaneously
+        if(_LeftCollision && _RightCollision)
+        {
+            Debug.Log("Applying Death due to simultaenous triggers");
+            ApplyDeath();
+            return;
+        }
+        else if ( _LeftCollision || _RightCollision)
 		{
-            if (m_eCharacterState == eCharacterState.eCS_Damaged)
+            int numItemsInTrigger = _LeftCollision ? m_LeftTrigger.GetNumItemsInTrigger() : m_RightTrigger.GetNumItemsInTrigger();
+            //Prevents the character from instantly being put into the death state if two collisions occur on the same trigger before the collision volume can depenetrate.
+            if (m_eCharacterState == eCharacterState.eCS_Damaged && numItemsInTrigger <= 1)
             {
-                ApplyDeath();
-                m_bCollisionThisFrame = false;
-                return;
+                bool stillTouchingDamageTriggeringCollider = _LeftCollision ? m_RightTrigger.IsTouching(m_DamageTriggeringCollider) : m_LeftTrigger.IsTouching(m_DamageTriggeringCollider);
+                if (!stillTouchingDamageTriggeringCollider && m_CollisionIFrames <= 0)
+                {
+                    ApplyDeath();
+                    m_bCollisionThisFrame = false;
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Aborting applydeath as depenetration from other collider has not yet ocurred");
+                    return;
+                }
             }
 		}
 
 		if(m_eCharacterState != eCharacterState.eCS_Broken)
 		{
-
-			
-			if(_bLeftCollision)
+			if(_LeftCollision)
 			{
 				m_arrayEngineStatus[(int)eJetpackID.eJID_Left] = eJetpackState.eJS_Broken;
 				m_eCharacterState = eCharacterState.eCS_Damaged;
@@ -1681,7 +1706,7 @@ public class s_EntityPlayer : MonoBehaviour {
 				GetComponent<Rigidbody2D>().AddForce(transform.right * m_fDizzyKnockback*10);
 				
 			}
-			if(_bRightCollision)
+			if(_RightCollision)
 			{
 				m_arrayEngineStatus[(int)eJetpackID.eJID_Right] = eJetpackState.eJS_Broken;
 				m_eCharacterState = eCharacterState.eCS_Damaged;
@@ -1690,10 +1715,12 @@ public class s_EntityPlayer : MonoBehaviour {
 				GetComponent<Rigidbody2D>().AddForce(transform.right * -m_fDizzyKnockback*10);
 				
 			}
-			
-			
-			//If both broken, go straight to broken
-			if(m_arrayEngineStatus[0] == eJetpackState.eJS_Broken &&
+
+            m_CollisionIFrames = 5;
+            m_DamageTriggeringCollider = other;
+
+            //If both broken, go straight to broken
+            if (m_arrayEngineStatus[0] == eJetpackState.eJS_Broken &&
 			   m_arrayEngineStatus[1] == eJetpackState.eJS_Broken)
 			{
 				ApplyDeath();
@@ -1711,19 +1738,14 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	private void ProcessFeetCollision()
 	{
-		s_PlayerFeetTrigger _pFeetTrigger = GetComponentInChildren<s_PlayerFeetTrigger>();
-		if(_pFeetTrigger)
-		{
-			if(_pFeetTrigger.GetFeetTriggered())
-			{
-				float _fRotationValue = GetComponent<Rigidbody2D>().rotation;
-				if(_fRotationValue >= 330 || _fRotationValue <= 30)
-				{
-					m_eCharacterState = eCharacterState.eCS_Normal;
-				}
-			}
-		}
-		
+        if (m_eCharacterState == eCharacterState.eCS_Dizzy)
+        {
+            float _fRotationValue = GetComponent<Rigidbody2D>().rotation;
+            if (_fRotationValue >= 330 || _fRotationValue <= 30)
+            {
+                m_eCharacterState = eCharacterState.eCS_Normal;
+            }
+        }	
 	}
 
 	private void ProcessGrounded()
@@ -1745,53 +1767,92 @@ public class s_EntityPlayer : MonoBehaviour {
 		}
     }
 
-	private void ProcessHeadCollisions()
+    public void OnChildTriggerEnter(Collider2D other, eTriggerType triggerType)
+    {
+        switch(triggerType)
+        {
+            case eTriggerType.eTT_HeadTrigger:
+                {
+                    ProcessHeadCollisions();
+                    break;
+                }
+
+            case eTriggerType.eTT_JetPackTrigger:
+                {
+                    ProcessCollisions(other);
+                    break;
+                }
+            case eTriggerType.eTT_PlayerFeetTrigger:
+                {
+                    ProcessFeetCollision();
+                    break;
+                }
+        }
+    }
+
+    private void ProcessHeadCollisions()
 	{
-		if(m_HeadTrigger.GetTriggered())
-		{
-		}
-		if( m_HeadTrigger.GetTriggered())
-		{
-			if(m_eCharacterState == eCharacterState.eCS_Dizzy)
-			{
-				ApplyDeath();
-				return;
-			}
-			
-			m_HeadTrigger.SetTriggered(false);
-			
-			//Get Current velocity. Use it to scale the legnth of the dizzytimer.
-			
-			float _fCurrentSpeed = m_HeadTrigger.GetCollisionVelocity();
-			if(_fCurrentSpeed > m_fCurrentMaxSpeed)
-			{
-				_fCurrentSpeed = m_fCurrentMaxSpeed;
-			}
-			
-			float _fScaleTime = _fCurrentSpeed / m_fCurrentMaxSpeed;
-			
-			m_fDizzyTimer = m_fMaxDizzytime * _fScaleTime;
-			
-			
-			//Clear current velocity, add force in opposite direction
-			GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-			
-			GetComponent<Rigidbody2D>().AddForce(GetComponent<Rigidbody2D>().transform.up * -m_fDeathForce);
-			
-			m_eCharacterState = eCharacterState.eCS_Dizzy;
-            m_eBoostState = eBoostState.eBS_None;
-			
-			//Change Animation
-			tk2dSpriteAnimator _pAnimator =  GetComponentInChildren<tk2dSpriteAnimator>();
-			//_pAnimator.Play("DizzyHit");
-			ChangeAnimation(_pAnimator, eAnimationCommands.Play, "DizzyHit");
-			
-			
-			//Change Drag of Rigidbody2D to mimic falling
-			GetComponent<Rigidbody2D>().drag = 2.0f;
-			
-		}
-	}
+        switch(m_eCharacterState)
+        {
+            case eCharacterState.eCS_Dizzy:
+                {
+                    //If we have recently entered the dizzy state, return early to allow for collision resolution to occur naturally.
+                    if (m_HeadTrigger.GetNumItemsInTrigger() > 1)
+                    {
+                        Debug.Log("Death  whilst in dizzy state Aborted ");
+
+                        return;
+                    }
+
+                    Debug.Log("Death applied due to  collision whilst in dizzy" );
+                    ApplyDeath();
+                    return;
+                }
+            case eCharacterState.eCS_Damaged:
+                {
+                    ApplyDeath();
+                    return;
+                }
+            case eCharacterState.eCS_Broken:
+                {
+                    return;
+                }
+        }
+
+        m_HeadTrigger.SetTriggered(false);
+
+        //Get Current velocity. Use it to scale the legnth of the dizzytimer.
+
+        float _fCurrentSpeed = m_HeadTrigger.GetCollisionVelocity();
+        if (_fCurrentSpeed > m_fCurrentMaxSpeed)
+        {
+            _fCurrentSpeed = m_fCurrentMaxSpeed;
+        }
+
+        float _fScaleTime = _fCurrentSpeed / m_fCurrentMaxSpeed;
+
+        m_fDizzyTimer = m_fMaxDizzytime * _fScaleTime;
+
+
+        //Clear current velocity, add force in opposite direction
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+        GetComponent<Rigidbody2D>().AddForce(GetComponent<Rigidbody2D>().transform.up * -m_fDeathForce);
+
+        m_eCharacterState = eCharacterState.eCS_Dizzy;
+        m_eBoostState = eBoostState.eBS_None;
+
+        //Change Animation
+        tk2dSpriteAnimator _pAnimator = GetComponentInChildren<tk2dSpriteAnimator>();
+        //_pAnimator.Play("DizzyHit");
+        ChangeAnimation(_pAnimator, eAnimationCommands.Play, "DizzyHit");
+
+
+        //Change Drag of Rigidbody2D to mimic falling
+        GetComponent<Rigidbody2D>().drag = 2.0f;
+
+
+    }
 
     public bool GetShouldIgnore(string _sOtherTag)
     {

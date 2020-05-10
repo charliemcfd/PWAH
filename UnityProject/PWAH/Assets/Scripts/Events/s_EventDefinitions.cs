@@ -31,7 +31,10 @@ public class evt_SceneLoadedEvent : UnityEvent { }
 public class evt_CameraSetPosEvent : UnityEvent<Vector2> { } //Vector2 Position
 
 
-
+/// <summary>
+/// Collision Trigger events
+/// </summary>
+/// 
 
 
 

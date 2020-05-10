@@ -6,7 +6,7 @@ public class s_JetpackTrigger : MonoBehaviour {
 	private bool m_bTriggered;
 	private float m_fStayTimer;
     private s_EntityPlayer m_PlayerScript;
-
+    private int m_itemsInTrigger;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,12 +15,16 @@ public class s_JetpackTrigger : MonoBehaviour {
 
         m_PlayerScript = GetComponentInParent<s_EntityPlayer>();
 
+        m_itemsInTrigger = 0;
+
         if (!m_PlayerScript)
             Debug.Log("JETPACKTRIGGER Couldnt get player script");
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 	
 		//m_fStayTimer = 
 	}
@@ -32,10 +36,20 @@ public class s_JetpackTrigger : MonoBehaviour {
 		{
 			return;
 		}
-		m_bTriggered = true;
-	}
+        m_itemsInTrigger++;
 
-	void OnTriggerStay2D(Collider2D other)
+        Debug.Log("JetpackTrigger onTriggerEnter - " + m_itemsInTrigger.ToString());
+		m_bTriggered = true;
+        m_PlayerScript.OnChildTriggerEnter(other, s_EntityPlayer.eTriggerType.eTT_JetPackTrigger);
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        m_itemsInTrigger--;
+    }
+
+    void OnTriggerStay2D(Collider2D other)
 	{
 	/*	//Ignore triggers from parent
 		if(other.tag == "PlayerBody" || other.tag == "PlayerJetpack" || other.tag == "PlayerFeet")
@@ -55,4 +69,18 @@ public class s_JetpackTrigger : MonoBehaviour {
 	{
 		m_bTriggered = _bTriggered;
 	}
+    public int GetNumItemsInTrigger()
+    {
+        return m_itemsInTrigger;
+    }
+
+    public bool IsTouching(Collider2D other)
+    {
+        Collider2D thisCollider = GetComponent<Collider2D>();
+        if(thisCollider)
+        {
+            return thisCollider.IsTouching(other);
+        }
+        return false;
+    }
 }

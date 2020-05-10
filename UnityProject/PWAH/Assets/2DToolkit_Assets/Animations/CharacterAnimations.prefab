@@ -672,18 +672,18 @@ MonoBehaviour:
       eventInfo: 
       eventInt: 0
       eventFloat: 0
+    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
+        type: 3}
+      spriteId: 36
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
     fps: 10
     loopStart: 0
     wrapMode: 2
   - name: DizzyLoop
     frames:
-    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
-        type: 3}
-      spriteId: 40
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
     - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
         type: 3}
       spriteId: 41
@@ -701,6 +701,13 @@ MonoBehaviour:
     - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
         type: 3}
       spriteId: 43
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
+        type: 3}
+      spriteId: 40
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
@@ -738,6 +745,13 @@ MonoBehaviour:
       eventInfo: 
       eventInt: 0
       eventFloat: 0
+    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
+        type: 3}
+      spriteId: 78
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
     fps: 10
     loopStart: 0
     wrapMode: 2
@@ -745,7 +759,7 @@ MonoBehaviour:
     frames:
     - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
         type: 3}
-      spriteId: 78
+      spriteId: 79
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
@@ -896,6 +910,20 @@ MonoBehaviour:
     frames:
     - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
         type: 3}
+      spriteId: 1
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
+        type: 3}
+      spriteId: 2
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
+        type: 3}
       spriteId: 17
       triggerEvent: 0
       eventInfo: 
@@ -939,20 +967,6 @@ MonoBehaviour:
     - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
         type: 3}
       spriteId: 23
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
-        type: 3}
-      spriteId: 83
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
-        type: 3}
-      spriteId: 84
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
@@ -1017,11 +1031,11 @@ MonoBehaviour:
     fps: 10
     loopStart: 0
     wrapMode: 0
-  - name: DeathHitSlow1
+  - name: DeathRest
     frames:
     - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
         type: 3}
-      spriteId: 81
+      spriteId: 84
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
@@ -1029,25 +1043,25 @@ MonoBehaviour:
     fps: 5
     loopStart: 0
     wrapMode: 2
-  - name: DeathHitSlow2
+  - name: DeathHitToRest
     frames:
     - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
         type: 3}
-      spriteId: 80
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
-        type: 3}
-      spriteId: 81
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
-        type: 3}
       spriteId: 82
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
+        type: 3}
+      spriteId: 83
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
+        type: 3}
+      spriteId: 84
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
@@ -1078,14 +1092,14 @@ MonoBehaviour:
     frames:
     - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
         type: 3}
-      spriteId: 1
+      spriteId: 80
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
       eventFloat: 0
     - spriteCollection: {fileID: 5353835441162791667, guid: 2cf464272c0c31e4892dd3089af64fa5,
         type: 3}
-      spriteId: 2
+      spriteId: 81
       triggerEvent: 0
       eventInfo: 
       eventInt: 0

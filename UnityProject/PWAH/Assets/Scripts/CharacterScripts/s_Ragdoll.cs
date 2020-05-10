@@ -23,14 +23,14 @@ public class s_Ragdoll : MonoBehaviour {
         if (_fVelocityMagnitude <= 0.3 && !m_bShouldStop && m_bFirstImpactOccurred)
         {
             tk2dSpriteAnimator _Animator = GetComponent<tk2dSpriteAnimator>();
-            if (!_Animator.IsPlaying("DeathHitSlow2"))
+            if (!_Animator.IsPlaying("DeathHitToRest"))
             {
                 if(_Animator.IsPlaying("DeathHitLeft"))
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
                 }
                 m_bShouldStop = true;
-                _Animator.Play("DeathHitSlow2");
+                _Animator.Play("DeathHitToRest");
             }
         }
 

@@ -64,7 +64,7 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
-  - texture: {fileID: 2800000, guid: e0d2bec294d69a746abb6913acdc39b2, type: 3}
+  - texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
     tilesX: 0
     tilesY: 0
     numTiles: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
-  - texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
+  - texture: {fileID: 2800000, guid: e8a7311d4a828e24f90ecd674265e752, type: 3}
     tilesX: 0
     tilesY: 0
     numTiles: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
-  - texture: {fileID: 2800000, guid: b0f59d1f490cfbb4093e9f2fd267e032, type: 3}
+  - texture: {fileID: 2800000, guid: e55647ac8ac21154ca1a5a5806a1f759, type: 3}
     tilesX: 0
     tilesY: 0
     numTiles: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
   atlasWidth: 512
   atlasHeight: 512
   forceSquareAtlas: 0
-  atlasWastage: 11.080551
+  atlasWastage: 9.199524
   allowMultipleAtlases: 0
   removeDuplicates: 1
   allowSpannedDicing: 0
@@ -402,11 +402,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_Balance/0
+  - name: character_Cantwalk_Left/0
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: e0d2bec294d69a746abb6913acdc39b2, type: 3}
+    texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
     spriteSheetY: 0
     extractRegion: 1
     regionX: 0
-    regionY: 128
+    regionY: 1024
     regionW: 128
     regionH: 128
     regionId: 0
@@ -443,11 +443,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_Balance/1
+  - name: character_Cantwalk_Left/1
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: e0d2bec294d69a746abb6913acdc39b2, type: 3}
+    texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
     spriteSheetY: 1
     extractRegion: 1
     regionX: 0
-    regionY: 0
+    regionY: 896
     regionW: 128
     regionH: 128
     regionId: 1
@@ -487,7 +487,7 @@ MonoBehaviour:
   - name: character_Balance_Left/0
     disableTrimming: 0
     additive: 0
-    scale: {x: -1, y: 1, z: 1}
+    scale: {x: 1, y: 1, z: 1}
     texture: {fileID: 2800000, guid: e330cdcab312cbf419d24b2ddc4da92a, type: 3}
     materialId: 0
     anchor: 4
@@ -528,7 +528,7 @@ MonoBehaviour:
   - name: character_Balance_Left/1
     disableTrimming: 0
     additive: 0
-    scale: {x: -1, y: 1, z: 1}
+    scale: {x: 1, y: 1, z: 1}
     texture: {fileID: 2800000, guid: e330cdcab312cbf419d24b2ddc4da92a, type: 3}
     materialId: 0
     anchor: 4
@@ -1058,11 +1058,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_Cantwalk/0
+  - name: character_Cantwalk_Left/2
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
+    texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1080,89 +1080,7 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 4
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 1
-    regionX: 0
-    regionY: 1024
-    regionW: 128
-    regionH: 128
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: character_Cantwalk/1
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 2
-    extraPadding: 2
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 4
-    spriteSheetX: 0
-    spriteSheetY: 1
-    extractRegion: 1
-    regionX: 0
-    regionY: 896
-    regionW: 128
-    regionH: 128
-    regionId: 1
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: character_Cantwalk/2
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 2
-    extraPadding: 2
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 4
+    spriteSheetId: 1
     spriteSheetX: 0
     spriteSheetY: 2
     extractRegion: 1
@@ -1181,11 +1099,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_Cantwalk/3
+  - name: character_Cantwalk_Left/3
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
+    texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1203,7 +1121,7 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 4
+    spriteSheetId: 1
     spriteSheetX: 0
     spriteSheetY: 3
     extractRegion: 1
@@ -1222,11 +1140,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_Cantwalk/4
+  - name: character_Cantwalk_Left/4
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
+    texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1244,7 +1162,7 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 4
+    spriteSheetId: 1
     spriteSheetX: 0
     spriteSheetY: 4
     extractRegion: 1
@@ -1263,11 +1181,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_Cantwalk/5
+  - name: character_Cantwalk_Left/5
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
+    texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1285,7 +1203,7 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 4
+    spriteSheetId: 1
     spriteSheetX: 0
     spriteSheetY: 5
     extractRegion: 1
@@ -1304,11 +1222,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_Cantwalk/6
+  - name: character_Cantwalk_Left/6
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
+    texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1326,7 +1244,7 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 4
+    spriteSheetId: 1
     spriteSheetX: 0
     spriteSheetY: 6
     extractRegion: 1
@@ -1335,6 +1253,88 @@ MonoBehaviour:
     regionW: 128
     regionH: 128
     regionId: 6
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: character_Cantwalk_Left/7
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 1
+    spriteSheetX: 0
+    spriteSheetY: 7
+    extractRegion: 1
+    regionX: 0
+    regionY: 128
+    regionW: 128
+    regionH: 128
+    regionId: 7
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: character_Cantwalk_Left/8
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 60b2f69cabc48cb48a6d8a9681220d16, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 1
+    spriteSheetX: 0
+    spriteSheetY: 8
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 128
+    regionH: 128
+    regionId: 8
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -3641,11 +3641,93 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_DeathHitSlow2/0
+  - name: character_Balance_Right/0
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: b0f59d1f490cfbb4093e9f2fd267e032, type: 3}
+    texture: {fileID: 2800000, guid: e8a7311d4a828e24f90ecd674265e752, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 4
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 1
+    regionX: 0
+    regionY: 128
+    regionW: 128
+    regionH: 128
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: character_Balance_Right/1
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: e8a7311d4a828e24f90ecd674265e752, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 4
+    spriteSheetX: 0
+    spriteSheetY: 1
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 128
+    regionH: 128
+    regionId: 1
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: character_DeathHitToRest/0
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: e55647ac8ac21154ca1a5a5806a1f759, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -3682,11 +3764,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_DeathHitSlow2/1
+  - name: character_DeathHitToRest/1
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: b0f59d1f490cfbb4093e9f2fd267e032, type: 3}
+    texture: {fileID: 2800000, guid: e55647ac8ac21154ca1a5a5806a1f759, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -3723,11 +3805,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: character_DeathHitSlow2/2
+  - name: character_DeathHitToRest/2
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: b0f59d1f490cfbb4093e9f2fd267e032, type: 3}
+    texture: {fileID: 2800000, guid: e55647ac8ac21154ca1a5a5806a1f759, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -3754,88 +3836,6 @@ MonoBehaviour:
     regionW: 128
     regionH: 128
     regionId: 2
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: character_Cantwalk/7
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 2
-    extraPadding: 2
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 4
-    spriteSheetX: 0
-    spriteSheetY: 7
-    extractRegion: 1
-    regionX: 0
-    regionY: 128
-    regionW: 128
-    regionH: 128
-    regionId: 7
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: character_Cantwalk/8
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 661e96a7101092940a4cf5bf2b814b3d, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 2
-    extraPadding: 2
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 4
-    spriteSheetX: 0
-    spriteSheetY: 8
-    extractRegion: 1
-    regionX: 0
-    regionY: 0
-    regionW: 128
-    regionH: 128
-    regionId: 8
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
