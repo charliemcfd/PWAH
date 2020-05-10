@@ -1663,14 +1663,12 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	private void ProcessCollisions(Collider2D other)
 	{
-        Debug.Log("ProcessCollisions");
         bool _LeftCollision = m_LeftTrigger.GetTriggered();
         bool _RightCollision = m_RightTrigger.GetTriggered();
 
         //If collision has happened on both triggers simultaneously
         if(_LeftCollision && _RightCollision)
         {
-            Debug.Log("Applying Death due to simultaenous triggers");
             ApplyDeath();
             return;
         }
@@ -1689,7 +1687,6 @@ public class s_EntityPlayer : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log("Aborting applydeath as depenetration from other collider has not yet ocurred");
                     return;
                 }
             }
@@ -1769,6 +1766,10 @@ public class s_EntityPlayer : MonoBehaviour {
 
     public void OnChildTriggerEnter(Collider2D other, eTriggerType triggerType)
     {
+        if(m_bIsReplay)
+        {
+            return;
+        }
         switch(triggerType)
         {
             case eTriggerType.eTT_HeadTrigger:
@@ -1799,12 +1800,8 @@ public class s_EntityPlayer : MonoBehaviour {
                     //If we have recently entered the dizzy state, return early to allow for collision resolution to occur naturally.
                     if (m_HeadTrigger.GetNumItemsInTrigger() > 1)
                     {
-                        Debug.Log("Death  whilst in dizzy state Aborted ");
-
                         return;
                     }
-
-                    Debug.Log("Death applied due to  collision whilst in dizzy" );
                     ApplyDeath();
                     return;
                 }

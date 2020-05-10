@@ -38,7 +38,6 @@ public class s_JetpackTrigger : MonoBehaviour {
 		}
         m_itemsInTrigger++;
 
-        Debug.Log("JetpackTrigger onTriggerEnter - " + m_itemsInTrigger.ToString());
 		m_bTriggered = true;
         m_PlayerScript.OnChildTriggerEnter(other, s_EntityPlayer.eTriggerType.eTT_JetPackTrigger);
 
@@ -76,10 +75,13 @@ public class s_JetpackTrigger : MonoBehaviour {
 
     public bool IsTouching(Collider2D other)
     {
-        Collider2D thisCollider = GetComponent<Collider2D>();
-        if(thisCollider)
+        if (other)
         {
-            return thisCollider.IsTouching(other);
+            Collider2D thisCollider = GetComponent<Collider2D>();
+            if (thisCollider)
+            {
+                return thisCollider.IsTouching(other);
+            }
         }
         return false;
     }

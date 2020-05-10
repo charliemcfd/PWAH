@@ -7,13 +7,14 @@ public class s_Ragdoll : MonoBehaviour {
 	private bool m_bShouldStop;
     private bool m_bFirstImpactOccurred;
 	public float m_fMaxSpeed;
+    public float m_lowVelocityTimer;
 	// Use this for initialization
 	void Start () {
 	
 		m_bShouldStop = false;
         m_bFirstImpactOccurred = false;
 
-
+        m_lowVelocityTimer = 0;
     }
 	
 	// Update is called once per frame
@@ -22,16 +23,31 @@ public class s_Ragdoll : MonoBehaviour {
         float _fVelocityMagnitude = GetComponent<Rigidbody2D>().velocity.magnitude;
         if (_fVelocityMagnitude <= 0.3 && !m_bShouldStop && m_bFirstImpactOccurred)
         {
-            tk2dSpriteAnimator _Animator = GetComponent<tk2dSpriteAnimator>();
-            if (!_Animator.IsPlaying("DeathHitToRest"))
+            m_lowVelocityTimer += Time.deltaTime;
+            if (m_lowVelocityTimer > 0.075f)
             {
-                if(_Animator.IsPlaying("DeathHitLeft"))
+                tk2dSpriteAnimator _Animator = GetComponent<tk2dSpriteAnimator>();
+                if (!_Animator.IsPlaying("DeathHitToRest"))
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
+
+                    float _fRotationValue = GetComponent<Rigidbody2D>().rotation;
+                    _fRotationValue = _fRotationValue % 360;
+                    if (_fRotationValue < 0)
+                    {
+                        _fRotationValue += 360;
+                    }
+
+                    //Invert the scale of the entity based on the rotation value so that the death to rest animation always plays facing "upward"
+                    transform.localScale = new Vector3(_fRotationValue > 180 ? 1 : -1, 1, 1);
+
+                    m_bShouldStop = true;
+                    _Animator.Play("DeathHitToRest");
                 }
-                m_bShouldStop = true;
-                _Animator.Play("DeathHitToRest");
             }
+        }
+        else if(_fVelocityMagnitude > 0.1f)
+        {
+            m_lowVelocityTimer = 0.0f;
         }
 
 
