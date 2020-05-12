@@ -15417,28 +15417,6 @@ MonoBehaviour:
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}
-  - name: building3
-    hash: 1266730106
-    useColor: 1
-    generateCollider: 1
-    z: 0.1
-    unityLayer: 0
-    sortingLayerName: 
-    sortingOrder: 0
-    skipMeshGeneration: 0
-    physicMaterial: {fileID: 0}
-    physicsMaterial2D: {fileID: 0}
-  - name: building3_detail
-    hash: 876671752
-    useColor: 1
-    generateCollider: 1
-    z: 0.1
-    unityLayer: 0
-    sortingLayerName: 
-    sortingOrder: 0
-    skipMeshGeneration: 0
-    physicMaterial: {fileID: 0}
-    physicsMaterial2D: {fileID: 0}
   - name: building1
     hash: 1892887448
     useColor: 1
@@ -15455,6 +15433,28 @@ MonoBehaviour:
     useColor: 1
     generateCollider: 1
     z: 0.2
+    unityLayer: 0
+    sortingLayerName: 
+    sortingOrder: 0
+    skipMeshGeneration: 0
+    physicMaterial: {fileID: 0}
+    physicsMaterial2D: {fileID: 0}
+  - name: building3
+    hash: 1266730106
+    useColor: 1
+    generateCollider: 1
+    z: 0.1
+    unityLayer: 0
+    sortingLayerName: 
+    sortingOrder: 0
+    skipMeshGeneration: 0
+    physicMaterial: {fileID: 0}
+    physicsMaterial2D: {fileID: 0}
+  - name: building3_detail
+    hash: 876671752
+    useColor: 1
+    generateCollider: 1
+    z: 0.1
     unityLayer: 0
     sortingLayerName: 
     sortingOrder: 0
