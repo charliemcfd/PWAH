@@ -122,7 +122,7 @@ MonoBehaviour:
   atlasWidth: 512
   atlasHeight: 512
   forceSquareAtlas: 0
-  atlasWastage: 17.749023
+  atlasWastage: 10.693359
   allowMultipleAtlases: 0
   removeDuplicates: 1
   allowSpannedDicing: 0
