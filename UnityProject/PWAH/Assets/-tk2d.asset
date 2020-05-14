@@ -2224,6 +2224,11 @@ MonoBehaviour:
     - RespawnMonitors2/7
     - RespawnMonitors2/8
     - LevelEnterExit-DoorsOpenAnim/4
+    - 
+    - 
+    - 
+    - LevelEnterExit-DoorsOpen/3
+    - LevelEnterExit-DoorsOpen/5
     spriteTextureGUIDs:
     - c8f99337520c895479d85bb043aec312
     - c8f99337520c895479d85bb043aec312
@@ -2257,12 +2262,17 @@ MonoBehaviour:
     - 7f92e9de88e69c241961558c48a50dce
     - 7f92e9de88e69c241961558c48a50dce
     - c8f99337520c895479d85bb043aec312
+    - 
+    - 
+    - 
+    - 352cd7e051b266f43a734a4d45b3d9f5
+    - 352cd7e051b266f43a734a4d45b3d9f5
     spriteTextureTimeStamps:
-    - 1455827141.13261
-    - 1455827141.13261
-    - 1455827141.13261
-    - 1455827141.13261
-    - 1538378399.81442
+    - 1589491249.97884
+    - 1589491249.97884
+    - 1589491249.97884
+    - 1589491249.97884
+    - 1589491266.99764
     - 1455825202.64015
     - 1455825202.64015
     - 1455825189.24359
@@ -2289,7 +2299,12 @@ MonoBehaviour:
     - 1455825194.08635
     - 1455825194.08635
     - 1455825194.08635
-    - 1455827141.13261
+    - 1589491249.97884
+    - 0
+    - 0
+    - 0
+    - 1589491266.99764
+    - 1589491266.99764
     managedSpriteCollection: 0
     loadable: 0
     assetName: 

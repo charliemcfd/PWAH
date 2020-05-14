@@ -156,9 +156,9 @@ MonoBehaviour:
   forcedTextureHeight: 2048
   textureCompression: 0
   atlasWidth: 256
-  atlasHeight: 256
+  atlasHeight: 512
   forceSquareAtlas: 0
-  atlasWastage: 38.68103
+  atlasWastage: 45.955658
   allowMultipleAtlases: 0
   removeDuplicates: 1
   allowSpannedDicing: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
     spriteSheetY: 0
     extractRegion: 1
     regionX: 0
-    regionY: 512
+    regionY: 640
     regionW: 128
     regionH: 128
     regionId: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
     spriteSheetY: 1
     extractRegion: 1
     regionX: 0
-    regionY: 384
+    regionY: 512
     regionW: 128
     regionH: 128
     regionId: 1
@@ -272,7 +272,7 @@ MonoBehaviour:
     spriteSheetY: 2
     extractRegion: 1
     regionX: 0
-    regionY: 256
+    regionY: 384
     regionW: 128
     regionH: 128
     regionId: 2
@@ -313,7 +313,7 @@ MonoBehaviour:
     spriteSheetY: 3
     extractRegion: 1
     regionX: 0
-    regionY: 128
+    regionY: 256
     regionW: 128
     regionH: 128
     regionId: 3
@@ -354,7 +354,7 @@ MonoBehaviour:
     spriteSheetY: 4
     extractRegion: 1
     regionX: 0
-    regionY: 0
+    regionY: 128
     regionW: 128
     regionH: 128
     regionId: 4
@@ -1461,10 +1461,215 @@ MonoBehaviour:
     spriteSheetY: 4
     extractRegion: 1
     regionX: 0
-    regionY: 0
+    regionY: 128
     regionW: 128
     regionH: 128
     regionId: 4
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: 
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 0}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: LevelEnterExit-DoorsOpen/3
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 352cd7e051b266f43a734a4d45b3d9f5, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 3
+    extractRegion: 1
+    regionX: 0
+    regionY: 256
+    regionW: 128
+    regionH: 128
+    regionId: 3
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: LevelEnterExit-DoorsOpen/5
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 352cd7e051b266f43a734a4d45b3d9f5, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 2
+    extraPadding: 2
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 5
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 128
+    regionH: 128
+    regionId: 5
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}

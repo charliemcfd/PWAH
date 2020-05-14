@@ -22,6 +22,7 @@ public class s_PlayerSpawnScript : MonoBehaviour {
     public GameObject m_Light3;
     public GameObject m_Light4;
     public GameObject m_PlayerSpawnLocation;
+    public GameObject m_MainBodyAnimation;
 
     /// <summary>
     /// Private Variables
@@ -79,6 +80,7 @@ public class s_PlayerSpawnScript : MonoBehaviour {
             && m_bDoorsOpening == false)
         {
             m_DoorsAnimation.GetComponent<tk2dSpriteAnimator>().Play("RespawnDoorsOpen");
+            m_MainBodyAnimation.GetComponent<tk2dSpriteAnimator>().Play("RespawnBodyDoorsOpen");
             m_bDoorsOpening = true;
         }
 
