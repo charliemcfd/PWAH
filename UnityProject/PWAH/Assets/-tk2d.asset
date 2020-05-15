@@ -2198,12 +2198,37 @@ MonoBehaviour:
     - LevelEnterExit-DoorsOpenAnim/3
     - LevelEnterExit-DoorsOpen/4
     - RespawnLight/0
-    - RespawnLight/1
-    - RespawnMonitors1/0
-    - RespawnMonitors1/1
     - RespawnMonitors1/2
+    - RespawnMonitors1/0
+    - RespawnMonitors2/2
+    - RespawnMonitors2/3
+    - RespawnMonitors2/4
+    - RespawnMonitors2/5
+    - RespawnMonitors2/6
+    - RespawnMonitors2/7
+    - RespawnMonitors2/8
+    - RespawnMonitors1/1
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - RespawnMonitors2/0
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - RespawnMonitors2/1
+    - LevelEnterExit-DoorsOpenAnim/4
+    - RespawnLight/1
     - RespawnMonitors1/3
     - RespawnMonitors1/4
+    - LevelEnterExit-DoorsOpen/3
+    - LevelEnterExit-DoorsOpen/5
     - RespawnMonitors1/5
     - RespawnMonitors1/6
     - RespawnMonitors1/7
@@ -2214,21 +2239,6 @@ MonoBehaviour:
     - RespawnMonitors1/12
     - RespawnMonitors1/13
     - RespawnMonitors1/14
-    - RespawnMonitors2/0
-    - RespawnMonitors2/1
-    - RespawnMonitors2/2
-    - RespawnMonitors2/3
-    - RespawnMonitors2/4
-    - RespawnMonitors2/5
-    - RespawnMonitors2/6
-    - RespawnMonitors2/7
-    - RespawnMonitors2/8
-    - LevelEnterExit-DoorsOpenAnim/4
-    - 
-    - 
-    - 
-    - LevelEnterExit-DoorsOpen/3
-    - LevelEnterExit-DoorsOpen/5
     spriteTextureGUIDs:
     - c8f99337520c895479d85bb043aec312
     - c8f99337520c895479d85bb043aec312
@@ -2236,75 +2246,95 @@ MonoBehaviour:
     - c8f99337520c895479d85bb043aec312
     - 352cd7e051b266f43a734a4d45b3d9f5
     - d62d0d9d9a56ffc4fbe6d1a45cd8277d
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 7f92e9de88e69c241961558c48a50dce
+    - 7f92e9de88e69c241961558c48a50dce
+    - 7f92e9de88e69c241961558c48a50dce
+    - 7f92e9de88e69c241961558c48a50dce
+    - 7f92e9de88e69c241961558c48a50dce
+    - 7f92e9de88e69c241961558c48a50dce
+    - 7f92e9de88e69c241961558c48a50dce
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 7f92e9de88e69c241961558c48a50dce
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 7f92e9de88e69c241961558c48a50dce
+    - c8f99337520c895479d85bb043aec312
     - d62d0d9d9a56ffc4fbe6d1a45cd8277d
     - 461eac652b9ac274c9687d3eb4cf7bb6
     - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 461eac652b9ac274c9687d3eb4cf7bb6
-    - 7f92e9de88e69c241961558c48a50dce
-    - 7f92e9de88e69c241961558c48a50dce
-    - 7f92e9de88e69c241961558c48a50dce
-    - 7f92e9de88e69c241961558c48a50dce
-    - 7f92e9de88e69c241961558c48a50dce
-    - 7f92e9de88e69c241961558c48a50dce
-    - 7f92e9de88e69c241961558c48a50dce
-    - 7f92e9de88e69c241961558c48a50dce
-    - 7f92e9de88e69c241961558c48a50dce
-    - c8f99337520c895479d85bb043aec312
-    - 
-    - 
-    - 
     - 352cd7e051b266f43a734a4d45b3d9f5
     - 352cd7e051b266f43a734a4d45b3d9f5
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
+    - 461eac652b9ac274c9687d3eb4cf7bb6
     spriteTextureTimeStamps:
     - 1589491249.97884
     - 1589491249.97884
     - 1589491249.97884
     - 1589491249.97884
     - 1589491266.99764
-    - 1455825202.64015
-    - 1455825202.64015
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825189.24359
-    - 1455825194.08635
-    - 1455825194.08635
-    - 1455825194.08635
-    - 1455825194.08635
-    - 1455825194.08635
-    - 1455825194.08635
-    - 1455825194.08635
-    - 1455825194.08635
-    - 1455825194.08635
+    - 1589528644.24261
+    - 1589528636.1538
+    - 1589528636.1538
+    - 1589528655.03631
+    - 1589528655.03631
+    - 1589528655.03631
+    - 1589528655.03631
+    - 1589528655.03631
+    - 1589528655.03631
+    - 1589528655.03631
+    - 1589528636.1538
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1589528655.03631
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1589528655.03631
     - 1589491249.97884
-    - 0
-    - 0
-    - 0
+    - 1589528644.24261
+    - 1589528636.1538
+    - 1589528636.1538
     - 1589491266.99764
     - 1589491266.99764
+    - 1589528636.1538
+    - 1589528636.1538
+    - 1589528636.1538
+    - 1589528636.1538
+    - 1589528636.1538
+    - 1589528636.1538
+    - 1589528636.1538
+    - 1589528636.1538
+    - 1589528636.1538
+    - 1589528636.1538
     managedSpriteCollection: 0
     loadable: 0
     assetName: 
