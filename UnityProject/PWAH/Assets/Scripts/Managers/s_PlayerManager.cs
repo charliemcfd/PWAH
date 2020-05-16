@@ -154,10 +154,9 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 	{
         for(int i = 0; i < _iNumPlayers; i++)
         {
-            Vector3 _PlayerSpawnPosition = GameSystemPointers._instance.m_LevelScript.GetPlayerSpawnPosition();
+            Vector3 _PlayerSpawnPosition = _bReplayPlayer ? GameSystemPointers._instance.m_LevelScript.GetPlayerSpawnPosition() + new Vector3(0, 0, -0.05f * i) : GameSystemPointers._instance.m_LevelScript.GetPlayerSpawnPosition();
             GameObject _newPlayer = (GameObject)Instantiate(m_PrefabPlayer1, _PlayerSpawnPosition, Quaternion.identity);//(0.1f,13.4f,0)
             m_ListPlayers.Add(_newPlayer);
-
         }
 
         //Re-add scripts to list
@@ -175,9 +174,10 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 			{
 				_ScriptPlayer.m_bIsReplay = true;
 				_ScriptPlayer.replayData = s_GameplayRecorder.SP.GetEventsList(i);
+                _ScriptPlayer.m_replayZValue = -0.05f * i;
 
                 //TODO:: Error handling for getting back null replay data. I think just delete that instance of the player.
-			}
+            }
 			else if (i == m_ListPlayers.Count-1)
 			{
                 //If this is the last player in the list (most recently added) and it is not a replay, we should record it.

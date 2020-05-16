@@ -1053,13 +1053,13 @@ MonoBehaviour:
     - Jetpack_COLLIDER_LEFT
     - Jetpack_COLLIDER_RIGHT
     spriteTextureGUIDs:
-    - 035a2713f9cb95b4da1d162bdc71788a
-    - 035a2713f9cb95b4da1d162bdc71788a
-    - 035a2713f9cb95b4da1d162bdc71788a
+    - 9523725a8a91ae440b5057c675e44f93
+    - 9523725a8a91ae440b5057c675e44f93
+    - 9523725a8a91ae440b5057c675e44f93
     spriteTextureTimeStamps:
-    - 1453552395.77702
-    - 1453552395.77702
-    - 1453552395.77702
+    - 1589648744.86364
+    - 1589648744.86364
+    - 1589648744.86364
     managedSpriteCollection: 0
     loadable: 0
     assetName: 

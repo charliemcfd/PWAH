@@ -161,6 +161,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	//Replay Data - TODO: Fix this up
 	public List<RecordedEvent> replayData;
 	public bool m_bIsReplay;
+    public float m_replayZValue;
     public bool m_bReplayReachedEnd;
 
 	private Dictionary<tk2dSpriteAnimator, sAnimationCommand> m_dAnimationCommands;
@@ -248,8 +249,8 @@ public class s_EntityPlayer : MonoBehaviour {
 		_Flame1.transform.parent = transform;
 		_Flame2.transform.parent = transform;
 		
-		_Flame1.transform.localPosition = new Vector3(0.194f, -0.336f, 0.1f);
-		_Flame2.transform.localPosition = new Vector3(-0.163f, -0.336f, 0.1f);
+		_Flame1.transform.localPosition = new Vector3(0.194f, -0.336f, 0.005f);
+		_Flame2.transform.localPosition = new Vector3(-0.163f, -0.336f, 0.005f);
 		
 		m_listFlames.Add(_Flame1);
 		m_listFlames.Add(_Flame2);
@@ -1071,7 +1072,7 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	private void CreateRagDoll()
 	{
-		m_RagDoll = Instantiate(m_PrefabRagdoll, new Vector3(this.transform.position.x, this.transform.position.y, 0.0f), Quaternion.identity) as GameObject;
+		m_RagDoll = Instantiate(m_PrefabRagdoll, this.transform.position, Quaternion.identity) as GameObject;
 		m_RagDoll.transform.rotation = this.transform.rotation;
 		m_RagDoll.GetComponent<Rigidbody2D>().AddForce(transform.up * -m_fDeathForce);
 		m_RagDoll.GetComponent<Rigidbody2D>().AddTorque(20.0f);
@@ -2089,7 +2090,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	
 	private void ReplayMovement(RecordedEvent _event)
 	{
-		this.transform.position = _event.position;
+		this.transform.position = (_event.position + new Vector3(0,0, m_replayZValue));
 		this.transform.eulerAngles = _event.rotation;
         this.transform.localScale = new Vector3(_event.scaleX, _event.scaleY, 1.0f);
 	}

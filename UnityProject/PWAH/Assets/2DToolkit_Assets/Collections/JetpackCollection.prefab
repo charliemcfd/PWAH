@@ -68,7 +68,7 @@ MonoBehaviour:
   atlasWidth: 64
   atlasHeight: 128
   forceSquareAtlas: 0
-  atlasWastage: 27.026367
+  atlasWastage: 25.830078
   allowMultipleAtlases: 0
   removeDuplicates: 1
   allowSpannedDicing: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 035a2713f9cb95b4da1d162bdc71788a, type: 3}
+    texture: {fileID: 2800000, guid: 9523725a8a91ae440b5057c675e44f93, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 035a2713f9cb95b4da1d162bdc71788a, type: 3}
+    texture: {fileID: 2800000, guid: 9523725a8a91ae440b5057c675e44f93, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -166,16 +166,15 @@ MonoBehaviour:
     polyColliderIslands:
     - connected: 1
       points:
-      - {x: 15, y: 30.5}
-      - {x: 1.5, y: 44}
-      - {x: 1.5, y: 48}
-      - {x: 4.5, y: 52.5}
-      - {x: 20, y: 52.5}
-      - {x: 22, y: 50}
-      - {x: 31.5, y: 50}
-      - {x: 31.5, y: 32.5}
-      - {x: 25.5, y: 32.5}
-      - {x: 23.5, y: 30.5}
+      - {x: 33.5, y: 74}
+      - {x: 33.5, y: 83}
+      - {x: 37, y: 86.5}
+      - {x: 55, y: 86.5}
+      - {x: 58.5, y: 83}
+      - {x: 58, y: 66.5}
+      - {x: 55, y: 66.5}
+      - {x: 53, y: 64.5}
+      - {x: 43, y: 64.5}
     polyColliderCap: 1
     colliderConvex: 1
     colliderSmoothSphereCollisions: 0
@@ -185,7 +184,7 @@ MonoBehaviour:
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 035a2713f9cb95b4da1d162bdc71788a, type: 3}
+    texture: {fileID: 2800000, guid: 9523725a8a91ae440b5057c675e44f93, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -219,16 +218,15 @@ MonoBehaviour:
     polyColliderIslands:
     - connected: 1
       points:
-      - {x: 51, y: 30.5}
-      - {x: 42, y: 30.5}
-      - {x: 40, y: 33}
-      - {x: 35, y: 33}
-      - {x: 35, y: 50}
-      - {x: 43.5, y: 50}
-      - {x: 45.5, y: 52.5}
-      - {x: 61.5, y: 52.5}
-      - {x: 64, y: 48}
-      - {x: 64, y: 43}
+      - {x: 77, y: 64.5}
+      - {x: 75, y: 66.5}
+      - {x: 71, y: 66.5}
+      - {x: 71, y: 82.5}
+      - {x: 75, y: 86.5}
+      - {x: 93, y: 86.5}
+      - {x: 96.5, y: 83}
+      - {x: 96.5, y: 74}
+      - {x: 87, y: 64.5}
     polyColliderCap: 1
     colliderConvex: 1
     colliderSmoothSphereCollisions: 0
@@ -268,7 +266,7 @@ MonoBehaviour:
   normalGenerationMode: 0
   padAmount: 16
   autoUpdate: 1
-  editorDisplayScale: 12.610013
+  editorDisplayScale: 11.890012
   version: 4
   assetName: 
   linkedSpriteCollections: []
