@@ -638,9 +638,9 @@ MonoBehaviour:
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 1
-    brushHash: 70094578
+    brushHash: 838788978
   paletteTilesPerRow: 20
-  setupMode: 32
+  setupMode: 4
   showBrush: 1
   showPalette: 1
   layer: 2
