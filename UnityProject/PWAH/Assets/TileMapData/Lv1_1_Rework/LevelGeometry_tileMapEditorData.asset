@@ -41,83 +41,23 @@ MonoBehaviour:
     - x: 0
       y: 2
       layer: 0
-      spriteId: 688
-      blendAmount: 0
-    - x: 1
-      y: 2
-      layer: 0
-      spriteId: 689
-      blendAmount: 0
-    - x: 2
-      y: 2
-      layer: 0
-      spriteId: 690
-      blendAmount: 0
-    - x: 3
-      y: 2
-      layer: 0
-      spriteId: 691
-      blendAmount: 0
-    - x: 4
-      y: 2
-      layer: 0
-      spriteId: 692
+      spriteId: 679
       blendAmount: 0
     - x: 0
       y: 1
       layer: 0
-      spriteId: 704
-      blendAmount: 0
-    - x: 1
-      y: 1
-      layer: 0
-      spriteId: 705
-      blendAmount: 0
-    - x: 2
-      y: 1
-      layer: 0
-      spriteId: 706
-      blendAmount: 0
-    - x: 3
-      y: 1
-      layer: 0
-      spriteId: 707
-      blendAmount: 0
-    - x: 4
-      y: 1
-      layer: 0
-      spriteId: 708
+      spriteId: 695
       blendAmount: 0
     - x: 0
       y: 0
       layer: 0
-      spriteId: 720
+      spriteId: 711
       blendAmount: 0
-    - x: 1
-      y: 0
-      layer: 0
-      spriteId: 721
-      blendAmount: 0
-    - x: 2
-      y: 0
-      layer: 0
-      spriteId: 722
-      blendAmount: 0
-    - x: 3
-      y: 0
-      layer: 0
-      spriteId: 723
-      blendAmount: 0
-    - x: 4
-      y: 0
-      layer: 0
-      spriteId: 724
-      blendAmount: 0
-    multiSelectTiles: b0020000b1020000b2020000b3020000b4020000c0020000c1020000c2020000c3020000c4020000d0020000d1020000d2020000d3020000d4020000
-    edgeMode: 0
+    multiSelectTiles: a7020000b7020000c7020000
+    edgeMode: 2
     multiLayer: 0
     overrideWithSpriteBounds: 0
-    brushHash: -254591353
+    brushHash: -402131071
   brushes: []
   paletteBrush:
     name: 
@@ -3968,10 +3908,10 @@ MonoBehaviour:
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 1
-    brushHash: 911443072
+    brushHash: 596550144
   paletteTilesPerRow: 16
   setupMode: 32
   showBrush: 1
   showPalette: 1
-  layer: 1
+  layer: 2
   scratchpads: []
