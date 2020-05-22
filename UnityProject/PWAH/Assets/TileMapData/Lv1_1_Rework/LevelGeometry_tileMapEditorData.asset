@@ -35,29 +35,89 @@ MonoBehaviour:
     brushHash: -1443776128
   activeBrush:
     name: 
-    type: 3
+    type: 0
     paintMode: 0
     tiles:
     - x: 0
+      y: 2
+      layer: 0
+      spriteId: 688
+      blendAmount: 0
+    - x: 1
+      y: 2
+      layer: 0
+      spriteId: 689
+      blendAmount: 0
+    - x: 2
+      y: 2
+      layer: 0
+      spriteId: 690
+      blendAmount: 0
+    - x: 3
+      y: 2
+      layer: 0
+      spriteId: 691
+      blendAmount: 0
+    - x: 4
+      y: 2
+      layer: 0
+      spriteId: 692
+      blendAmount: 0
+    - x: 0
+      y: 1
+      layer: 0
+      spriteId: 704
+      blendAmount: 0
+    - x: 1
+      y: 1
+      layer: 0
+      spriteId: 705
+      blendAmount: 0
+    - x: 2
+      y: 1
+      layer: 0
+      spriteId: 706
+      blendAmount: 0
+    - x: 3
+      y: 1
+      layer: 0
+      spriteId: 707
+      blendAmount: 0
+    - x: 4
+      y: 1
+      layer: 0
+      spriteId: 708
+      blendAmount: 0
+    - x: 0
       y: 0
       layer: 0
-      spriteId: 563
+      spriteId: 720
       blendAmount: 0
     - x: 1
       y: 0
       layer: 0
-      spriteId: 564
+      spriteId: 721
       blendAmount: 0
     - x: 2
       y: 0
       layer: 0
-      spriteId: 564
+      spriteId: 722
       blendAmount: 0
-    multiSelectTiles: 330200003402000034020000
-    edgeMode: 1
+    - x: 3
+      y: 0
+      layer: 0
+      spriteId: 723
+      blendAmount: 0
+    - x: 4
+      y: 0
+      layer: 0
+      spriteId: 724
+      blendAmount: 0
+    multiSelectTiles: b0020000b1020000b2020000b3020000b4020000c0020000c1020000c2020000c3020000c4020000d0020000d1020000d2020000d3020000d4020000
+    edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 0
-    brushHash: -1944252927
+    brushHash: -254591353
   brushes: []
   paletteBrush:
     name: 
@@ -3908,10 +3968,10 @@ MonoBehaviour:
     edgeMode: 0
     multiLayer: 0
     overrideWithSpriteBounds: 1
-    brushHash: 1457964288
+    brushHash: 911443072
   paletteTilesPerRow: 16
   setupMode: 32
   showBrush: 1
   showPalette: 1
-  layer: 0
+  layer: 1
   scratchpads: []
