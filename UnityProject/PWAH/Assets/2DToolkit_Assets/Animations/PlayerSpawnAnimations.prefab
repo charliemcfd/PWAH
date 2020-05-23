@@ -102,7 +102,7 @@ MonoBehaviour:
       eventFloat: 0
     - spriteCollection: {fileID: 11469922, guid: 34e8e854bd806f44d89cde04fa5339f4,
         type: 3}
-      spriteId: 6
+      spriteId: 32
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
