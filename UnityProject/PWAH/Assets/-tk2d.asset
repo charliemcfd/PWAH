@@ -44285,3 +44285,22 @@ MonoBehaviour:
     loadable: 0
     assetName: 
     version: 3
+  - name: VehicleCollection
+    spriteCollectionGUID: 10a4b8a2d6aa8db48b9326698c860f36
+    spriteCollectionDataGUID: 84561c5e5af519d4586010ac00f05618
+    spriteNames:
+    - truck1_layers_Engine
+    - truck1_layers_Engine2
+    - truck1_layers_Layer 0
+    spriteTextureGUIDs:
+    - 7337c761da3c42d41999775436aa1f5e
+    - 335fa981ca3329645ace5277a5929fc8
+    - c662b3ca91f458345af515a790d61b58
+    spriteTextureTimeStamps:
+    - 1591085180.65998
+    - 1591085180.62299
+    - 1591085180.64498
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
