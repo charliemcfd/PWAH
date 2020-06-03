@@ -179,6 +179,8 @@ public class s_EntityPlayer : MonoBehaviour {
     private Collider2D m_DamageTriggeringCollider;
     private int m_CollisionIFrames;
 
+    private bool m_PlayerStuck;
+
 
 
 	//TODO: Replace this with something neater later so that the input manager can be queried to find out if buttons are currently being pressed.
@@ -233,6 +235,7 @@ public class s_EntityPlayer : MonoBehaviour {
 
         m_DamageTriggeringCollider = null;
         m_CollisionIFrames = 0;
+        m_PlayerStuck = false;
 
         CreateFlames();
 
@@ -1030,9 +1033,14 @@ public class s_EntityPlayer : MonoBehaviour {
                 return true;
             }
 		}
+        else if(m_PlayerStuck)
+        {
+            //Increase dead timer
+            m_fTimeDead += Time.deltaTime;
+        }
 
-        
-        if(m_fTimeDead >= 4.0)
+        float maxDeadTime = m_PlayerStuck ? 2.0f : 4.0f;
+        if (m_fTimeDead >= maxDeadTime)
         {
             //If we have been dead for over X seconds, then just say we shold reset anyway.
             SetForceReset(true);
@@ -1064,7 +1072,12 @@ public class s_EntityPlayer : MonoBehaviour {
 
 		//Hide current body, create a new "ragdoll"
 		SetVisible(false);
-		m_bCreateRagDoll = true;
+
+        //Only create ragdoll if player is not stuck
+        if (!m_PlayerStuck)
+        {
+            m_bCreateRagDoll = true;
+        }
 		//SetFollowObject(m_RagDoll);
 		SetActive(false);
 
@@ -1756,11 +1769,14 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			if(_pFeetTrigger.GetFeetTriggerStay())
 			{
-                
-				if(GetComponent<Rigidbody2D>().velocity.sqrMagnitude < 0.01f)
-				{
+
+                //if(GetComponent<Rigidbody2D>().velocity.sqrMagnitude < 0.01f)
+                //Get the difference between the world up-vector and the character's up vector in order to determine orientation.
+                float upVecDiff = Vector2.Angle(Vector2.up, transform.up);
+                if (upVecDiff < 4.0f) 
+                {
                     m_bGrounded = true;
-				}				
+				}	
 			}
 		}
     }
@@ -1792,9 +1808,20 @@ public class s_EntityPlayer : MonoBehaviour {
         }
     }
 
+    public void OnPlayerStuck()
+    {
+        Debug.Log("OnPlayerStuck");
+        //If the player is stuck, apply death
+        m_PlayerStuck = true;
+        ApplyDeath();
+        //Remove any velocity acting upon the player
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+    }
+
     private void ProcessHeadCollisions()
 	{
-        switch(m_eCharacterState)
+        switch (m_eCharacterState)
         {
             case eCharacterState.eCS_Dizzy:
                 {
