@@ -373,7 +373,7 @@ MonoBehaviour:
     useColor: 1
     generateCollider: 1
     z: 0
-    unityLayer: 0
+    unityLayer: 11
     sortingLayerName: 
     sortingOrder: 0
     skipMeshGeneration: 0
