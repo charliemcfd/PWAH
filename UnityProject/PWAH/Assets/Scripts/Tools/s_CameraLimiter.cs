@@ -9,7 +9,6 @@ public class s_CameraLimiter : MonoBehaviour {
 
     //Used for legacy Parallax settings
     public Vector3 m_fvecReferencePosition;
-
     // Use this for initialization
     void Start () {
 
@@ -43,13 +42,13 @@ public class s_CameraLimiter : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		SnapToPlayerPosition();
+		//SnapToPlayerPosition();
 	
 	}
 
 	void LateUpdate()
 	{
-        //SnapToPlayerPosition();
+        SnapToPlayerPosition();
         //transform.position = new Vector3(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y), transform.position.z);
 
     }
@@ -69,8 +68,7 @@ public class s_CameraLimiter : MonoBehaviour {
                 Vector3 end = Vector3.MoveTowards(start, _goEntityPlayer.transform.position, m_fCameraFollowSpeed * Time.deltaTime);
                 end.z = start.z;
 
-                
-                float _fNewX = end.x * 1000.0f;
+				float _fNewX = end.x * 1000.0f;
                 _fNewX = Mathf.FloorToInt(_fNewX);
                 _fNewX /= 1000.0f;
 
@@ -78,14 +76,19 @@ public class s_CameraLimiter : MonoBehaviour {
                 _fNewY = Mathf.FloorToInt(_fNewY);
                 _fNewY /= 1000.0f;
 
+                //Test for clamping
+                _fNewX = CalculatePixelPerfectPosition(end.x);
+                _fNewY = CalculatePixelPerfectPosition(end.y);
+
                 //Limit the camera's Y value
-                if(_fNewY < m_fMinCameraY)
+                if (_fNewY < m_fMinCameraY)
                 {
                     _fNewY = m_fMinCameraY;
                 }
 
                 end.x = _fNewX;
-                end.y = _fNewY; 
+                end.y = _fNewY;
+
 
                 transform.position = end;
                 /*
@@ -99,10 +102,22 @@ public class s_CameraLimiter : MonoBehaviour {
 
             }
         }
-
-
 	}
 	
+    protected float CalculatePixelPerfectPosition(float unperfectPosition)
+    {
+        float PPORecip = 1.0f / 100.0f;
+        float resolutionDivision = unperfectPosition / PPORecip; //TODO: change to grab PPU
+        int resolutionDivisionInt = Mathf.FloorToInt(resolutionDivision);
+        resolutionDivision -= resolutionDivisionInt;
+        if(resolutionDivision >= 0.5)
+        {
+            resolutionDivisionInt++;
+        }
+
+        return resolutionDivisionInt * PPORecip;
+
+    }
 	protected void ForceWithinBounds()
 	{
 		
