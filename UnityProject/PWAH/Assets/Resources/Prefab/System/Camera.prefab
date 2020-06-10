@@ -840,7 +840,7 @@ MonoBehaviour:
   viewportRegion: {x: 0, y: 0, z: 100, w: 100}
   zoomFactor: 1
   forceResolutionInEditor: 1
-  forceResolution: {x: 1920, y: 1080}
+  forceResolution: {x: 1280, y: 720}
 --- !u!124 &2797773496192805560
 Behaviour:
   m_ObjectHideFlags: 0
@@ -881,7 +881,6 @@ MonoBehaviour:
   m_fMaxCameraDistance: 5
   m_fMinCameraY: 11.11
   m_fvecReferencePosition: {x: 15.3, y: 8.8, z: -10}
-  m_cameraDeltaPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2797773496191577514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,8 +910,8 @@ MonoBehaviour:
     speedX: 0.95
     speedY: 0.95
   - camera: {fileID: 2084538}
-    speedX: 0.2
-    speedY: 0.2
+    speedX: 0.1
+    speedY: 0.1
   - camera: {fileID: 2076208}
     speedX: 0.05
     speedY: 0.05
