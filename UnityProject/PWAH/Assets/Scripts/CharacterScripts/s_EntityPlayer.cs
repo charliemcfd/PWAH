@@ -433,7 +433,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		
 		if(m_FollowObject != null)
 		{
-			this.transform.position = m_FollowObject.transform.position;
+			//this.transform.position = m_FollowObject.transform.position;
 		}
 		
 		RecordData();
@@ -1216,7 +1216,13 @@ public class s_EntityPlayer : MonoBehaviour {
 
     public void SetFollowObject( GameObject _FollowObject)
 	{
+		//transform.SetParent(_FollowObject.transform);
 		m_FollowObject = _FollowObject;
+	}
+	
+	public GameObject GetFollowObject()
+	{
+		return m_FollowObject;
 	}
 
 	private void CreateSmallExplosion(Vector3 _vecLocation)

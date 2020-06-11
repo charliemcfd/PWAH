@@ -9,7 +9,9 @@ public class s_CameraLimiter : MonoBehaviour {
 
     //Used for legacy Parallax settings
     public Vector3 m_fvecReferencePosition;
-    // Use this for initialization
+	// Use this for initialization
+
+	protected tk2dParallaxCamera m_tk2dParallaxCamera;
     void Start () {
 
         //Register with GSP
@@ -19,9 +21,10 @@ public class s_CameraLimiter : MonoBehaviour {
         //Register for events
         s_EventManager.CameraSetPosEvent.AddListener(HandleEvent_CameraSetPosEvent);
 
-        //Application.targetFrameRate = 30;
+		m_tk2dParallaxCamera = GetComponent<tk2dParallaxCamera>();
 
-    }
+
+	}
 
     void OnDestroy()
     {
@@ -49,6 +52,10 @@ public class s_CameraLimiter : MonoBehaviour {
 	void LateUpdate()
 	{
         SnapToPlayerPosition();
+		if(m_tk2dParallaxCamera)
+		{
+			m_tk2dParallaxCamera.UpdateParallaxPositions();
+		}
         //transform.position = new Vector3(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y), transform.position.z);
 
     }
@@ -63,9 +70,20 @@ public class s_CameraLimiter : MonoBehaviour {
             GameObject _goEntityPlayer = _PlayerManager.GetPlayer(_iNumPlayers-1);
             if (_goEntityPlayer)
             {
+				GameObject followObject = _goEntityPlayer.GetComponent<s_EntityPlayer>().GetFollowObject();
 
-                Vector3 start = transform.position;
-                Vector3 end = Vector3.MoveTowards(start, _goEntityPlayer.transform.position, m_fCameraFollowSpeed * Time.deltaTime);
+				Vector3 start;
+				//If the player is currently following another object (e.g, the ragdoll) then use the follow object's postiion but retain the Z of the Player entity
+				if(followObject == null)
+				{
+					start = transform.position;
+				}
+				else
+				{
+					start = new Vector3(followObject.transform.position.x, followObject.transform.position.y, transform.position.z);
+				}
+									
+				Vector3 end = Vector3.MoveTowards(start, _goEntityPlayer.transform.position, m_fCameraFollowSpeed * Time.deltaTime);
                 end.z = start.z;
 
 				float _fNewX = end.x * 1000.0f;

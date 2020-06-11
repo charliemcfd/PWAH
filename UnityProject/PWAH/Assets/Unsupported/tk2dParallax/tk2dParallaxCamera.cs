@@ -63,14 +63,19 @@ public class tk2dParallaxCamera : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate () 
 	{
+		//UpdateParallaxPositions();
+	}
+
+	public void UpdateParallaxPositions()
+	{
 		Vector3 rootOffset = transform.position - rootPosition;
 		foreach (var layer in layers)
 		{
 			if (layer.transform != null)
 			{
-                float unperfectX = rootPosition.x + rootOffset.x * layer.speedX;
-                float unperfectY = rootPosition.y + rootOffset.y * layer.speedY;
-                layer.transform.position = CalculatePixelPerfectPosition(unperfectX, unperfectY, layer.transform.position);
+				float unperfectX = rootPosition.x + rootOffset.x * layer.speedX;
+				float unperfectY = rootPosition.y + rootOffset.y * layer.speedY;
+				layer.transform.position = CalculatePixelPerfectPosition(unperfectX, unperfectY, layer.transform.position);
 				//layer.transform.position = new Vector3(unperfectX, unperfectY, rootPosition.z);
 			}
 		}
