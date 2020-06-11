@@ -12,6 +12,9 @@ public class s_CameraLimiter : MonoBehaviour {
 	// Use this for initialization
 
 	protected tk2dParallaxCamera m_tk2dParallaxCamera;
+	protected GameObject m_TargetObject;
+
+	protected float m_cameraZ;
     void Start () {
 
         //Register with GSP
@@ -20,15 +23,18 @@ public class s_CameraLimiter : MonoBehaviour {
 
         //Register for events
         s_EventManager.CameraSetPosEvent.AddListener(HandleEvent_CameraSetPosEvent);
+		s_EventManager.CameraSetTargetObjectEvent.AddListener(HandleEvent_SetTargetObject);
 
 		m_tk2dParallaxCamera = GetComponent<tk2dParallaxCamera>();
 
+		m_cameraZ = transform.position.z;
 
 	}
 
     void OnDestroy()
     {
         s_EventManager.CameraSetPosEvent.RemoveListener(HandleEvent_CameraSetPosEvent);
+		s_EventManager.CameraSetTargetObjectEvent.RemoveListener(HandleEvent_SetTargetObject);
         if(GameSystemPointers.instance)
             GameSystemPointers.instance.m_Camera = null;
 
@@ -70,33 +76,25 @@ public class s_CameraLimiter : MonoBehaviour {
             GameObject _goEntityPlayer = _PlayerManager.GetPlayer(_iNumPlayers-1);
             if (_goEntityPlayer)
             {
-				GameObject followObject = _goEntityPlayer.GetComponent<s_EntityPlayer>().GetFollowObject();
+				GameObject followObject =  _goEntityPlayer.GetComponent<s_EntityPlayer>().GetFollowObject();
 
-				Vector3 start;
-				//If the player is currently following another object (e.g, the ragdoll) then use the follow object's postiion but retain the Z of the Player entity
-				if(followObject == null)
-				{
-					start = transform.position;
-				}
-				else
-				{
-					start = new Vector3(followObject.transform.position.x, followObject.transform.position.y, transform.position.z);
-				}
-									
-				Vector3 end = Vector3.MoveTowards(start, _goEntityPlayer.transform.position, m_fCameraFollowSpeed * Time.deltaTime);
-                end.z = start.z;
+				Vector3 start = transform.position;
+				Vector3 end = new Vector3(m_TargetObject.transform.position.x, m_TargetObject.transform.position.y, m_cameraZ);
 
-				float _fNewX = end.x * 1000.0f;
+				Vector3 result = Vector3.Lerp(start, end, m_fCameraFollowSpeed * Time.deltaTime);
+					//Vector3.MoveTowards(start, end, m_fCameraFollowSpeed * Time.deltaTime);
+
+				float _fNewX = result.x * 1000.0f;
                 _fNewX = Mathf.FloorToInt(_fNewX);
                 _fNewX /= 1000.0f;
 
-                float _fNewY = end.y * 1000.0f;
+                float _fNewY = result.y * 1000.0f;
                 _fNewY = Mathf.FloorToInt(_fNewY);
                 _fNewY /= 1000.0f;
 
                 //Test for clamping
-                _fNewX = CalculatePixelPerfectPosition(end.x);
-                _fNewY = CalculatePixelPerfectPosition(end.y);
+                _fNewX = CalculatePixelPerfectPosition(result.x);
+                _fNewY = CalculatePixelPerfectPosition(result.y);
 
                 //Limit the camera's Y value
                 if (_fNewY < m_fMinCameraY)
@@ -104,11 +102,11 @@ public class s_CameraLimiter : MonoBehaviour {
                     _fNewY = m_fMinCameraY;
                 }
 
-                end.x = _fNewX;
-                end.y = _fNewY;
+				result.x = _fNewX;
+				result.y = _fNewY;
 
 
-                transform.position = end;
+                transform.position = result;
                 /*
                 Rigidbody2D Rigidbody2D = _goEntityPlayer.GetComponent<Rigidbody2D>();
                 if (Rigidbody2D != null && cam != null) {
@@ -175,6 +173,11 @@ public class s_CameraLimiter : MonoBehaviour {
         this.transform.position = new Vector3(_newPos.x, _newPos.y, this.transform.position.z);
 
     }
+
+	public void HandleEvent_SetTargetObject(GameObject newTargetObject)
+	{
+		m_TargetObject = newTargetObject;
+	}
 
     //Stolen from the tk2d tilemap demo:
     /*

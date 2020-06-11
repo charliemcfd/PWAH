@@ -1090,9 +1090,10 @@ public class s_EntityPlayer : MonoBehaviour {
 		m_RagDoll.GetComponent<Rigidbody2D>().AddForce(transform.up * -m_fDeathForce);
 		m_RagDoll.GetComponent<Rigidbody2D>().AddTorque(20.0f);
 		//m_RagDoll.Rigidbody2D.AddExplosionForce(m_fDeathForce,this.transform.position,1.0f,3.0f);
-		
-		
-		SetFollowObject(m_RagDoll);
+
+
+		//SetFollowObject(m_RagDoll);
+		s_EventManager.CameraSetTargetObjectEvent.Invoke(m_RagDoll);
 		m_bCreateRagDoll = false;
 	}
 

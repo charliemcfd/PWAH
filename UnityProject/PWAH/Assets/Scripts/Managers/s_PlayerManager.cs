@@ -187,6 +187,8 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
             
 			}
 		}
+
+		s_EventManager.CameraSetTargetObjectEvent.Invoke(GetLastCreatedPlayer());
 	}
 
     public int GetNumPlayers()
