@@ -46,15 +46,22 @@ public class s_PlayerSpawnScript : MonoBehaviour {
         m_bActive = false;
 
         Debug.Log("Registering spawn script for event");
-        s_EventManager.SpawnTubeResetEvent.AddListener(HandleEvent_SpawnTubeEvent);
+		//Register for events
+
+		s_EventManager.SpawnTubeResetEvent.AddListener(HandleEvent_SpawnTubeEvent);
         s_EventManager.SpawnTubeOpenEvent.AddListener(HandleEvent_SpawnTubeOpenEvent);
 
-    }
+		s_EventManager.CameraResetToSpawnPositionEvent.AddListener(HandleEvent_CameraResetToSpawnPositionEvent);
+
+		HandleEvent_CameraResetToSpawnPositionEvent();
+
+	}
 
     void OnDestroy()
     {
         s_EventManager.SpawnTubeResetEvent.RemoveListener(HandleEvent_SpawnTubeEvent);
         s_EventManager.SpawnTubeOpenEvent.RemoveListener(HandleEvent_SpawnTubeOpenEvent);
+		s_EventManager.CameraResetToSpawnPositionEvent.RemoveListener(HandleEvent_CameraResetToSpawnPositionEvent);
 
     }
 
@@ -170,4 +177,9 @@ public class s_PlayerSpawnScript : MonoBehaviour {
     {
         m_bActive = true;
     }
+
+	public void HandleEvent_CameraResetToSpawnPositionEvent()
+	{
+		s_EventManager.CameraSetPosEvent.Invoke(GetPlayerRespawnLocation());
+	}
 }

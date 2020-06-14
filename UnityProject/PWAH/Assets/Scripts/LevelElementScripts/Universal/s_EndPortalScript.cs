@@ -29,7 +29,7 @@ public class s_EndPortalScript : MonoBehaviour {
         if(_PlayerScript)
         {
             //Don't do anything if this is a replay player
-            if (_PlayerScript.m_bIsReplay)
+            if (_PlayerScript.GetIsReplay())
             {
                 return;
             }

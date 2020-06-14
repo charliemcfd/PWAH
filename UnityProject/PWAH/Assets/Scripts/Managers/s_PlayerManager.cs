@@ -94,7 +94,7 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 			//Grab scripts from  player gameobjects. These will be called a lot, so grab them once
 			s_EntityPlayer _ScriptPlayer = (s_EntityPlayer)m_ListPlayers[i].GetComponent(typeof(s_EntityPlayer));
 
-			if(!_ScriptPlayer.m_bIsReplay && _ScriptPlayer.GetShouldReset())
+			if(!_ScriptPlayer.GetIsReplay() && _ScriptPlayer.GetShouldReset())
 			{
                 //If the player has signalled that we should reset, reset the level.
                 s_BaseLevelScript _LevelScript = GameSystemPointers.instance.m_LevelScript;
@@ -172,7 +172,7 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 
 			if(_bReplayPlayer)
 			{
-				_ScriptPlayer.m_bIsReplay = true;
+				_ScriptPlayer.SetIsReplay(true);
 				_ScriptPlayer.replayData = s_GameplayRecorder.SP.GetEventsList(i);
                 _ScriptPlayer.m_replayZValue = -0.05f * i;
 
@@ -181,7 +181,7 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 			else if (i == m_ListPlayers.Count-1)
 			{
                 //If this is the last player in the list (most recently added) and it is not a replay, we should record it.
-				_ScriptPlayer.m_bIsReplay = false;
+				_ScriptPlayer.SetIsReplay(false);
                 s_GameplayRecorder.SP.ClearPreviousRecording();
                 s_GameplayRecorder.SP.StartRecording();
             

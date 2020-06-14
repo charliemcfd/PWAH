@@ -92,6 +92,10 @@ public class s_EntityPlayer : MonoBehaviour {
 	public float m_fBoostDrain;
 	public float m_fBoostRefill;
 
+	public float m_thrustDrag = 6.0f;
+	public float m_noThrustDrag = 2.0f;
+	public float m_driftDrag = 0.6f;
+
 	//===Public Components
 	public GameObject m_goMainCharacter;
 
@@ -158,11 +162,14 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	private float m_fAngleBoostAccumulated;
 
+	private Rigidbody2D m_RigidBody2D;
+
 	//Replay Data - TODO: Fix this up
 	public List<RecordedEvent> replayData;
-	public bool m_bIsReplay;
+	private bool m_bIsReplay;
     public float m_replayZValue;
     public bool m_bReplayReachedEnd;
+	private int m_lastReplayActionIndex;
 
 	private Dictionary<tk2dSpriteAnimator, sAnimationCommand> m_dAnimationCommands;
 	private Dictionary<tk2dSpriteAnimator, sAnimationCommand> m_dAnimationCommandsPrevious;
@@ -237,11 +244,19 @@ public class s_EntityPlayer : MonoBehaviour {
         m_CollisionIFrames = 0;
         m_PlayerStuck = false;
 
-        CreateFlames();
+		m_RigidBody2D = GetComponent<Rigidbody2D>();
+		if(m_bIsReplay && m_RigidBody2D)
+		{
+			m_RigidBody2D.isKinematic = true;
+		}
+
+
+		CreateFlames();
 
 		IndexAnimators();
 
-        m_bReplayReachedEnd = false;
+		m_lastReplayActionIndex = 0;
+		m_bReplayReachedEnd = false;
     }
 
     private void CreateFlames()
@@ -311,13 +326,10 @@ public class s_EntityPlayer : MonoBehaviour {
 	
 	void Update () {
 
-
 		if(m_bIsReplay)
 		{
 			return;
 		}
-
-
 
         ProcessGrounded();
 		
@@ -391,11 +403,12 @@ public class s_EntityPlayer : MonoBehaviour {
 	
 	void FixedUpdate()
 	{
-		m_uFrameStamp++;
         m_CollisionIFrames--;
         if (m_bIsReplay)
 		{
 			ProcessReplay();
+			//Increase replay frame-stamp
+			m_uFrameStamp++;
 			return;
 		}
 		
@@ -437,8 +450,9 @@ public class s_EntityPlayer : MonoBehaviour {
 		}
 		
 		RecordData();
-
-    }
+		//Increase non-replay frame stamp
+		m_uFrameStamp++;
+	}
 
     void LateUpdate()
 	{
@@ -610,7 +624,7 @@ public class s_EntityPlayer : MonoBehaviour {
 			if(_pFeetTrigger.GetFeetTriggered())
 			{
 
-                float _fRotationValue = GetComponent<Rigidbody2D>().rotation;
+                float _fRotationValue = m_RigidBody2D.rotation;
 				if(_fRotationValue >= 330 || _fRotationValue <= 30)
 				{
                     m_bHasThrustedSinceLastLanding = false;
@@ -1093,7 +1107,10 @@ public class s_EntityPlayer : MonoBehaviour {
 
 
 		//SetFollowObject(m_RagDoll);
-		s_EventManager.CameraSetTargetObjectEvent.Invoke(m_RagDoll);
+		if (!m_bIsReplay)
+		{
+			s_EventManager.CameraSetTargetObjectEvent.Invoke(m_RagDoll);
+		}
 		m_bCreateRagDoll = false;
 	}
 
@@ -1135,8 +1152,8 @@ public class s_EntityPlayer : MonoBehaviour {
         }
 
         if (!_bLevelEnd)
-        { 
-            GetComponent<Rigidbody2D>().isKinematic = !_bActive;
+        {
+			m_RigidBody2D.isKinematic = !_bActive;
         }
 
         //Set children
@@ -1186,7 +1203,7 @@ public class s_EntityPlayer : MonoBehaviour {
         {
             //This function sets the required states etc. for being at the end of a level.
             m_bThrustThisFrame = false;
-            GetComponent<Rigidbody2D>().drag = 0;
+			m_RigidBody2D.drag = 0;
             m_eCharacterState = eCharacterState.eCS_LevelEnd;
             m_vecPortalLocation = _vecPortalLocation;
 
@@ -1199,10 +1216,10 @@ public class s_EntityPlayer : MonoBehaviour {
 
             //Create tween sequence for the end of level animation
             m_EndLevelVelocitySequence = DOTween.Sequence();
-            m_EndLevelVelocitySequence.Append(DOTween.To(() => GetComponent<Rigidbody2D>().velocity, x => GetComponent<Rigidbody2D>().velocity = x, new Vector2(0, 0), 0.55f).SetEase(Ease.InQuad));
+            m_EndLevelVelocitySequence.Append(DOTween.To(() => m_RigidBody2D.velocity, x => m_RigidBody2D.velocity = x, new Vector2(0, 0), 0.55f).SetEase(Ease.InQuad));
             m_EndLevelVelocitySequence.Join(transform.DORotate(new Vector3(0, 0, _fAngle), 0.7f).SetEase(Ease.InOutQuad));
 
-            m_EndLevelVelocitySequence.Append(GetComponent<Rigidbody2D>().DOMove(m_vecPortalLocation, 0.5f).SetEase(Ease.InOutQuad));
+            m_EndLevelVelocitySequence.Append(m_RigidBody2D.DOMove(m_vecPortalLocation, 0.5f).SetEase(Ease.InOutQuad));
             m_EndLevelVelocitySequence.Join(transform.DOScale(0, 0.4f).SetEase(Ease.InQuad).OnComplete(LevelEndComplete));
 
         }
@@ -1321,7 +1338,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		   m_eBoostState == eBoostState.eBS_BoostEnd)
 		{
 			//Add force in an upwards direction (Relative to character's orientation)
-			GetComponent<Rigidbody2D>().AddForce(GetComponent<Rigidbody2D>().transform.up * m_fThrustForce);
+			m_RigidBody2D.AddForce(m_RigidBody2D.transform.up * m_fThrustForce);
 			m_bThrustThisFrame = true;
 		}
 	}
@@ -1346,7 +1363,7 @@ public class s_EntityPlayer : MonoBehaviour {
 			//Multiply my 1-Timethrusting so that after an elapsed period of time, we stop applying gravity.
 			float _fForceMultiplier = (-(m_fGravityValue *m_fGravityMultiplier) * (1 - _fTimeThrusting) );
 			
-			GetComponent<Rigidbody2D>().AddForce(Vector3.up * _fForceMultiplier);
+			m_RigidBody2D.AddForce(Vector3.up * _fForceMultiplier);
 			break;
 		}
 			
@@ -1355,7 +1372,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			float _fForceMultiplier = (-(m_fGravityValue * m_fGravityMultiplier ));
 			
-			GetComponent<Rigidbody2D>().AddForce(Vector3.up * _fForceMultiplier);
+			m_RigidBody2D.AddForce(Vector3.up * _fForceMultiplier);
 			break;
 			
 		}
@@ -1370,9 +1387,9 @@ public class s_EntityPlayer : MonoBehaviour {
 
         AccumulateBoostRotation(_fAppliedRotation);// * Time.fixedDeltaTime);
 
-        //Vector3 eulerAngleVelocity = new Vector3(0, 0, _fAppliedRotation);
-        //Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity);
-        GetComponent<Rigidbody2D>().MoveRotation(GetComponent<Rigidbody2D>().rotation + _fAppliedRotation);// *Time.fixedDeltaTime);
+		//Vector3 eulerAngleVelocity = new Vector3(0, 0, _fAppliedRotation);
+		//Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity);
+		m_RigidBody2D.MoveRotation(m_RigidBody2D.rotation + _fAppliedRotation);// *Time.fixedDeltaTime);
 
 		ResetRotation();
 	}
@@ -1454,11 +1471,11 @@ public class s_EntityPlayer : MonoBehaviour {
         
         
 
-		if(GetComponent<Rigidbody2D>().velocity.magnitude > m_fCurrentMaxSpeed )
+		if(m_RigidBody2D.velocity.magnitude > m_fCurrentMaxSpeed )
 		{
-			if(GetComponent<Rigidbody2D>().isKinematic == false)
+			if(m_RigidBody2D.isKinematic == false)
 			{
-				GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody2D>().velocity, _fAmmendedMaxSpeed);
+				m_RigidBody2D.velocity = Vector3.ClampMagnitude(m_RigidBody2D.velocity, _fAmmendedMaxSpeed);
 			}
 		}
 
@@ -1466,7 +1483,7 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	private void ApplyBoost()
 	{
-		GetComponent<Rigidbody2D>().AddForce(GetComponent<Rigidbody2D>().transform.up * m_fThrustForce);
+		m_RigidBody2D.AddForce(m_RigidBody2D.transform.up * m_fThrustForce);
 		m_bThrustThisFrame = true;
 	}
 
@@ -1521,7 +1538,7 @@ public class s_EntityPlayer : MonoBehaviour {
 			{
 				m_fBoostTimer = m_fBoostDuration;
 				//Clear all forces on the body
-				transform.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+				m_RigidBody2D.velocity = Vector3.zero;
 			
 				//Set max speed to boost speed
 				m_fCurrentMaxSpeed = m_fMaxSpeedBoost;
@@ -1605,6 +1622,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	
 	private void ProcessDrag()
 	{
+
 		if(m_eCharacterState == eCharacterState.eCS_Normal)
 		{
 			switch(m_eDriftState)
@@ -1615,11 +1633,11 @@ public class s_EntityPlayer : MonoBehaviour {
 				
 				if(m_bThrustThisFrame)
 				{
-					GetComponent<Rigidbody2D>().drag = 6.0f;
+					m_RigidBody2D.drag = m_thrustDrag;
 				}
 				else
 				{
-					GetComponent<Rigidbody2D>().drag = 0.6f;
+					m_RigidBody2D.drag = m_driftDrag;
 				}
 				break;
 			}
@@ -1628,11 +1646,11 @@ public class s_EntityPlayer : MonoBehaviour {
 			{
 				if(m_bThrustThisFrame)
 				{
-					GetComponent<Rigidbody2D>().drag = 6.0f;
+					m_RigidBody2D.drag = m_thrustDrag;
 				}
 				else
 				{
-					GetComponent<Rigidbody2D>().drag = 2.0f;
+					m_RigidBody2D.drag = m_noThrustDrag;
 				}
 				break;
 			}
@@ -1642,11 +1660,11 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			if(m_bThrustThisFrame)
 			{
-				GetComponent<Rigidbody2D>().drag = 6.0f;
+				m_RigidBody2D.drag = m_thrustDrag;
 			}
 			else
 			{
-				GetComponent<Rigidbody2D>().drag = 2.0f;
+				m_RigidBody2D.drag = m_noThrustDrag;
 			}
 		}
 	}
@@ -1721,7 +1739,7 @@ public class s_EntityPlayer : MonoBehaviour {
 				m_eCharacterState = eCharacterState.eCS_Damaged;
 				
 				CreateSmallExplosion(m_LeftTrigger.transform.position);
-				GetComponent<Rigidbody2D>().AddForce(transform.right * m_fDizzyKnockback*10);
+				m_RigidBody2D.AddForce(transform.right * m_fDizzyKnockback*10);
 				
 			}
 			if(_RightCollision)
@@ -1730,7 +1748,7 @@ public class s_EntityPlayer : MonoBehaviour {
 				m_eCharacterState = eCharacterState.eCS_Damaged;
 				
 				CreateSmallExplosion(m_RightTrigger.transform.position);
-				GetComponent<Rigidbody2D>().AddForce(transform.right * -m_fDizzyKnockback*10);
+				m_RigidBody2D.AddForce(transform.right * -m_fDizzyKnockback*10);
 				
 			}
 
@@ -1758,7 +1776,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	{
         if (m_eCharacterState == eCharacterState.eCS_Dizzy)
         {
-            float _fRotationValue = GetComponent<Rigidbody2D>().rotation;
+            float _fRotationValue = m_RigidBody2D.rotation;
             if (_fRotationValue >= 330 || _fRotationValue <= 30)
             {
                 m_eCharacterState = eCharacterState.eCS_Normal;
@@ -1821,8 +1839,8 @@ public class s_EntityPlayer : MonoBehaviour {
         //If the player is stuck, apply death
         m_PlayerStuck = true;
         ApplyDeath();
-        //Remove any velocity acting upon the player
-        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+		//Remove any velocity acting upon the player
+		m_RigidBody2D.velocity = Vector3.zero;
 
     }
 
@@ -1866,10 +1884,10 @@ public class s_EntityPlayer : MonoBehaviour {
         m_fDizzyTimer = m_fMaxDizzytime * _fScaleTime;
 
 
-        //Clear current velocity, add force in opposite direction
-        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+		//Clear current velocity, add force in opposite direction
+		m_RigidBody2D.velocity = Vector3.zero;
 
-        GetComponent<Rigidbody2D>().AddForce(GetComponent<Rigidbody2D>().transform.up * -m_fDeathForce);
+		m_RigidBody2D.AddForce(m_RigidBody2D.transform.up * -m_fDeathForce);
 
         m_eCharacterState = eCharacterState.eCS_Dizzy;
         m_eBoostState = eBoostState.eBS_None;
@@ -1880,8 +1898,8 @@ public class s_EntityPlayer : MonoBehaviour {
         ChangeAnimation(_pAnimator, eAnimationCommands.Play, "DizzyHit");
 
 
-        //Change Drag of Rigidbody2D to mimic falling
-        GetComponent<Rigidbody2D>().drag = 2.0f;
+		//Change Drag of Rigidbody2D to mimic falling
+		m_RigidBody2D.drag = m_noThrustDrag;
 
 
     }
@@ -1931,18 +1949,26 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	private void RecordPosition()
 	{
-        //Test all previous transform variables against current to see if there is a change
-        if(m_PrevPos != this.transform.position 
-            || m_PrevRot != this.transform.eulerAngles
-            || m_PrevScale != this.transform.localScale)
-        {
-            s_GameplayRecorder.SP.AddAction(m_uFrameStamp, RecordActions.playerMovement, transform.position, transform.eulerAngles, transform.localScale);
-        }
+		//Test all previous transform variables against current to see if there is a change. Only record the positional movement if a change has occurred.
+		//TODO: Optimize variables so that conversion to vector3 is not necessary.
 
-        //Update values
-        m_PrevPos = this.transform.position;
-        m_PrevRot = this.transform.eulerAngles;
-        m_PrevScale = this.transform.localScale;
+		Vector3 rigidbodyPos = new Vector3(m_RigidBody2D.position.x, m_RigidBody2D.position.y, this.transform.position.z);
+		Vector3 rigidbodyRot = new Vector3(0, 0, m_RigidBody2D.rotation);
+		if (m_PrevPos != rigidbodyPos
+			|| m_PrevRot != rigidbodyRot
+			|| m_PrevScale != this.transform.localScale)
+		{
+			if (m_uFrameStamp > 0)
+			{
+				s_GameplayRecorder.SP.AddAction(m_uFrameStamp, RecordActions.playerMovement, rigidbodyPos, rigidbodyRot, transform.localScale);
+			}
+		}
+
+		//Update previousl locaiton/roataion/scale values
+		m_PrevPos = rigidbodyPos;
+		m_PrevRot = rigidbodyRot;
+		m_PrevRot = rigidbodyRot;
+		m_PrevScale = this.transform.localScale;
 	}
 
 	private void RecordAnimation()
@@ -2056,10 +2082,35 @@ public class s_EntityPlayer : MonoBehaviour {
 	 * ==================================
 	 */
 
+	public void SetIsReplay(bool isReplay)
+	{
+		m_bIsReplay = isReplay;
+		if (m_RigidBody2D)
+		{
+			m_RigidBody2D.isKinematic = m_bIsReplay;
+		}
+	}
+
+	public bool GetIsReplay()
+	{
+		return m_bIsReplay;
+	}
 	private void ProcessReplay()
 	{
-		
-        for (int _iAction = 0; _iAction < replayData.Count; _iAction++)
+		/*
+		 * This is the method for looping through the various actions in a replay.
+		 * 
+		 * We start iterating over the list until we find an action that has a timestamp that does NOT match our current timestamp
+		 * At this point, we note which action this was via m_lastReplayActionIndex and then return.
+		 * 
+		 * On the next call to ProcessReplay (Called from fixed update), the timestamp of the entity should have increased.
+		 * We then start iterating from our "last index" and continue executing and iterating over the actions until we find another
+		 * action where the timestamp does not match our current timestamp. The process is then repeated.
+		 * 
+		 * Note that this method requires and assumes that the actions in the array be added in a time-stamp correct order. If any timestamps are out of order
+		 * then the system will fail and action execution will not be able to occur.
+		 */
+		for (int _iAction = m_lastReplayActionIndex; _iAction < replayData.Count; _iAction++)
         {
             if (m_uFrameStamp == replayData[_iAction].time)
 			{
@@ -2082,6 +2133,11 @@ public class s_EntityPlayer : MonoBehaviour {
                     }
                 }
             }
+			else
+			{
+				m_lastReplayActionIndex = _iAction;
+				break;
+			}
 
 
 		}
@@ -2089,13 +2145,13 @@ public class s_EntityPlayer : MonoBehaviour {
 
     private void ProcessRecordedEvent(RecordedEvent _event)
     {
-        switch (_event.recordedAction)
+		switch (_event.recordedAction)
         {
             case RecordActions.playerMovement:
                 {
-                    ReplayMovement(_event);
+					 ReplayMovement(_event);
 
-                    break;
+					break;
                 }
             case RecordActions.AnimationChange:
                 {
@@ -2124,9 +2180,12 @@ public class s_EntityPlayer : MonoBehaviour {
 	
 	private void ReplayMovement(RecordedEvent _event)
 	{
-		this.transform.position = (_event.position + new Vector3(0,0, m_replayZValue));
-		this.transform.eulerAngles = _event.rotation;
-        this.transform.localScale = new Vector3(_event.scaleX, _event.scaleY, 1.0f);
+		//We use Move functions here instead of setting the position directly because these methods are intended to comply with interpolation settings
+		//and create a smooth movement over the frames.
+		m_RigidBody2D.MovePosition(new Vector2(_event.position.x, _event.position.y));
+		m_RigidBody2D.MoveRotation(_event.rotation.z);
+		this.transform.localScale = new Vector3(_event.scaleX, _event.scaleY, this.transform.localScale.z);
+
 	}
 	
 	private void ReplayAnimation(RecordedEvent _event)

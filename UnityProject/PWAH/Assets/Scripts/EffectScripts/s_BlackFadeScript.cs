@@ -21,7 +21,7 @@ public class s_BlackFadeScript : MonoBehaviour {
         m_eFadeState = eFadeState.eFS_FadedIn;
 
         SetInitialState();
-        FadeOut();
+		FadeOut();
 	}
 	
 	// Update is called once per frame
@@ -47,10 +47,11 @@ public class s_BlackFadeScript : MonoBehaviour {
     {
         Debug.Log("FadeInCommplete");
         m_eFadeState = eFadeState.eFS_FadedIn;
+		s_EventManager.CameraResetToSpawnPositionEvent.Invoke();
 
-    }
+	}
 
-    public void FadeIn()
+	public void FadeIn()
     {
         m_FadeSprite.GetComponent<Renderer>().enabled = true;
         m_FadeSprite.DOColor(new Color(1.0f, 1.0f, 1.0f, 1.0f), 0.5f).OnComplete(FadeInComplete);

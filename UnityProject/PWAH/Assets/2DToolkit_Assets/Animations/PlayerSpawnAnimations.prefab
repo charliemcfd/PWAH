@@ -74,13 +74,6 @@ MonoBehaviour:
       eventInfo: 
       eventInt: 0
       eventFloat: 0
-    - spriteCollection: {fileID: 11469922, guid: 34e8e854bd806f44d89cde04fa5339f4,
-        type: 3}
-      spriteId: 31
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
     fps: 10
     loopStart: 0
     wrapMode: 2

@@ -31,6 +31,8 @@ public class evt_SceneLoadedEvent : UnityEvent { }
 public class evt_CameraSetPosEvent : UnityEvent<Vector2> { } //Vector2 Position
 
 public class evt_CameraSetTargetObjectEvent : UnityEvent<GameObject> { }
+
+public class evt_CameraResetToSpawnPosition : UnityEvent { }
 /// <summary>
 /// Collision Trigger events
 /// </summary>

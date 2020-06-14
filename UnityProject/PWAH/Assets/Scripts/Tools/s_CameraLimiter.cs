@@ -13,8 +13,11 @@ public class s_CameraLimiter : MonoBehaviour {
 
 	protected tk2dParallaxCamera m_tk2dParallaxCamera;
 	protected GameObject m_TargetObject;
+	protected Vector3 m_targetPosition;
 
 	protected float m_cameraZ;
+	protected float m_pixelsPerUnit; //Per meter
+	protected float m_pixelsPerUnitReciprocal;
     void Start () {
 
         //Register with GSP
@@ -29,6 +32,11 @@ public class s_CameraLimiter : MonoBehaviour {
 
 		m_cameraZ = transform.position.z;
 
+		m_targetPosition = transform.position;
+
+		m_pixelsPerUnit = GetComponent<tk2dCamera>().CameraSettings.orthographicPixelsPerMeter;
+		m_pixelsPerUnitReciprocal = 1.0f / m_pixelsPerUnit;
+
 	}
 
     void OnDestroy()
@@ -42,135 +50,76 @@ public class s_CameraLimiter : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-		//SnapToPlayerPosition();
-		//ForceWithinBounds();
-		
-		
+	
 	}
 
 	void FixedUpdate()
 	{
-		//SnapToPlayerPosition();
-	
+		//Update the target position.
+		if(m_TargetObject)
+		{
+			m_targetPosition = new Vector3(m_TargetObject.transform.position.x, m_TargetObject.transform.position.y, m_cameraZ);
+		}
 	}
 
 	void LateUpdate()
 	{
-        SnapToPlayerPosition();
+        InterpolateToTargetPosition();
 		if(m_tk2dParallaxCamera)
 		{
 			m_tk2dParallaxCamera.UpdateParallaxPositions();
 		}
-        //transform.position = new Vector3(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y), transform.position.z);
-
     }
 
-	protected void SnapToPlayerPosition(  )
+	protected void InterpolateToTargetPosition(  )
 	{
-        s_PlayerManager _PlayerManager = GameSystemPointers.instance.m_PlayerManager;
-        int _iNumPlayers = _PlayerManager.GetNumPlayers();
-        if(_iNumPlayers > 0)
-        {
-            //This should grab the last created player, which should be the "successful" player in the case of replays.
-            GameObject _goEntityPlayer = _PlayerManager.GetPlayer(_iNumPlayers-1);
-            if (_goEntityPlayer)
-            {
-				GameObject followObject =  _goEntityPlayer.GetComponent<s_EntityPlayer>().GetFollowObject();
+		//Interpolate from the current position to the target position
+		Vector3 start = transform.position;
+		Vector3 result = Vector3.Lerp(start, m_targetPosition, m_fCameraFollowSpeed * Time.deltaTime);
 
-				Vector3 start = transform.position;
-				Vector3 end = new Vector3(m_TargetObject.transform.position.x, m_TargetObject.transform.position.y, m_cameraZ);
+		//Limit the camera's Y value
+		if (result.y < m_fMinCameraY)
+		{
+			result.y = m_fMinCameraY;
+		}
 
-				Vector3 result = Vector3.Lerp(start, end, m_fCameraFollowSpeed * Time.deltaTime);
-					//Vector3.MoveTowards(start, end, m_fCameraFollowSpeed * Time.deltaTime);
+		//Calculate positions in Unity co-ordinate space that correspond to pixel-perfect values
+		result.x = CalculatePixelPerfectPosition(result.x);
+		result.y = CalculatePixelPerfectPosition(result.y);
 
-				float _fNewX = result.x * 1000.0f;
-                _fNewX = Mathf.FloorToInt(_fNewX);
-                _fNewX /= 1000.0f;
-
-                float _fNewY = result.y * 1000.0f;
-                _fNewY = Mathf.FloorToInt(_fNewY);
-                _fNewY /= 1000.0f;
-
-                //Test for clamping
-                _fNewX = CalculatePixelPerfectPosition(result.x);
-                _fNewY = CalculatePixelPerfectPosition(result.y);
-
-                //Limit the camera's Y value
-                if (_fNewY < m_fMinCameraY)
-                {
-                    _fNewY = m_fMinCameraY;
-                }
-
-				result.x = _fNewX;
-				result.y = _fNewY;
-
-
-                transform.position = result;
-                /*
-                Rigidbody2D Rigidbody2D = _goEntityPlayer.GetComponent<Rigidbody2D>();
-                if (Rigidbody2D != null && cam != null) {
-                    float spd = Rigidbody2D.velocity.magnitude;
-                    float scl = Mathf.Clamp01((spd - minZoomSpeed) / (maxZoomSpeed - minZoomSpeed));
-                    float targetZoomFactor = Mathf.Lerp(1, maxZoomFactor, scl);
-                    cam.ZoomFactor = Mathf.MoveTowards(cam.ZoomFactor, targetZoomFactor, 0.2f * Time.deltaTime);
-                }*/
-
-            }
-        }
+		//Update the position of the camera transform
+        transform.position = result;
 	}
 	
     protected float CalculatePixelPerfectPosition(float unperfectPosition)
     {
-        float PPORecip = 1.0f / 100.0f;
-        float resolutionDivision = unperfectPosition / PPORecip; //TODO: change to grab PPU
-        int resolutionDivisionInt = Mathf.FloorToInt(resolutionDivision);
-        resolutionDivision -= resolutionDivisionInt;
-        if(resolutionDivision >= 0.5)
+		
+		//Calculate the position in pixel-space (Still  a floating point number at this point)
+        float resolutionPosition= unperfectPosition * m_pixelsPerUnit;
+
+		//Truncate the calcualted position to an integer and store in a seperate variable
+        int resolutionPositionInt = Mathf.FloorToInt(resolutionPosition);
+
+		//Subtract the integer component of the resolution to get a decimal "remainder"
+		resolutionPosition -= resolutionPositionInt;
+
+		//If the reaminder is greater than or equal to 0.5 (half a pixel) then increase the value of the integer position
+        if(resolutionPosition >= 0.5)
         {
-            resolutionDivisionInt++;
+			resolutionPositionInt++;
         }
 
-        return resolutionDivisionInt * PPORecip;
+		//Convert the resolution position back into Unity co-ordinate space by multiplying by the reciprocal (1/PixelsPerUnit)
+        return resolutionPositionInt * m_pixelsPerUnitReciprocal;
 
     }
-	protected void ForceWithinBounds()
-	{
-		
-		float _fNewX = this.transform.position.x;
-		float _fNewY = this.transform.position.y;
-		//Force X position
-		if(_fNewX <= 0)
-		{
-			_fNewX = 0;
-		}
-		else if (_fNewX >= 50)
-		{
-			_fNewX = 50;
-		}
-		
-		//Force Y position
-		
-		if(_fNewY <= 0)
-		{
-			_fNewY = 0;
-		}
-		else if (_fNewY >= 50)
-		{
-			_fNewY = 50;
-		}
-		
-		
-		//Set camera position
-		this.transform.position = new Vector3(_fNewX,_fNewY,this.transform.position.z);
-		
-	}
+
 
     public void HandleEvent_CameraSetPosEvent(Vector2 _newPos)
     {
-        //Sets the camera to a given coordinate
-
+        //Sets the camera to a given coordinate. This will circumvent the interpolation that is normally carried out.
         this.transform.position = new Vector3(_newPos.x, _newPos.y, this.transform.position.z);
+		m_targetPosition = this.transform.position;
 
     }
 
@@ -178,30 +127,5 @@ public class s_CameraLimiter : MonoBehaviour {
 	{
 		m_TargetObject = newTargetObject;
 	}
-
-    //Stolen from the tk2d tilemap demo:
-    /*
-    using UnityEngine;
-    using System.Collections;
-
-    public class tk2dTileMapDemoFollowCam : MonoBehaviour {
-
-        tk2dCamera cam;
-        public Transform target;
-        public float followSpeed = 1.0f;
-
-        public float minZoomSpeed = 20.0f;
-        public float maxZoomSpeed = 40.0f;
-
-        public float maxZoomFactor = 0.6f;
-
-        void Awake() {
-            cam = GetComponent<tk2dCamera>();
-        }
-
-        void FixedUpdate() {
-
-        }
-    }*/
 
 }
