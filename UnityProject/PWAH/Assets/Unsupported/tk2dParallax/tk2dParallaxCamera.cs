@@ -22,7 +22,11 @@ public class tk2dParallaxCamera : MonoBehaviour
 	public Vector3 rootPosition;
 
     protected s_CameraLimiter m_masterCameraLimiter;
-	
+	//PWAH
+	protected float m_pixelsPerUnit; //Per meter
+	protected float m_pixelsPerUnitReciprocal;
+	//~PWAH
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -42,7 +46,12 @@ public class tk2dParallaxCamera : MonoBehaviour
 
         m_masterCameraLimiter = GetComponent<s_CameraLimiter>();
 
-    }
+		//PWAH
+		m_pixelsPerUnit = GetComponent<tk2dCamera>().CameraSettings.orthographicPixelsPerMeter;
+		m_pixelsPerUnitReciprocal = 1.0f / m_pixelsPerUnit;
+		//~PWAH
+
+	}
 	
 	/// <summary>
 	/// Resets the parallax offsets. The cameras will not exhibit any parallax at this current position.
@@ -76,35 +85,39 @@ public class tk2dParallaxCamera : MonoBehaviour
 				float unperfectX = rootPosition.x + rootOffset.x * layer.speedX;
 				float unperfectY = rootPosition.y + rootOffset.y * layer.speedY;
 				layer.transform.position = CalculatePixelPerfectPosition(unperfectX, unperfectY, layer.transform.position);
-				//layer.transform.position = new Vector3(unperfectX, unperfectY, rootPosition.z);
 			}
 		}
 	}
 
     protected Vector3 CalculatePixelPerfectPosition(float unperfectPositionX, float unperfectPositionY, Vector3 oldPosition)
     {
-        float PPURecip = 1.0f / 100.0f; //TODO: change to grab PPU
-        float resolutionDivisionX = unperfectPositionX / PPURecip;
-        float resolutionDivisionY = unperfectPositionY / PPURecip;
+		//Calculate the position in pixel-space (Still  a floating point number at this point)
+		float resolutionPositionX = unperfectPositionX * m_pixelsPerUnit;
+        float resolutionPositionY = unperfectPositionY * m_pixelsPerUnit;
 
-        //Calculate X
-        int resolutionDivisionIntX = Mathf.FloorToInt(resolutionDivisionX);
-        resolutionDivisionX -= resolutionDivisionIntX;
-        if (resolutionDivisionX >= 0.5)
+		//Truncate the calcualted position to an integer and store in a seperate variable
+		int resolutionPositionIntX = Mathf.FloorToInt(resolutionPositionX);
+		int resolutionPositionIntY = Mathf.FloorToInt(resolutionPositionY);
+
+		//Subtract the integer component of the resolution to get a decimal "remainder"
+		resolutionPositionX -= resolutionPositionIntX;
+		resolutionPositionY -= resolutionPositionIntY;
+
+		//If the reaminder is greater than or equal to 0.5 (half a pixel) then increase the value of the integer position
+		if (resolutionPositionX >= 0.5)
         {
-            resolutionDivisionIntX++;
+			resolutionPositionIntX++;
         }
 
-        //Calculate Y
-        int resolutionDivisionIntY = Mathf.FloorToInt(resolutionDivisionY);
-        resolutionDivisionY -= resolutionDivisionIntY;
-        if (resolutionDivisionY >= 0.5)
+        if (resolutionPositionY >= 0.5)
         {
-            resolutionDivisionIntY++;
+			resolutionPositionIntY++;
         }
 
-		float newX = resolutionDivisionIntX * PPURecip;
-		float newY = resolutionDivisionIntY * PPURecip;
+		//Convert the resolution position back into Unity co-ordinate space by multiplying by the reciprocal (1/PixelsPerUnit)
+
+		float newX = resolutionPositionIntX * m_pixelsPerUnitReciprocal;
+		float newY = resolutionPositionIntY * m_pixelsPerUnitReciprocal;
 
 		return new Vector3(newX, newY, oldPosition.z); //Z should never change.
 
