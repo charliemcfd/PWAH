@@ -147,6 +147,9 @@ public class tk2dSpriteCollectionDefinition
 	public string name = "";
 	
 	public bool disableTrimming = false;
+	//PWAH
+	public bool trimWithAlphaPadding = false;
+	//~PWAH
     public bool additive = false;
     public Vector3 scale = new Vector3(1,1,1);
 
@@ -198,6 +201,9 @@ public class tk2dSpriteCollectionDefinition
 		name = src.name;
 		
 		disableTrimming = src.disableTrimming;
+		//PWAH
+		trimWithAlphaPadding = src.trimWithAlphaPadding;
+		//~PWAH
 		additive = src.additive;
 		scale = src.scale;
 		texture = src.texture;
@@ -648,7 +654,12 @@ public class tk2dSpriteCollection : MonoBehaviour
 	public float physicsDepth = 0.1f;
 	
 	public bool disableTrimming = false;
+	//PWAH
+	public bool trimWithAlphaPadding = false;
+	//~PWAH
 	public bool disableRotation = false;
+
+
 	
 	public NormalGenerationMode normalGenerationMode = NormalGenerationMode.None;
 	

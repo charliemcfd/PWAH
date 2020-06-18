@@ -320,7 +320,10 @@ public class tk2dSpriteCollectionBuilder
 		return true;
 	}
 
-	static Texture2D ProcessTexture(tk2dSpriteCollection settings, bool additive, tk2dSpriteCollectionDefinition.Pad padMode, bool disableTrimming, bool isInjectedTexture, bool isDiced, Texture2D srcTex, int sx, int sy, int tw, int th, ref SpriteLut spriteLut, int padAmount)
+
+	//PWAH
+	static Texture2D ProcessTexture(tk2dSpriteCollection settings, bool additive, tk2dSpriteCollectionDefinition.Pad padMode, bool disableTrimming, bool isInjectedTexture, bool isDiced, Texture2D srcTex, int sx, int sy, int tw, int th, ref SpriteLut spriteLut, int padAmount, bool trimWithPaddedAlpha)
+	//~PWAH
 	{
 		// Can't have additive without premultiplied alpha
 		if (!settings.premultipliedAlpha) additive = false;
@@ -396,7 +399,13 @@ public class tk2dSpriteCollectionBuilder
 	
 			int w1 = x1 - x0 + 1;
 			int h1 = y1 - y0 + 1;
-			
+			//PWAH
+			if (allowTrimming && trimWithPaddedAlpha)
+			{
+				w1 += 2;
+				h1 += 2;
+			}
+			//~PWAH
 			if (!allowTrimming)
 			{
 				x0 = 0;
@@ -411,7 +420,17 @@ public class tk2dSpriteCollectionBuilder
 			{
 				for (int y = 0; y < h1; ++y)
 				{
-					Color col = srcTex.GetPixel(sx + x0 + x, sy + y0 + y);
+					//PWAH
+					Color col;
+					if (allowTrimming && trimWithPaddedAlpha)
+					{
+						col = srcTex.GetPixel(sx - 1 + x0 + x, sy - 1 + y0 + y);
+					}
+					else
+					{
+						col = srcTex.GetPixel(sx + x0 + x, sy + y0 + y);
+					}
+					//~PWAH
 					dtex.SetPixel(x + padAmount, y + padAmount, col);
 				}
 			}
@@ -910,8 +929,9 @@ public class tk2dSpriteCollectionBuilder
 						diceLut.isSplit = true;
 						diceLut.sourceTex = srcTex;
 						diceLut.isDuplicate = false; // duplicate diced textures can be chopped up differently, so don't detect dupes here
-
-						Texture2D dest = ProcessTexture(gen, gen.textureParams[i].additive, tk2dSpriteCollectionDefinition.Pad.Extend, gen.textureParams[i].disableTrimming, false, true, srcTex, sx, sy, tw, th, ref diceLut, GetPadAmount(gen, i));
+						//PWAH
+						Texture2D dest = ProcessTexture(gen, gen.textureParams[i].additive, tk2dSpriteCollectionDefinition.Pad.Extend, gen.textureParams[i].disableTrimming, false, true, srcTex, sx, sy, tw, th, ref diceLut, GetPadAmount(gen, i), gen.textureParams[i].trimWithAlphaPadding);
+						//~PWAH
 						if (dest)
 						{
 							diceLut.atlasIndex = numTexturesToAtlas++;
@@ -946,7 +966,9 @@ public class tk2dSpriteCollectionBuilder
 				if (!lut.isDuplicate)
 				{
 					lut.atlasIndex = numTexturesToAtlas++;
-					Texture2D dest = ProcessTexture(gen, gen.textureParams[i].additive, gen.textureParams[i].pad, gen.textureParams[i].disableTrimming, false, false, currentTexture, 0, 0, currentTexture.width, currentTexture.height, ref lut, GetPadAmount(gen, i));
+					//PWAH
+					Texture2D dest = ProcessTexture(gen, gen.textureParams[i].additive, gen.textureParams[i].pad, gen.textureParams[i].disableTrimming, false, false, currentTexture, 0, 0, currentTexture.width, currentTexture.height, ref lut, GetPadAmount(gen, i), gen.textureParams[i].trimWithAlphaPadding);
+					//~PWAH
 					if (dest == null)
 					{
 						// fall back to a tiny blank texture
@@ -994,11 +1016,14 @@ public class tk2dSpriteCollectionBuilder
 					SpriteLut lut = new SpriteLut();
 
 					int cy = (int)( (font.flipTextureY ? c.y : (fontInfo.scaleH - c.y - c.height)) * texScale );
+					//PWAH
 					Texture2D dest = ProcessTexture(gen, false, tk2dSpriteCollectionDefinition.Pad.BlackZeroAlpha, false, true, false,
 						(rescaledTexture != null) ? rescaledTexture : font.texture, 
 						(int)(c.x * texScale), cy, 
 						(int)(c.width * texScale), (int)(c.height * texScale), 
-						ref lut, GetPadAmount(gen, -1));
+						ref lut, GetPadAmount(gen, -1)
+						,false);
+					//~PWAH
 					if (dest == null)
 					{
 						// probably fully transparent

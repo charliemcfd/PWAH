@@ -139,6 +139,9 @@ namespace tk2dEditor.SpriteCollectionEditor
 			target.physicsDepth = source.physicsDepth;
 			target.physicsEngine = source.physicsEngine;
 			target.disableTrimming = source.disableTrimming;
+			//PWAH
+			target.trimWithAlphaPadding = source.trimWithAlphaPadding;
+			//~PWAH
 			target.normalGenerationMode = source.normalGenerationMode;
 			target.padAmount = source.padAmount;
 			target.autoUpdate = source.autoUpdate;
@@ -388,6 +391,9 @@ namespace tk2dEditor.SpriteCollectionEditor
 			target.physicsDepth = source.physicsDepth;
 			target.physicsEngine = source.physicsEngine;
 			target.disableTrimming = source.disableTrimming;
+			//PWAH
+			target.trimWithAlphaPadding = source.trimWithAlphaPadding;
+			//~PWAH
 			target.normalGenerationMode = source.normalGenerationMode;
 			target.padAmount = source.padAmount; 
 			target.autoUpdate = source.autoUpdate;
@@ -647,7 +653,10 @@ namespace tk2dEditor.SpriteCollectionEditor
 		public tk2dSpriteDefinition.PhysicsEngine physicsEngine;
 		public float physicsDepth;
 		public bool disableTrimming;
-		
+		//PWAH
+		public bool trimWithAlphaPadding;
+		//~PWAH
+
 		public bool forceTextureSize = false;
 		public int forcedTextureWidth = 1024;
 		public int forcedTextureHeight = 1024;

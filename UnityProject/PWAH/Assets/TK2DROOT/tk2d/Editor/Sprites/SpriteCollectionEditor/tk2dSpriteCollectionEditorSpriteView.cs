@@ -386,7 +386,16 @@ namespace tk2dEditor.SpriteCollectionEditor
 				param.disableTrimming = EditorGUILayout.Toggle("Disable Trimming", param.disableTrimming);
 				HandleMultiSelection(entries, (a,b) => a.disableTrimming == b.disableTrimming, (a,b) => b.disableTrimming = a.disableTrimming);
 			}
-			
+			//PWAH
+			//Alpha padded trimming
+			if(!SpriteCollection.trimWithAlphaPadding)
+			{
+				param.trimWithAlphaPadding = EditorGUILayout.Toggle("Trim With Alpha Padding", param.trimWithAlphaPadding);
+				HandleMultiSelection(entries, (a, b) => a.trimWithAlphaPadding == b.trimWithAlphaPadding, (a, b) => b.trimWithAlphaPadding = a.trimWithAlphaPadding);
+
+			}
+			//~PWAH
+
 			// Pad amount
 			param.pad = (tk2dSpriteCollectionDefinition.Pad)EditorGUILayout.EnumPopup("Pad method", param.pad);
 			HandleMultiSelection(entries, (a,b) => a.pad == b.pad, (a,b) => b.pad = a.pad);
