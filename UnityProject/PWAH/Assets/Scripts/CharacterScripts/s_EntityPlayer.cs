@@ -1391,6 +1391,19 @@ public class s_EntityPlayer : MonoBehaviour {
 		//Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity);
 		m_RigidBody2D.MoveRotation(m_RigidBody2D.rotation + _fAppliedRotation);// *Time.fixedDeltaTime);
 
+		if (_fAppliedRotation == 0)
+		{
+			float rotationDelta = m_RigidBody2D.rotation - m_PrevRot.z;
+			if (m_bGrounded && rotationDelta == 0.0f)
+			{
+				float absAngle = Mathf.Abs(m_RigidBody2D.rotation);
+				if (absAngle <= 2.0f)
+				{
+					m_RigidBody2D.rotation = 0.0f;
+				}
+			}
+		}
+
 		ResetRotation();
 	}
 	

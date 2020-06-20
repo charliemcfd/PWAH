@@ -672,6 +672,7 @@ GameObject:
   - component: {fileID: 11421266}
   - component: {fileID: 11403102}
   - component: {fileID: 5081062}
+  - component: {fileID: 4223810230988982348}
   m_Layer: 8
   m_Name: PlayerCharacter_5
   m_TagString: PlayerJetpack
@@ -826,6 +827,9 @@ MonoBehaviour:
   m_fBoostMaxCapacity: 100
   m_fBoostDrain: 0.5
   m_fBoostRefill: 15
+  m_thrustDrag: 6
+  m_noThrustDrag: 2
+  m_driftDrag: 0.6
   m_goMainCharacter: {fileID: 112250}
   m_PrefabFlames: {fileID: 100000, guid: a7c4d906bc17bdf43a214d7616c28949, type: 3}
   m_PrefabRagdoll: {fileID: 100000, guid: ca25bb387e145b44c89287542a92c972, type: 3}
@@ -836,7 +840,6 @@ MonoBehaviour:
   m_LeftTrigger: {fileID: 11410492}
   m_RightTrigger: {fileID: 11440454}
   m_HeadTrigger: {fileID: 11445312}
-  m_bIsReplay: 0
   m_replayZValue: 0
   m_bReplayReachedEnd: 0
 --- !u!50 &5081062
@@ -860,3 +863,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4223810230988982348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d805c396d86a14abe632a79f94ee48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
