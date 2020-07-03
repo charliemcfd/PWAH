@@ -21,7 +21,7 @@ public class s_EnemyPatrolTwoPoint : MonoBehaviour
 	
 
     void Start()
-    {		
+    {
 		if (m_startAtPointA)
 		{
 			//Set transform to be the location of point A
@@ -45,21 +45,25 @@ public class s_EnemyPatrolTwoPoint : MonoBehaviour
 
 	protected void CreateSequence()
 	{
+		//Get pointer to rigidbody
+		Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
+
 		//Create Tween parameters
 		TweenParams _TweenParams = new TweenParams();
 		_TweenParams.SetEase(Ease.Linear);
 		//_TweenParams.SetRelative(true);
 		Sequence _movementSequence = DOTween.Sequence();
-		_movementSequence.Append(transform.DOMove(transform.position + m_pointB,
-												m_AtoBTime)
-												.SetAs(_TweenParams));
-		_movementSequence.AppendInterval(m_pointAPauseTime).OnComplete(() => PlayAnimation());
-		_movementSequence.Append(transform.DOMove(transform.position + m_pointA,
+		_movementSequence.Append(rigidBody.DOMove(transform.position + m_pointB,
+										m_AtoBTime)
+										.SetAs(_TweenParams));
+		_movementSequence.AppendInterval(m_pointAPauseTime).OnComplete(PlayAnimation);
+		_movementSequence.Append(rigidBody.DOMove(transform.position + m_pointA,
 												m_BtoATime)
 												.SetAs(_TweenParams));
-		_movementSequence.AppendInterval(m_pointBPauseTime).OnComplete(() => PlayAnimation());
+		_movementSequence.AppendInterval(m_pointBPauseTime).OnComplete(PlayAnimation);
 
 		_movementSequence.SetLoops(-1);
+		//_movementSequence.SetUpdate(UpdateType.Fixed);
 		_movementSequence.Play();
 
 	}
@@ -68,4 +72,5 @@ public class s_EnemyPatrolTwoPoint : MonoBehaviour
 	{
 		Debug.Log("Test - Would play animation");
 	}
+
 }

@@ -78,10 +78,9 @@ public class s_EntityPlayer : MonoBehaviour {
 	public float m_fThrustForce; 
 
 	public float m_fBoostDuration;
-	public float m_fBoostCooldown;
 	public float m_fDeathForce;
-	public float m_fImpactTurn;
-	public float m_fDizzyKnockback;
+	public float m_fDamageKnockbackForce;
+	public float m_fHeadImpactKnockbackForce;
 	public float m_fMaxDizzytime;
 	public float m_fDizzyTurnValue;
 	public float m_fDamageKnockbackTime;
@@ -125,6 +124,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	private float m_fBoostQuantity;
 	private eBoostState m_eBoostState;
 	private eCharacterState m_eCharacterState;
+	private float m_velocityClampInterpolationSpeed; //1-100 scale, 100 = instant
 
 	private eJetpackState[] m_arrayEngineStatus;
 
@@ -232,8 +232,9 @@ public class s_EntityPlayer : MonoBehaviour {
         m_bHasThrustedSinceLastLanding = false;
         m_bShouldRecieveInput = false;
         m_EndLevelTweenSequence = null;
+		m_velocityClampInterpolationSpeed = 100.0f;
 
-        m_listFlames = new List<GameObject>();
+		m_listFlames = new List<GameObject>();
 		m_listAnimators = new List<tk2dSpriteAnimator>();
 		m_arrayEngineStatus = new eJetpackState[2]{eJetpackState.eJS_Normal, eJetpackState.eJS_Normal};
 
@@ -1101,10 +1102,8 @@ public class s_EntityPlayer : MonoBehaviour {
 	{
 		m_RagDoll = Instantiate(m_PrefabRagdoll, this.transform.position, Quaternion.identity) as GameObject;
 		m_RagDoll.transform.rotation = this.transform.rotation;
-		m_RagDoll.GetComponent<Rigidbody2D>().AddForce(transform.up * -m_fDeathForce);
-		m_RagDoll.GetComponent<Rigidbody2D>().AddTorque(20.0f);
-		//m_RagDoll.Rigidbody2D.AddExplosionForce(m_fDeathForce,this.transform.position,1.0f,3.0f);
-
+		m_RagDoll.GetComponent<Rigidbody2D>().AddForce(transform.up * -m_fDeathForce, ForceMode2D.Impulse);
+		m_RagDoll.GetComponent<Rigidbody2D>().AddTorque(0.2f, ForceMode2D.Impulse);
 
 		//SetFollowObject(m_RagDoll);
 		if (!m_bIsReplay)
@@ -1481,19 +1480,26 @@ public class s_EntityPlayer : MonoBehaviour {
         {
             _fAmmendedMaxSpeed = _fAmmendedMaxSpeed * m_fBoostSpeedBonus;
         }
-        
-        
+
+		InterpolateClampSpeed();
 
 		if(m_RigidBody2D.velocity.magnitude > m_fCurrentMaxSpeed )
 		{
 			if(m_RigidBody2D.isKinematic == false)
 			{
-				m_RigidBody2D.velocity = Vector3.ClampMagnitude(m_RigidBody2D.velocity, _fAmmendedMaxSpeed);
+ 				Vector3 clampedVelocityVector = Vector3.ClampMagnitude(m_RigidBody2D.velocity, _fAmmendedMaxSpeed);
+				Vector3 interpolatedVelocityVector = Vector3.Lerp(m_RigidBody2D.velocity, clampedVelocityVector, Time.fixedDeltaTime * m_velocityClampInterpolationSpeed);
+   				m_RigidBody2D.velocity = interpolatedVelocityVector;
 			}
 		}
 
     }
-
+	private void InterpolateClampSpeed()
+	{
+		//m_velocityClampInterpolationSpeed should always be trying to reach a value of 100. The value will be reset when collisions occur to allow for smoother collision response
+		m_velocityClampInterpolationSpeed = Mathf.Lerp(m_velocityClampInterpolationSpeed, 100.0f, Time.fixedDeltaTime);
+		Debug.Log("m_velocityClampInterpolationSpeed" + m_velocityClampInterpolationSpeed.ToString());
+	}
 	private void ApplyBoost()
 	{
 		m_RigidBody2D.AddForce(m_RigidBody2D.transform.up * m_fThrustForce);
@@ -1751,21 +1757,38 @@ public class s_EntityPlayer : MonoBehaviour {
 				m_arrayEngineStatus[(int)eJetpackID.eJID_Left] = eJetpackState.eJS_Broken;
 				m_eCharacterState = eCharacterState.eCS_Damaged;
 				
-				CreateSmallExplosion(m_LeftTrigger.transform.position);
-				m_RigidBody2D.AddForce(transform.right * m_fDizzyKnockback*10);
-				
+				CreateSmallExplosion(m_LeftTrigger.transform.position);			
 			}
 			if(_RightCollision)
 			{
 				m_arrayEngineStatus[(int)eJetpackID.eJID_Right] = eJetpackState.eJS_Broken;
 				m_eCharacterState = eCharacterState.eCS_Damaged;
 				
-				CreateSmallExplosion(m_RightTrigger.transform.position);
-				m_RigidBody2D.AddForce(transform.right * -m_fDizzyKnockback*10);
-				
+				CreateSmallExplosion(m_RightTrigger.transform.position);			
 			}
 
-            m_CollisionIFrames = 5;
+			//Force Application
+			//Add additional force for moving objects
+			s_DoTweenVelocityRecorder _velocityRecorder = other.gameObject.GetComponent<s_DoTweenVelocityRecorder>();
+			if(_velocityRecorder && _velocityRecorder.GetRecordedVelocity().sqrMagnitude !=0)
+			{
+				Vector2 _direction = m_RigidBody2D.position - other.attachedRigidbody.position;
+ 				_direction.Normalize();
+				Vector2 _applyforce = _direction * _velocityRecorder.GetRecordedVelocity().sqrMagnitude;
+				m_RigidBody2D.AddForce(_applyforce, ForceMode2D.Impulse);
+			}
+			else if(_LeftCollision)
+			{
+				m_RigidBody2D.AddForce(transform.right * m_fDamageKnockbackForce, ForceMode2D.Impulse);
+
+			}
+			else if(_RightCollision)
+			{
+				m_RigidBody2D.AddForce(transform.right * -m_fDamageKnockbackForce, ForceMode2D.Impulse);
+			}
+
+			m_velocityClampInterpolationSpeed = 5.0f;
+			m_CollisionIFrames = 20;
             m_DamageTriggeringCollider = other;
 
             //If both broken, go straight to broken
@@ -1778,6 +1801,8 @@ public class s_EntityPlayer : MonoBehaviour {
 			//Reset Triggers
 			m_LeftTrigger.SetTriggered(false);
 			m_RightTrigger.SetTriggered(false);
+
+
 			
 		}
 		
@@ -1900,7 +1925,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		//Clear current velocity, add force in opposite direction
 		m_RigidBody2D.velocity = Vector3.zero;
 
-		m_RigidBody2D.AddForce(m_RigidBody2D.transform.up * -m_fDeathForce);
+		m_RigidBody2D.AddForce(m_RigidBody2D.transform.up * -m_fHeadImpactKnockbackForce, ForceMode2D.Impulse);
 
         m_eCharacterState = eCharacterState.eCS_Dizzy;
         m_eBoostState = eBoostState.eBS_None;

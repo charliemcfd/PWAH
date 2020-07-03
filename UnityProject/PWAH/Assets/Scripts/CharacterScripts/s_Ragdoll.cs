@@ -8,6 +8,8 @@ public class s_Ragdoll : MonoBehaviour {
     private bool m_bFirstImpactOccurred;
 	public float m_fMaxSpeed;
     public float m_lowVelocityTimer;
+
+	protected Rigidbody2D m_rigidBody2D;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +17,10 @@ public class s_Ragdoll : MonoBehaviour {
         m_bFirstImpactOccurred = false;
 
         m_lowVelocityTimer = 0;
-    }
+
+		m_rigidBody2D = GetComponent<Rigidbody2D>();
+
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -88,11 +93,13 @@ public class s_Ragdoll : MonoBehaviour {
 
 	private void LimitVelocity()
 	{
-		if(GetComponent<Rigidbody2D>().velocity.magnitude > m_fMaxSpeed)
+		if(m_rigidBody2D.velocity.magnitude > m_fMaxSpeed)
 		{
-			if(GetComponent<Rigidbody2D>().isKinematic == false)
+			if(m_rigidBody2D.isKinematic == false)
 			{
-				GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody2D>().velocity, m_fMaxSpeed);
+				Vector3 clampedVelocityVector = Vector3.ClampMagnitude(m_rigidBody2D.velocity, m_fMaxSpeed);
+				Vector3 interpolatedVelocityVector = Vector3.Lerp(m_rigidBody2D.velocity, clampedVelocityVector, Time.fixedDeltaTime * 5.0f);
+				m_rigidBody2D.velocity = interpolatedVelocityVector;
 			}
 		}
 	}

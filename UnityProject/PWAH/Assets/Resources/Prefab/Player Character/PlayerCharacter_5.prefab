@@ -815,9 +815,10 @@ MonoBehaviour:
   m_fThrustForce: 40
   m_fBoostDuration: 0.4
   m_fBoostCooldown: 3
-  m_fDeathForce: 300
+  m_fDeathForce: 5
   m_fImpactTurn: 700
-  m_fDizzyKnockback: 120
+  m_fDamageKnockbackForce: 10
+  m_fHeadImpactKnockbackForce: 4
   m_fMaxDizzytime: 1.5
   m_fDizzyTurnValue: 0
   m_fDamageKnockbackTime: 0
