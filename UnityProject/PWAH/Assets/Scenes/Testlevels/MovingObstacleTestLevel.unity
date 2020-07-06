@@ -361,6 +361,36 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &206517101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206517102}
+  m_Layer: 0
+  m_Name: Prefabs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &206517102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206517101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 612743540}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &225407366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1457,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1888451458}
+  - {fileID: 1136812264}
+  - {fileID: 206517102}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2805,6 +2837,36 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1136812263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136812264}
+  m_Layer: 0
+  m_Name: Prefabs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1136812264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136812263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 612743540}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1183671290
 Mesh:
   m_ObjectHideFlags: 0
@@ -3276,7 +3338,7 @@ MonoBehaviour:
     numRows: 0
     divX: 0
     divY: 0
-  prefabsRoot: {fileID: 0}
+  prefabsRoot: {fileID: 206517101}
   tilePrefabsList: []
   _inEditMode: 1
   serializedMeshPath: 
@@ -3805,10 +3867,10 @@ GameObject:
   - component: {fileID: 1673280756}
   - component: {fileID: 1673280755}
   - component: {fileID: 1673280754}
-  - component: {fileID: 1673280753}
   - component: {fileID: 1673280758}
   - component: {fileID: 1673280759}
   - component: {fileID: 1673280760}
+  - component: {fileID: 1673280753}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -3942,7 +4004,7 @@ MonoBehaviour:
   m_pointB: {x: -4.145981, y: 0, z: 0}
   m_AtoBTime: 3
   m_BtoATime: 3
-  m_pointAPauseTime: 0
+  m_pointAPauseTime: 3
   m_pointBPauseTime: 0
   m_startAtPointA: 1
 --- !u!114 &1673280759
@@ -3965,7 +4027,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673280752}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3973,7 +4035,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 46bb3cc91eb84da46a0d5a9683bd05e6, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0

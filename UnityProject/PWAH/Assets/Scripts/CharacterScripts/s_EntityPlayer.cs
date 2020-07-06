@@ -1220,11 +1220,13 @@ public class s_EntityPlayer : MonoBehaviour {
 
             m_EndLevelVelocitySequence.Append(m_RigidBody2D.DOMove(m_vecPortalLocation, 0.5f).SetEase(Ease.InOutQuad));
             m_EndLevelVelocitySequence.Join(transform.DOScale(0, 0.4f).SetEase(Ease.InQuad).OnComplete(LevelEndComplete));
+			m_EndLevelVelocitySequence.SetUpdate(UpdateType.Fixed);
 
-        }
+
+		}
 
 
-    }
+	}
 
     private void LevelEndComplete()
     {
@@ -1248,7 +1250,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		
 		if(!m_bIsReplay)
 		{
-			s_GameplayRecorder.SP.AddAction(m_uFrameStamp, RecordActions.InstantiateSmallExplosion, _vecLocation);
+			s_GameplayRecorder.instance.AddAction(m_uFrameStamp, RecordActions.InstantiateSmallExplosion, _vecLocation);
 		}
 	}
 	
@@ -1998,7 +2000,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			if (m_uFrameStamp > 0)
 			{
-				s_GameplayRecorder.SP.AddAction(m_uFrameStamp, RecordActions.playerMovement, rigidbodyPos, rigidbodyRot, transform.localScale);
+				s_GameplayRecorder.instance.AddAction(m_uFrameStamp, RecordActions.PlayerMovement, rigidbodyPos, rigidbodyRot, transform.localScale.x, transform.localScale.y);
 			}
 		}
 
@@ -2049,7 +2051,7 @@ public class s_EntityPlayer : MonoBehaviour {
 
 				if(_bCanAddCommand)
 				{
-					s_GameplayRecorder.SP.AddAction(m_uFrameStamp, RecordActions.AnimationChange, _ThisCommand);
+					s_GameplayRecorder.instance.AddAction(m_uFrameStamp, RecordActions.AnimationChange, _ThisCommand);
 				}
 
 			}
@@ -2058,7 +2060,7 @@ public class s_EntityPlayer : MonoBehaviour {
 				//If the previous commands do not contain a command for this animator, then we can just add it.
 				sAnimationCommand _ThisCommand = _Entry.Value;
 
-				s_GameplayRecorder.SP.AddAction(m_uFrameStamp, RecordActions.AnimationChange, _ThisCommand);
+				s_GameplayRecorder.instance.AddAction(m_uFrameStamp, RecordActions.AnimationChange, _ThisCommand);
 
 				//Record the new command as the last command
 				m_dAnimationCommandsPrevious.Add(_ThisCommand.m_pAnimator, _ThisCommand);
@@ -2091,7 +2093,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			int _iEnumState = (int)m_eCharacterState;
 
-			s_GameplayRecorder.SP.AddAction(m_uFrameStamp, RecordActions.PlayerStateChange, _iEnumState);
+			s_GameplayRecorder.instance.AddAction(m_uFrameStamp, RecordActions.PlayerStateChange, _iEnumState);
 		}
 
 		m_ePrevCharacterState = m_eCharacterState;
@@ -2102,7 +2104,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	{
 		if(m_bVisible != m_bPrevVisible)
 		{
-			s_GameplayRecorder.SP.AddAction(m_uFrameStamp, RecordActions.PlayerVisibilityChange, m_bVisible);
+			s_GameplayRecorder.instance.AddAction(m_uFrameStamp, RecordActions.PlayerVisibilityChange, m_bVisible);
 		}
 
 		m_bPrevVisible = m_bVisible;
@@ -2185,7 +2187,7 @@ public class s_EntityPlayer : MonoBehaviour {
     {
 		switch (_event.recordedAction)
         {
-            case RecordActions.playerMovement:
+            case RecordActions.PlayerMovement:
                 {
 					 ReplayMovement(_event);
 

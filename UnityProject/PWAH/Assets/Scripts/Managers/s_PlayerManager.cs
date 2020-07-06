@@ -6,33 +6,17 @@ public class s_PlayerManager : MonoBehaviour {
 	
 	public GameObject  m_PrefabPlayer1;
 	
-	private List<GameObject> m_ListPlayers;
+	//private List<GameObject> m_ListPlayers;
 	private List<s_EntityPlayer> m_ListPlayerScripts;
 	
 	
 	// Use this for initialization
 	void Start () {
-
-        Debug.Log("Created player manager");
 		//Register with GSP
 		GameSystemPointers._instance.m_PlayerManager = this;
         DontDestroyOnLoad(this);
-
 		
-		m_ListPlayers = new List<GameObject>();
 		m_ListPlayerScripts = new List<s_EntityPlayer>();
-
-        /*
-m_ListPlayers.Add(      (GameObject)Instantiate(m_PrefabPlayer1, new Vector3(-999,-999,0) , Quaternion.identity)    );
-
-for(int i = 0; i < m_ListPlayers.Count; i++)
-{
-    //Grab scripts from  player gameobjects. These will be called a lot, so grab them once
-
-    s_EntityPlayer _ScriptPlayer = (s_EntityPlayer)m_ListPlayers[i].GetComponent(typeof(s_EntityPlayer));
-    //_ScriptPlayer.SetGravityManager((s_GravityManager)gameObject.GetComponent(typeof(s_GravityManager)));
-    m_ListPlayerScripts.Add(_ScriptPlayer);
-}*/
 
         //=====Events
         s_EventManager.SceneLoadedEvent.AddListener(HandleEvent_SceneLoadedEvent);
@@ -65,9 +49,9 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 	
 	public GameObject GetPlayer( int _iIndex)
 	{
-        if (m_ListPlayers.Count > _iIndex)
+        if (m_ListPlayerScripts.Count > _iIndex)
         {
-            return m_ListPlayers[_iIndex];
+            return m_ListPlayerScripts[_iIndex].gameObject;
         }
 
         return null;
@@ -75,7 +59,7 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 
     public GameObject GetLastCreatedPlayer()
     {
-        return m_ListPlayers.Count > 0 ? m_ListPlayers[m_ListPlayers.Count - 1] : null;
+        return m_ListPlayerScripts.Count > 0 ? m_ListPlayerScripts[m_ListPlayerScripts.Count - 1].gameObject : null;
     }
 
 	public s_EntityPlayer GetPlayerScript( int _iIndex)
@@ -89,12 +73,12 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 
 	private void ProcessResetPlayer()
 	{
-		for(int i = 0; i < m_ListPlayers.Count; i++)
+		for(int i = 0; i < m_ListPlayerScripts.Count; i++)
 		{
 			//Grab scripts from  player gameobjects. These will be called a lot, so grab them once
-			s_EntityPlayer _ScriptPlayer = (s_EntityPlayer)m_ListPlayers[i].GetComponent(typeof(s_EntityPlayer));
+			s_EntityPlayer _ScriptPlayer = m_ListPlayerScripts[i];
 
-			if(!_ScriptPlayer.GetIsReplay() && _ScriptPlayer.GetShouldReset())
+			if(_ScriptPlayer && !_ScriptPlayer.GetIsReplay() && _ScriptPlayer.GetShouldReset())
 			{
                 //If the player has signalled that we should reset, reset the level.
                 s_BaseLevelScript _LevelScript = GameSystemPointers.instance.m_LevelScript;
@@ -102,27 +86,10 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
                 {
                     if(_LevelScript.GetLevelState() == s_BaseLevelScript.eLevelState.eLS_Playing)
                     {
-                        Debug.Log("Resetting: Player "+ i.ToString());
                         _LevelScript.ResetLevel();
                     }
-                    else if(_LevelScript.GetLevelState() == s_BaseLevelScript.eLevelState.eLS_WaitingForStart)
-                    {
-                        /*
-                        s_GameplayRecorder.SP.StopRecording();
-                        Destroy(m_ListPlayers[i]);
-                        m_ListPlayers.RemoveAt(i);
-                        m_ListPlayerScripts.Remove(_ScriptPlayer);
-                        Destroy(_ScriptPlayer);
+				}
 
-                        //CreatePlayer(false);
-
-                        //_LevelScript.SetLevelState(s_BaseLevelScript.eLevelState.eLS_Playing);
-                        */
-                    }
-                }
-                else
-                {
-                }
 			}
 
 		}
@@ -130,62 +97,52 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 
     public void RemovePlayer()
     {
-        Debug.Log("Calling Remove Player");
-        for (int i = 0; i < m_ListPlayers.Count;)
-        {
-            s_EntityPlayer _ScriptPlayer = (s_EntityPlayer)m_ListPlayers[i].GetComponent(typeof(s_EntityPlayer));
+		for (int i = m_ListPlayerScripts.Count - 1; i >= 0; i--)
+		{
+			s_EntityPlayer _ScriptPlayer = m_ListPlayerScripts[i];
 
-            if (_ScriptPlayer.GetShouldReset())
-            {
-                s_GameplayRecorder.SP.StopRecording();
-                Destroy(m_ListPlayers[i]);
-                m_ListPlayers.RemoveAt(i);
-                m_ListPlayerScripts.Remove(_ScriptPlayer);
-                Destroy(_ScriptPlayer);
-            }
-            else
-            {
-                i++;
-            }
-        }
-    }
+			if (_ScriptPlayer && _ScriptPlayer.GetShouldReset())
+			{
+				s_GameplayRecorder.instance.StopRecording();
+				Destroy(_ScriptPlayer.gameObject);
+				m_ListPlayerScripts.Remove(_ScriptPlayer);
+				Destroy(_ScriptPlayer);
+			}
+		}
+	}
 
 	public void CreatePlayer(int _iNumPlayers = 1, bool _bReplayPlayer = false)
 	{
         for(int i = 0; i < _iNumPlayers; i++)
         {
             Vector3 _PlayerSpawnPosition = _bReplayPlayer ? GameSystemPointers._instance.m_LevelScript.GetPlayerSpawnPosition() + new Vector3(0, 0, -0.05f * i) : GameSystemPointers._instance.m_LevelScript.GetPlayerSpawnPosition();
-            GameObject _newPlayer = (GameObject)Instantiate(m_PrefabPlayer1, _PlayerSpawnPosition, Quaternion.identity);//(0.1f,13.4f,0)
-            m_ListPlayers.Add(_newPlayer);
-        }
-
-        //Re-add scripts to list
-        //m_ListPlayerScripts.Clear();
-
-		for(int i = 0; i < m_ListPlayers.Count; i++)
-		{
-			//Grab scripts from  player gameobjects. These will be called a lot, so grab them once
-			
-			s_EntityPlayer _ScriptPlayer = (s_EntityPlayer)m_ListPlayers[i].GetComponent(typeof(s_EntityPlayer));
-			//_ScriptPlayer.SetGravityManager((s_GravityManager)gameObject.GetComponent(typeof(s_GravityManager)));
-			m_ListPlayerScripts.Add(_ScriptPlayer);
-
-			if(_bReplayPlayer)
+            GameObject _newPlayer = (GameObject)Instantiate(m_PrefabPlayer1, _PlayerSpawnPosition, Quaternion.identity);
+			s_EntityPlayer _ScriptPlayer = _newPlayer.GetComponent<s_EntityPlayer>();
+			if(_ScriptPlayer)
 			{
-				_ScriptPlayer.SetIsReplay(true);
-				_ScriptPlayer.replayData = s_GameplayRecorder.SP.GetEventsList(i);
-                _ScriptPlayer.m_replayZValue = -0.05f * i;
+				m_ListPlayerScripts.Add(_ScriptPlayer);
 
-                //TODO:: Error handling for getting back null replay data. I think just delete that instance of the player.
-            }
-			else if (i == m_ListPlayers.Count-1)
-			{
-                //If this is the last player in the list (most recently added) and it is not a replay, we should record it.
-				_ScriptPlayer.SetIsReplay(false);
-                s_GameplayRecorder.SP.ClearPreviousRecording();
-                s_GameplayRecorder.SP.StartRecording();
-            
+				if (_bReplayPlayer)
+				{
+					_ScriptPlayer.SetIsReplay(true);
+					_ScriptPlayer.replayData = s_GameplayRecorder.instance.GetEventsList(i);
+					_ScriptPlayer.m_replayZValue = -0.05f * i;
+
+					//TODO:: Error handling for getting back null replay data. I think just delete that instance of the player.
+				}
+				else if (i == _iNumPlayers - 1)
+				{
+					//If this is the last player in the list (most recently added) and it is not a replay, we should record it.
+					_ScriptPlayer.SetIsReplay(false);
+					s_GameplayRecorder.instance.ClearPreviousRecording();					s_GameplayRecorder.instance.StartRecording();
+
+				}
 			}
+			else
+			{
+				Debug.LogError("s_PlayerManager::CreatePlayer - Created a player but was unable to get the s_EntityPlayer Script. Deleting newly created gameobject");
+				Destroy(_newPlayer);
+			}			
 		}
 
 		s_EventManager.CameraSetTargetObjectEvent.Invoke(GetLastCreatedPlayer());
@@ -193,23 +150,17 @@ for(int i = 0; i < m_ListPlayers.Count; i++)
 
     public int GetNumPlayers()
     {
-        return m_ListPlayers.Count;
+        return m_ListPlayerScripts.Count;
     }
 
     public void HandleEvent_SceneLoadedEvent()
     {
-        //=====Destroy All Players
-        for (int i = 0; i < m_ListPlayers.Count; i++)
-        {
-            s_EntityPlayer _ScriptPlayer = (s_EntityPlayer)m_ListPlayers[i].GetComponent(typeof(s_EntityPlayer));
-
-            Destroy(m_ListPlayers[i]);
-            m_ListPlayers.RemoveAt(i);
-            m_ListPlayerScripts.Remove(_ScriptPlayer);
-            Destroy(_ScriptPlayer);
-        }
-
-        m_ListPlayers.Clear();
-        m_ListPlayerScripts.Clear();
+		//=====Destroy all Player scripts and Gameobjects
+		for (int i = 0; i < m_ListPlayerScripts.Count; i++)
+		{
+			Destroy(m_ListPlayerScripts[i].gameObject);
+			Destroy(m_ListPlayerScripts[i]);
+		}
+		m_ListPlayerScripts.Clear();
     }
 }

@@ -463,7 +463,7 @@ public class s_InputManager : MonoBehaviour {
 
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_XBOXONE
 
-                        //Hacky skip for shitey Xbox axis 3 and 6 (triggers -1 to +1)
+                        //Hacky skip for Xbox axis 3 and 6 (triggers -1 to +1)
                         if (i == 3 || i == 6)
                         {
                             bool _bXbox = false;
@@ -528,7 +528,7 @@ public class s_InputManager : MonoBehaviour {
                 }
         }
 
-        /*
+		/*
         Debug.Log("==================================");
         Debug.Log("Axis 1 Value: " + Input.GetAxis("Axis_1").ToString());
         Debug.Log("Axis 2 Value: " + Input.GetAxis("Axis_2").ToString());
@@ -541,19 +541,17 @@ public class s_InputManager : MonoBehaviour {
         Debug.Log("Axis 10 Value: " + Input.GetAxis("Axis_10").ToString());
 
         */
-        /*
+		/*
         if (Input.GetKeyDown(KeyCode.R))
 		{
-			s_GameplayRecorder.SP.StartRecording();
+			s_GameplayRecorder.instance.StartRecording();
 		}*/
-    }
+	}
 
-    private void PassInput()
+	private void PassInput()
 	{
 		/*TODO At some point, this should get some info from a game manager which would tell us
 		 * whether the menu input or game input should be used. For now, It'll go to PlayerManager directly.
-		 * 
-		 * Also, if we're going to, this would be where we record input.
 		*/
 
 		m_PlayerManager.RecieveInput(m_arrayFrameInput_Game);

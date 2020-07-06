@@ -12,7 +12,7 @@ public enum RecordStatus
 }
 public enum RecordActions 
 { 
-	playerMovement, 
+	PlayerMovement, 
 	TerrainCollision,
 	AnimationChange,
 	PlayerStateChange,
@@ -22,63 +22,87 @@ public enum RecordActions
 
 public class s_GameplayRecorder : MonoBehaviour {
     
-	public static s_GameplayRecorder SP;
+	public static s_GameplayRecorder instance;
 	private RecordStatus recordStatus;
-	private float startedRecording =0;
 	private List<RecordedEvent> replayData = new List<RecordedEvent>();
     private List<List<RecordedEvent>> storedReplays = new List<List<RecordedEvent>>();
-	private float pausedAt = 0;
+
+	private bool m_logDebugInfo;
 	void Awake(){
-		SP =this;
-        //REgister with GSP
-		//StartRecording();
+		instance = this;
 	}
 
     void Start()
     {
-        GameSystemPointers.instance.m_GameplayRecorder = this;
-    }
+		m_logDebugInfo = false;
+#if DEBUG_ENABLED
+		m_logDebugInfo = true;
+#endif
 
-    public float RecordTime()
-	{
-		if (recordStatus != RecordStatus.recording)
-			Debug.LogError("Cant get time!");
-		return Time.realtimeSinceStartup - startedRecording;
 	}
+
 	public void PauseRecording()
 	{
-		if (recordStatus != RecordStatus.recording)
+		if (m_logDebugInfo && recordStatus != RecordStatus.recording)
+		{
 			Debug.LogError("Cant pause! " + recordStatus);
-		pausedAt = RecordTime();
+		}
 		recordStatus = RecordStatus.paused;
 	}
-	public void StartRecording(float startTime){
+	public void StartRecording(UInt64 startTime){
 		//Delete all actions after STARTTIME. Continue Recording from this point
-		if (replayData.Count >= 0)
+
+		//If there are entries
+		if (replayData.Count > 0)
 		{
+			//Iterate backwards over the list
+			//Doing so means that any index shift due to "Remove()" will happen on elements that have already been checked, so no accidental skipping of elements
 			for (int i = replayData.Count - 1; i >= 0; i--)
 			{
-				RecordedEvent action = replayData[i];
-				if (action.time >= startTime)
-					replayData.Remove(action);
+				//If the recorded time on the action is greater than our desired start time, remove it
+				if (replayData[i].time >= startTime)
+				{
+					replayData.Remove(replayData[i]);
+				}
 			}
 		}
-		pausedAt = startTime;
 		StartRecording();
 	}
 	public void StartRecording()
 	{
-        Debug.Log("Starting new recording");
-		if(recordStatus == RecordStatus.paused){
-            Debug.Log("Not making new object");
 
-            startedRecording = Time.realtimeSinceStartup - pausedAt;
-		}else{
-            Debug.Log("making new object");
-
-            startedRecording = Time.realtimeSinceStartup;
-			replayData = new List<RecordedEvent>();
+		if (m_logDebugInfo)
+		{
+			Debug.Log("Starting new recording");
 		}
+
+		//If we are resuming from a paused recording
+		switch(recordStatus)
+		{
+			case RecordStatus.paused:
+				{
+					if (m_logDebugInfo)
+					{
+						Debug.Log("Record state is Paused - Not making new object");
+					}
+					break;
+				}
+				//Intended fallthrough
+			case RecordStatus.stopped:
+			case RecordStatus.recording:
+				{
+					if (m_logDebugInfo)
+					{
+						Debug.Log("Record state is Not Paused - Making new object");
+						replayData = new List<RecordedEvent>();
+
+					}
+					break;
+				}
+			default:
+				break;
+		}
+
 		recordStatus = RecordStatus.recording;
 	}
 	public bool IsRecording(){
@@ -87,72 +111,68 @@ public class s_GameplayRecorder : MonoBehaviour {
 	public bool IsPaused(){
 		return recordStatus == RecordStatus.paused;
 	}
-	//Hereby multiple defenitions so that you can add as much data as you want.
+
+	//Add Animation Command Action
 	public void AddAction(UInt64 uTimeStamp, RecordActions action, sAnimationCommand animationcommand)
 	{
 		if (!IsRecording())
 		{
-			//Debug.LogError("Record didn't start!");
 			return;
 		}
-		RecordedEvent newAction = new RecordedEvent();
 
+		RecordedEvent newAction = new RecordedEvent();
 		newAction.recordedAction = action;
 		newAction.time = uTimeStamp;
 		newAction.animationcommand = animationcommand;
-
-		newAction.position = Vector3.zero;
-		newAction.rotation = Vector3.zero;
 		replayData.Add(newAction);
-
 
 	}
 
+	//Add enum state change action
 	public void AddAction(UInt64 uTimeStamp, RecordActions action, int enumState)
 	{
 		if (!IsRecording())
 		{
-			//Debug.LogError("Record didn't start!");
 			return;
 		}
 
 		RecordedEvent newAction = new RecordedEvent();
 		newAction.recordedAction = action;
-		newAction.position = Vector3.zero;
-		newAction.rotation = Vector3.zero;
 		newAction.time = uTimeStamp;
 		newAction.enumState = enumState;
 		replayData.Add(newAction);
 	}
 
+	//Add Visibility change action
 	public void AddAction(UInt64 uTimeStamp, RecordActions action, bool _bVisible)
 	{
+		if (!IsRecording())
+		{
+			return;
+		}
 		RecordedEvent newAction = new RecordedEvent();
 		newAction.recordedAction = action;
-		newAction.position = Vector3.zero;
-		newAction.rotation = Vector3.zero;
 		newAction.time = uTimeStamp;
 		newAction.visible = _bVisible;
 		replayData.Add(newAction);
 	}
-	public void AddAction(UInt64 uTimeStamp, RecordActions action)
-	{
-		AddAction(uTimeStamp, action, Vector3.zero);
-	}
-	public void AddAction(UInt64 uTimeStamp, RecordActions action, Vector3 position)
-	{
-		AddAction(uTimeStamp, action, position, Vector3.zero, 0.0f, 0.0f);
-	}
-    public void AddAction(UInt64 uTimeStamp, RecordActions action, Vector3 position, Vector3 rotation, Vector3 scale)
-    {
-        AddAction(uTimeStamp, action, position, rotation, scale.x, scale.y);
-    }
 
-    public void AddAction(UInt64 uTimeStamp, RecordActions action, Vector3 position, Vector3 rotation, float scaleX, float scaleY)
+	//Add Generic Action
+	public void AddAction(UInt64 uTimeStamp, RecordActions action)
 	{
 		if (!IsRecording())
 		{
-			//Debug.LogError("Record didn't start!");
+			return;
+		}
+		AddAction(uTimeStamp, action, Vector3.zero);
+	}
+	
+	//Add Generic action with positional, rotational and scale data.
+	//Note: This is typically used for transform updates
+	public void AddAction(UInt64 uTimeStamp, RecordActions action, Vector3 position = default(Vector3), Vector3 rotation = default(Vector3), float scaleX = 1.0f, float scaleY = 1.0f)
+	{
+		if (!IsRecording())
+		{
 			return;
 		}
 
@@ -167,59 +187,30 @@ public class s_GameplayRecorder : MonoBehaviour {
 	}
 	public void StopRecording()
 	{
-		if(recordStatus != RecordStatus.recording)
-			Debug.LogError("Cant STOP!");
-		stoppedAtLength = RecordTime();
+		if (recordStatus != RecordStatus.recording)
+		{
+			Debug.LogError("s_GameplayRecorder::StopRecording - Atempting to stop recording on a recording that is not currently in the recording state!");
+		}
 		recordStatus = RecordStatus.stopped;
 
+		//Create a new list of replay data and populate it with the data we collected from this recording
+		List<RecordedEvent> _ThisRecording = new List<RecordedEvent>(replayData);
 
-    List<RecordedEvent> _ThisRecording = new List<RecordedEvent>(replayData);
-
-
-    storedReplays.Add(_ThisRecording);
+		//Store the replay data
+		storedReplays.Add(_ThisRecording);
 	}
-    public void ClearPreviousRecording()
-    {
-        replayData.Clear();
-    }
-
-    public int GetNumReplays()
-    {
-        return storedReplays.Count;
-    }
-
-
-
-	private float stoppedAtLength = 0;
-	public float LastRecordLength()
+	public void ClearPreviousRecording()
 	{
-		if (recordStatus == RecordStatus.paused) return pausedAt;
-		if (recordStatus != RecordStatus.stopped) return RecordTime();
-		return stoppedAtLength;
+		replayData.Clear();
 	}
-	public string RecordedDataToReadableString(){
-		/*
-		string output ="Replay data:\n";
-		foreach(RecordedEvent action in replayData){
-			output+= action.time+": "+action.recordedAction+"\n";
-		}
-		return output;*/
 
-		return "";
-	}
-	public string RecordedDataToString()
+	public int GetNumReplays()
 	{
-		/*
-		string output = "";
-		foreach (RecordedEvent action in replayData)
-		{
-			output += action.time + "#" + (int)action.recordedAction + "#" + Utils.Vector3ToString(action.position) + "#" +
-				Utils.Vector3ToString(action.rotation) + "\n";
-		}
-		return output;*/
-
-		return "";
+		return storedReplays.Count;
 	}
+
+
+	//Returns a replay for a given index in the form of a list
 	public List<RecordedEvent> GetEventsList(int _iIndex){
 
         if (_iIndex < storedReplays.Count)
@@ -232,16 +223,7 @@ public class s_GameplayRecorder : MonoBehaviour {
             return null;
         }
 	}
-	/* //Add the right URL to your upload script
-public IEnumerator UploadData()
-{
-WWWForm wwwForm = new WWWForm();
-wwwForm.AddField("replayData", RecordedDataToString());
-WWW www = new WWW("http://www.YOURSITE.com/uploadData.php", wwwForm);
-yield return www;
-Debug.Log("Uploaded replay data!");
-}
-*/
+
 }
 public class RecordedEvent {
 	public RecordActions recordedAction;
@@ -266,7 +248,7 @@ public class RecordedEvent {
     {
         position = Vector3.zero;
         rotation = Vector3.zero;
-        scaleX = 0;
-        scaleY = 0;
+        scaleX = 1;
+        scaleY = 1;
     }
 }

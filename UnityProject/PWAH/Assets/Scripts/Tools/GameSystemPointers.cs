@@ -5,7 +5,6 @@ public class GameSystemPointers : MonoBehaviour {
 
 	public static GameSystemPointers _instance;
 	
-	public s_GameplayRecorder	 	m_GameplayRecorder;
 	public s_CameraLimiter 			m_CameraLimiter;
 	public s_InputManager 			m_InputManager;
 	public s_PlayerManager			m_PlayerManager;

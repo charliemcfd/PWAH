@@ -202,7 +202,7 @@ public class s_BaseLevelScript : MonoBehaviour {
 
     private void CreateReplayPlayers()
     {
-        int _iNumReplays = GameSystemPointers.instance.m_GameplayRecorder.GetNumReplays();
+        int _iNumReplays = s_GameplayRecorder.instance.GetNumReplays();
         GameSystemPointers.instance.m_PlayerManager.CreatePlayer(_iNumReplays, true);
     }
 

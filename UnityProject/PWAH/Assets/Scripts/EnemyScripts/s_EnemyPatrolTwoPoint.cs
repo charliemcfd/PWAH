@@ -63,7 +63,7 @@ public class s_EnemyPatrolTwoPoint : MonoBehaviour
 		_movementSequence.AppendInterval(m_pointBPauseTime).OnComplete(PlayAnimation);
 
 		_movementSequence.SetLoops(-1);
-		//_movementSequence.SetUpdate(UpdateType.Fixed);
+		_movementSequence.SetUpdate(UpdateType.Fixed);
 		_movementSequence.Play();
 
 	}
