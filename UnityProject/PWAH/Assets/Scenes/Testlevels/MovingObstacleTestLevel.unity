@@ -945,6 +945,11 @@ PrefabInstance:
       propertyPath: forceResolution.y
       value: 1080
       objectReference: {fileID: 0}
+    - target: {fileID: 2797773496186413470, guid: 8a1c469b2d2d7bc4482f3dcd31879956,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 5889
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a1c469b2d2d7bc4482f3dcd31879956, type: 3}
 --- !u!43 &465634000
@@ -4169,6 +4174,18 @@ PrefabInstance:
       propertyPath: lastSrcPosition.y
       value: 11.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11447244, guid: 4032193ef3ba0d044881adb5279ca22d, type: 3}
+      propertyPath: path.wpLengths.Array.data[1]
+      value: 0.01470226
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447244, guid: 4032193ef3ba0d044881adb5279ca22d, type: 3}
+      propertyPath: path.wpLengths.Array.data[2]
+      value: 0.01470226
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447244, guid: 4032193ef3ba0d044881adb5279ca22d, type: 3}
+      propertyPath: path.length
+      value: 0.02940452
+      objectReference: {fileID: 0}
     - target: {fileID: 425530, guid: 4032193ef3ba0d044881adb5279ca22d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.42
@@ -4229,7 +4246,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6553220, guid: 4032193ef3ba0d044881adb5279ca22d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540654, guid: 4032193ef3ba0d044881adb5279ca22d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6540654, guid: 4032193ef3ba0d044881adb5279ca22d, type: 3}
+    - {fileID: 6553220, guid: 4032193ef3ba0d044881adb5279ca22d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4032193ef3ba0d044881adb5279ca22d, type: 3}
 --- !u!1 &1753627032 stripped
 GameObject:

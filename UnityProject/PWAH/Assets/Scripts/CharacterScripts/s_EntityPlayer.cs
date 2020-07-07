@@ -119,12 +119,17 @@ public class s_EntityPlayer : MonoBehaviour {
 	private float m_fGravityValue;
 	private float m_fBoostTimer;
 	private bool m_bBoostHeld;
-	private bool m_bCollisionThisFrame;
     private bool m_bHasThrustedSinceLastLanding;
 	private float m_fBoostQuantity;
 	private eBoostState m_eBoostState;
 	private eCharacterState m_eCharacterState;
 	private float m_velocityClampInterpolationSpeed; //1-100 scale, 100 = instant
+
+	//Collision
+	/*This property is passed used in conjunction with child colliders and their gameobjects. 
+	It is used when we wish to ignore a collision/trigger response in the children, but not in the main
+	player collider.*/
+	LayerMask m_CollisionLayersToIgnore; 
 
 	private eJetpackState[] m_arrayEngineStatus;
 
@@ -212,7 +217,6 @@ public class s_EntityPlayer : MonoBehaviour {
         m_PrevPos = Vector3.zero;
         m_PrevRot = Vector3.zero;
         m_PrevScale = new Vector3(1, 1, 1);
-		m_bCollisionThisFrame = false;
 		m_bVisible = true;
 		m_bActive = true;
 		m_bCreateRagDoll = false;
@@ -244,6 +248,8 @@ public class s_EntityPlayer : MonoBehaviour {
         m_DamageTriggeringCollider = null;
         m_CollisionIFrames = 0;
         m_PlayerStuck = false;
+
+		m_CollisionLayersToIgnore = LayerMask.GetMask("EndLevelPortal");
 
 		m_RigidBody2D = GetComponent<Rigidbody2D>();
 		if(m_bIsReplay && m_RigidBody2D)
@@ -1716,11 +1722,6 @@ public class s_EntityPlayer : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D collision)
-	{
-		m_bCollisionThisFrame = true;
-	}
-
 	private void ProcessCollisions(Collider2D other)
 	{
         bool _LeftCollision = m_LeftTrigger.GetTriggered();
@@ -1742,7 +1743,6 @@ public class s_EntityPlayer : MonoBehaviour {
                 if (!stillTouchingDamageTriggeringCollider && m_CollisionIFrames <= 0)
                 {
                     ApplyDeath();
-                    m_bCollisionThisFrame = false;
                     return;
                 }
                 else
@@ -1803,13 +1803,8 @@ public class s_EntityPlayer : MonoBehaviour {
 			//Reset Triggers
 			m_LeftTrigger.SetTriggered(false);
 			m_RightTrigger.SetTriggered(false);
-
-
-			
-		}
 		
-		m_bCollisionThisFrame = false;
-		
+		}				
 	}
 
 	private void ProcessFeetCollision()
@@ -1944,26 +1939,24 @@ public class s_EntityPlayer : MonoBehaviour {
 
     }
 
-    public bool GetShouldIgnore(string _sOtherTag)
+    public bool GetShouldIgnore(Collider2D collider)
     {
-        /*
-        This function returns what should be ignored when an "OnTrigger" function is fired.
+		/*
+        This function returns what should be ignored when an "OnTrigger" function is fired. It is called by the scripts responsible for the player's child colliders.
+        To elaborate, we want to detect the trigger enter and take response within s_EntityPlayer, but we do not want to take response within the child script.
 
-        To elaborate, we want to detect the trigger enter, but we just don't want to do anything in the player script.
-
-        TODO::Find a nicer, neater way of doing this.
+		TODO:: Add the children colliders to different layers so that this can be handled by the collision matrix instead.
         */
 
-        if (_sOtherTag == "PlayerBody"
-           || _sOtherTag == "PlayerJetpack"
-           || _sOtherTag == "PlayerFeet"
-           || _sOtherTag == "EndPortal"
-           || _sOtherTag == "PlayerHead")
-        {
-            return true;
-        }
+		if (collider)
+		{
+			if ((m_CollisionLayersToIgnore.value & (1 << collider.gameObject.layer)) == 0)
+			{
+				return false;
+			}
 
-        return false;
+		}
+		return true;
     }
 
 	#endregion

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 11447244}
   - component: {fileID: 5832184}
   - component: {fileID: 375034863}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EndOfLevelPortal
   m_TagString: EndPortal
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 2304410}
   - component: {fileID: 11478978}
   - component: {fileID: 11432990}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sp_PortalSwirl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 11422450}
   - component: {fileID: 6553220}
   - component: {fileID: 11417490}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sp_PortalCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 11435722}
   - component: {fileID: 6540654}
   - component: {fileID: 11450392}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sp_PortalShrink
   m_TagString: Untagged
   m_Icon: {fileID: 0}

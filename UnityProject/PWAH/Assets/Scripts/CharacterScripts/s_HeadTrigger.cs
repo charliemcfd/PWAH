@@ -19,15 +19,17 @@ public class s_HeadTrigger : MonoBehaviour {
 
         m_itemsInTrigger = 0;
 
-        if (!m_PlayerScript)
-            Debug.Log("HEADTRIGGER Couldnt get player script");
+		if (!m_PlayerScript)
+		{
+			Debug.LogError("s_HeadTrigger::Start - Could not get player script");
+		}
 
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (! m_bTriggered)
+        if (!m_bTriggered)
 		{
 			//This will take note of the velocity of the Rigidbody2D, unless a collision has occurred. This should allow us to get the velocity before a collision occurred.
 			m_fCollisionVelocity = transform.parent.GetComponent<Rigidbody2D>().velocity.magnitude;
@@ -54,7 +56,7 @@ public class s_HeadTrigger : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
 	{
         //Ignore triggers from parent
-        if ( m_PlayerScript.GetShouldIgnore(other.tag))
+        if ( m_PlayerScript.GetShouldIgnore(other))
 		{
 			return;
 		}
@@ -64,9 +66,13 @@ public class s_HeadTrigger : MonoBehaviour {
 	}
 
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        m_itemsInTrigger--;
+		if (m_PlayerScript.GetShouldIgnore(other))
+		{
+			return;
+		}
+		m_itemsInTrigger--;
     }
 
     public int GetNumItemsInTrigger()

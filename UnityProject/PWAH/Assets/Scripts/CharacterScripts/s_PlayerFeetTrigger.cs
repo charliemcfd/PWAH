@@ -14,26 +14,19 @@ public class s_PlayerFeetTrigger : MonoBehaviour {
 
         m_PlayerScript = GetComponentInParent<s_EntityPlayer>();
 
-        if (!m_PlayerScript)
-            Debug.Log("FEETTRIGGER Couldnt get player script");
-    }
-
-	void FixedUpdate()
-	{
-
-		//m_bFeetTriggerStay = false;
-		//m_bFeetTriggered = false;
+		if (!m_PlayerScript)
+		{
+			Debug.LogError("s_PlayerFeetTrigger::Start - Could not get player script");
+		}
 	}
-	
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
         //Ignore triggers from parent
-        if (m_PlayerScript.GetShouldIgnore(other.tag))
+        if (m_PlayerScript.GetShouldIgnore(other))
         {
             return;
 		}
-        //Debug.Log("Collision Trigger");
 
         m_bFeetTriggered = true;
 
@@ -43,7 +36,7 @@ public class s_PlayerFeetTrigger : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other)
 	{
         //Ignore triggers from parent
-        if (m_PlayerScript.GetShouldIgnore(other.tag))
+        if (m_PlayerScript.GetShouldIgnore(other))
         {
             return;
 		}
@@ -53,7 +46,7 @@ public class s_PlayerFeetTrigger : MonoBehaviour {
     
     void OnTriggerExit2D(Collider2D other)
     {
-        if (m_PlayerScript.GetShouldIgnore(other.tag))
+        if (m_PlayerScript.GetShouldIgnore(other))
         {
             return;
         }
