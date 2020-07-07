@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /*
     NOTE: This is the script for the player respawn animation. It plays the various animations and then records itself as being in a "ready" state.
@@ -35,7 +36,17 @@ public class s_PlayerSpawnScript : MonoBehaviour {
     private bool m_bAnimationComplete;
     private bool m_bActive;
 
+	//Sprite Animators
+	private tk2dSpriteAnimator m_doorsSpriteAnimator;
+	private tk2dSpriteAnimator m_mainBodySpriteAnimator;
 
+	//Animation Clips
+	private tk2dSpriteAnimationClip m_respawnDoorsOpenClip;
+	private tk2dSpriteAnimationClip m_respawnBodyDoorsOpenClip;
+
+	//Light Sprite renderers
+	private List<Renderer> m_lightSpriteRenderers;
+	private float m_lightSpriteCountReciprocal;
 
 	// Use this for initialization
 	void Start () {
@@ -45,9 +56,21 @@ public class s_PlayerSpawnScript : MonoBehaviour {
         m_bAnimationComplete = false;
         m_bActive = false;
 
-        Debug.Log("Registering spawn script for event");
-		//Register for events
+		m_doorsSpriteAnimator = m_DoorsAnimation.GetComponent<tk2dSpriteAnimator>();
+		m_mainBodySpriteAnimator = m_MainBodyAnimation.GetComponent<tk2dSpriteAnimator>();
 
+		if (m_doorsSpriteAnimator && m_mainBodySpriteAnimator)
+		{
+			InitializeAnimationClips();
+		}
+		else
+		{
+			Debug.LogError("s_PlayerSpawnScript::Start - Could not get sprite animator components");
+		}
+
+		InitializeLightSpriteRenderers();
+
+		//Register for events
 		s_EventManager.SpawnTubeResetEvent.AddListener(HandleEvent_SpawnTubeEvent);
         s_EventManager.SpawnTubeOpenEvent.AddListener(HandleEvent_SpawnTubeOpenEvent);
 
@@ -57,7 +80,47 @@ public class s_PlayerSpawnScript : MonoBehaviour {
 
 	}
 
-    void OnDestroy()
+	private void InitializeAnimationClips()
+	{
+		m_respawnDoorsOpenClip = m_doorsSpriteAnimator.GetClipByName("RespawnDoorsOpen");
+		if (m_respawnDoorsOpenClip == null)
+		{
+			Debug.LogError("s_Ragdoll::InitializeAnimationClips - Could not get sprite animation clip RespawnDoorsOpen");
+		}
+
+		m_respawnBodyDoorsOpenClip = m_mainBodySpriteAnimator.GetClipByName("RespawnBodyDoorsOpen");
+		if (m_respawnBodyDoorsOpenClip == null)
+		{
+			Debug.LogError("s_Ragdoll::InitializeAnimationClips - Could not get sprite animation clip RespawnBodyDoorsOpen");
+		}
+	}
+	
+	private void InitializeLightSpriteRenderers()
+	{
+		m_lightSpriteRenderers = new List<Renderer>();
+		if (m_Light1)
+		{
+			m_lightSpriteRenderers.Add(m_Light1.GetComponent<Renderer>());				
+		}
+		if (m_Light2)
+		{
+			m_lightSpriteRenderers.Add(m_Light2.GetComponent<Renderer>());
+		}
+		if (m_Light3)
+		{
+			m_lightSpriteRenderers.Add(m_Light3.GetComponent<Renderer>());
+		}
+		if (m_Light4)
+		{
+			m_lightSpriteRenderers.Add(m_Light4.GetComponent<Renderer>());
+		}
+
+		m_lightSpriteCountReciprocal = 1.0f / (float)m_lightSpriteRenderers.Count;
+	}
+
+
+
+	void OnDestroy()
     {
         s_EventManager.SpawnTubeResetEvent.RemoveListener(HandleEvent_SpawnTubeEvent);
         s_EventManager.SpawnTubeOpenEvent.RemoveListener(HandleEvent_SpawnTubeOpenEvent);
@@ -86,47 +149,51 @@ public class s_PlayerSpawnScript : MonoBehaviour {
         if (m_fCountDownTimer < (0 - m_fCountDownTimer * 0.25f)
             && m_bDoorsOpening == false)
         {
-            m_DoorsAnimation.GetComponent<tk2dSpriteAnimator>().Play("RespawnDoorsOpen");
-            m_MainBodyAnimation.GetComponent<tk2dSpriteAnimator>().Play("RespawnBodyDoorsOpen");
-            m_bDoorsOpening = true;
+			OpenDoors();
         }
 
-        if(!m_DoorsAnimation.GetComponent<tk2dSpriteAnimator>().IsPlaying("RespawnDoorsOpen") && m_bDoorsOpening)
+        if(!m_doorsSpriteAnimator.IsPlaying(m_respawnDoorsOpenClip) && m_bDoorsOpening)
         {
             m_DoorsAnimation.GetComponent<Renderer>().enabled = false;
             m_bAnimationComplete = true;
         }
     }
 
+	private void OpenDoors ()
+	{
+		if (m_doorsSpriteAnimator)
+		{
+			m_doorsSpriteAnimator.Play(m_respawnDoorsOpenClip);
+		}
+		if (m_mainBodySpriteAnimator)
+		{
+			m_mainBodySpriteAnimator.Play(m_respawnBodyDoorsOpenClip);
+		}
+		m_bDoorsOpening = true;
+	}
+
     private void TurnOffLights()
     {
-        //Note: No "Else if" here becuase it will be possible to skip lights when respawning.
-
-        if(m_fCountDownTimer < (m_fCountDownTimerMax*0.75f) && m_Light1.GetComponent<Renderer>().enabled)
-        {
-            m_Light1.GetComponent<Renderer>().enabled = false;
-        }
-        if (m_fCountDownTimer < (m_fCountDownTimerMax * 0.5f) && m_Light2.GetComponent<Renderer>().enabled)
-        {
-            m_Light2.GetComponent<Renderer>().enabled = false;
-        }
-        if (m_fCountDownTimer < (m_fCountDownTimerMax * 0.25f) && m_Light3.GetComponent<Renderer>().enabled)
-        {
-            m_Light3.GetComponent<Renderer>().enabled = false;
-        }
-        if (m_fCountDownTimer <= (0) && m_Light4.GetComponent<Renderer>().enabled)
-        {
-            m_Light4.GetComponent<Renderer>().enabled = false;
-        }
+		//Iterates over all light renderers.
+		//If one is enabled, a calculation is performed to see if it should be turned off.
+		//The calculation is based on dividing the maximum countdown time into equal sections based on the number of renderers. A reciprocal is used in order to avoid division.
+		for(int i = 0; i < m_lightSpriteRenderers.Count; i++)
+		{
+			if(m_lightSpriteRenderers[i].enabled && m_fCountDownTimer < (m_fCountDownTimerMax - (m_fCountDownTimerMax * ((i+1) * m_lightSpriteCountReciprocal))))
+			{
+				m_lightSpriteRenderers[i].enabled = false;
+			}
+		}
+     
     }
 
     private void TurnOnLights()
     {
-        m_Light1.GetComponent<Renderer>().enabled = true;
-        m_Light2.GetComponent<Renderer>().enabled = true;
-        m_Light3.GetComponent<Renderer>().enabled = true;
-        m_Light4.GetComponent<Renderer>().enabled = true;
+		for (int i = 0; i < m_lightSpriteRenderers.Count; i++)
+		{
 
+			m_lightSpriteRenderers[i].enabled = true;
+		}
     }
 
     public bool GetAnimationComplete()
@@ -161,7 +228,7 @@ public class s_PlayerSpawnScript : MonoBehaviour {
 
         //Turn doors back on
         m_DoorsAnimation.GetComponent<Renderer>().enabled = true;
-        m_DoorsAnimation.GetComponent<tk2dSpriteAnimator>().StopAndResetFrame();
+        m_doorsSpriteAnimator.StopAndResetFrame();
 
         //Turn all lights back on
         TurnOnLights();

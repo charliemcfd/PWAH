@@ -37,18 +37,14 @@ public class s_BlackFadeScript : MonoBehaviour {
 
     private void FadeOutComplete()
     {
-        Debug.Log("FadeOutCommplete");
-
         m_FadeSprite.GetComponent<Renderer>().enabled = false;
         m_eFadeState = eFadeState.eFS_FadedOut;
     }
 
     private void FadeInComplete()
     {
-        Debug.Log("FadeInCommplete");
         m_eFadeState = eFadeState.eFS_FadedIn;
 		s_EventManager.CameraResetToSpawnPositionEvent.Invoke();
-
 	}
 
 	public void FadeIn()

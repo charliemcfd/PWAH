@@ -16,20 +16,11 @@ public class s_SmallExplosion : MonoBehaviour {
 		m_Animator.AnimationCompleted += AnimationComplete;
 		m_Animator.AnimationEventTriggered += HandleAnimationEvent;
 
-		//Set Position of this so that its always going to be infront of everything else
+		//Set Z Position of this so that its always going to be infront of everything else
 
-		this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -5.0f);
-		
-		
+		this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -5.0f);		
 	}
-	
-	// Update is called once per frame
-	void Update () {
 		
-		
-		
-	}
-	
 	void AnimationComplete(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip)
 	{
 		//Instantiate(m_PrefabSmokeSprite, this.transform.position, Quaternion.identity);
