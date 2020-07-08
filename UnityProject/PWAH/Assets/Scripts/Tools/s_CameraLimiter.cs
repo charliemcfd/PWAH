@@ -97,20 +97,13 @@ public class s_CameraLimiter : MonoBehaviour {
 		//Calculate the position in pixel-space (Still  a floating point number at this point)
         float resolutionPosition= unperfectPosition * m_pixelsPerUnit;
 
-		//Truncate the calcualted position to an integer and store in a seperate variable
-        int resolutionPositionInt = Mathf.FloorToInt(resolutionPosition);
-
-		//Subtract the integer component of the resolution to get a decimal "remainder"
-		resolutionPosition -= resolutionPositionInt;
-
-		//If the reaminder is greater than or equal to 0.5 (half a pixel) then increase the value of the integer position
-        if(resolutionPosition >= 0.5)
-        {
-			resolutionPositionInt++;
-        }
+		/*Round the position to an integer. This means that if the position's fractional portion is >= 0.5, the pixel value
+		 * will be rounded up, otherwise it will be rounded down.
+		*/
+		int resolutionPositionInt = Mathf.RoundToInt(resolutionPosition);
 
 		//Convert the resolution position back into Unity co-ordinate space by multiplying by the reciprocal (1/PixelsPerUnit)
-        return resolutionPositionInt * m_pixelsPerUnitReciprocal;
+		return resolutionPositionInt * m_pixelsPerUnitReciprocal;
 
     }
 

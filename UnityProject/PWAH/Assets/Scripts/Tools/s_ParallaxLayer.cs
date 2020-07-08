@@ -23,9 +23,6 @@ public class s_ParallaxLayer : MonoBehaviour {
         m_fParallaxFactor = m_fParallaxFactor > 1 ? 1 : m_fParallaxFactor;
 
         m_vecLayerRefPosition = transform.position;
-
-
-
     }
 
     void FirstUpdate()

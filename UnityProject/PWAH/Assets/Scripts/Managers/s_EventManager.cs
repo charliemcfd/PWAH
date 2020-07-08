@@ -53,53 +53,7 @@ public class s_EventManager : MonoBehaviour {
 
     void Init()
     {
-        /*
-        if (m_eventDictionary == null)
-        {
-            m_eventDictionary = new Dictionary<string, UnityEvent>();
-        }*/
-
         DontDestroyOnLoad(this);
     }
-
-    /*
-    public static void StartListening ( string _sEventName, UnityAction _Listener)
-    {
-        UnityEvent _ThisEvent = null;
-        if(instance.m_eventDictionary.TryGetValue(_sEventName, out _ThisEvent))
-        {
-            _ThisEvent.AddListener(_Listener);
-        }
-        else
-        {
-            _ThisEvent = new UnityEvent();
-            _ThisEvent.AddListener(_Listener);
-            instance.m_eventDictionary.Add(_sEventName, _ThisEvent);
-        }
-    }
-
-    public static void StopListening(string _sEventName, UnityAction _Listener)
-    {
-        if (g_EventManager == null)
-        {
-            return;
-        }
-
-        UnityEvent _ThisEvent = null;
-        if(instance.m_eventDictionary.TryGetValue(_sEventName, out _ThisEvent))
-        {
-            _ThisEvent.RemoveListener(_Listener);
-        }
-    }
-
-    public static void TriggerEvent (string _sEventName)
-    {
-        UnityEvent _ThisEvent = null;
-        if (instance.m_eventDictionary.TryGetValue(_sEventName, out _ThisEvent))
-        {
-            _ThisEvent.Invoke();
-        }
-    }
-    */
 
 }

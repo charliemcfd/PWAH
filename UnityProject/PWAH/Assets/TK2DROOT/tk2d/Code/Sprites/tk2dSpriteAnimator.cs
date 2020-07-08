@@ -447,6 +447,24 @@ public class tk2dSpriteAnimator : MonoBehaviour
 		}
 	}
 
+	//PWAH
+	/// <summary>
+	/// Returns the number of clips in the current library
+	/// </summary>
+	public int GetNumClips()
+	{
+		if (library == null)
+		{
+			return 0;
+		}
+		else
+		{
+			return library.clips.Length;
+		}
+	}
+
+	//~PWAH
+
 	/// <summary>
 	/// The default Fps of the clip
 	/// </summary>

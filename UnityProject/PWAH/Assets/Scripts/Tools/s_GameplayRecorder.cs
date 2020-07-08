@@ -225,7 +225,7 @@ public class s_GameplayRecorder : MonoBehaviour {
 	}
 
 }
-public class RecordedEvent {
+public struct RecordedEvent {
 	public RecordActions recordedAction;
 	public UInt64 time;
 	public Vector3 position;

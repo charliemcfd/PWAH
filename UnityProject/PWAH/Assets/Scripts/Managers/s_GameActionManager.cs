@@ -118,7 +118,7 @@ public class s_GameActionManager : MonoBehaviour {
 
     void FixedUpdate()
     {
-        //Note: Processing occurrs here because we want the times to be based on frame-rate. Will change this out after testing with lower frame rates if it fucks up
+        //Note: Processing occurrs here because we want the times to be based on frame-rate. Will change this out after testing with lower frame rates if it breaks.
 
         //Increase timer
         if (!m_bPauseForInput)
@@ -126,6 +126,7 @@ public class s_GameActionManager : MonoBehaviour {
             m_fCutSceneTimer += Time.fixedDeltaTime;
 
             //Iterate over dictionary of actions
+			//Use integer iterations rather than iterators to avoid allocations
             for (int i = 0; i < m_dObjectActions.Count; i++)
             {
                 ProcessActionList(m_dObjectActions.ElementAt(i).Key, m_dObjectActions.ElementAt(i).Value);
@@ -165,11 +166,7 @@ public class s_GameActionManager : MonoBehaviour {
                     //Flag this action as being completed;
                     _ActionList[i].m_bActionComplete = true;
 
-
-
                     bool _bNewSequence = false;
-
-
 
                     //=======Create Tween parameters
                     TweenParams _TweenParams = new TweenParams();
@@ -645,7 +642,7 @@ public class s_GameActionManager : MonoBehaviour {
     {
         //Callback for setting the manager to be paused once an action has completed
 
-        //TODO:: Expand this so that the function takes an enumartion of various pause types.
+        //TODO:: Expand this so that the function takes an enumeration of various pause types.
         m_bPauseForInput = true;
     }
 

@@ -43,7 +43,6 @@ public class GameSystemPointers : MonoBehaviour {
 	{
 		if(_instance == null)
 		{
-			Debug.Log ("Created GSP");
 			_instance = this;
 			DontDestroyOnLoad(this);
             Application.targetFrameRate = -1;
@@ -57,7 +56,7 @@ public class GameSystemPointers : MonoBehaviour {
             }
             else
             {
-                Debug.LogError("Trying to create more than one instance of the Loading Screen. Find out why");
+                Debug.LogError("Trying to create more than one instance of the Loading Screen.");
             }
         }
 		else

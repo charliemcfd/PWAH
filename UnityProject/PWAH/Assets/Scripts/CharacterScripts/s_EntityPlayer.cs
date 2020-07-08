@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 using InputNamespace;
 using AnimationCommandsNameSpace;
@@ -13,49 +14,49 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	#region Enumerations
 	//===Enumerations
-	enum eJetpackState{
+	enum eJetpackState {
 		eJS_Normal,
 		eJS_Broken
 	};
 
-	enum eJetpackID{
+	enum eJetpackID {
 		eJID_Left = 0,
 		eJID_Right
 	};
 
-	enum eCharacterState{
+	enum eCharacterState {
 		eCS_Normal, //Normal state - Input
 		eCS_Dizzy, //Dizzy State - No input after a head collision
 		eCS_Damaged, // Damaged state- limited input after a collision
 		eCS_Broken, // The "Dead" state. No input
-        eCS_LevelEnd //Character state for when you have completed a level
+		eCS_LevelEnd //Character state for when you have completed a level
 	};
 
-	enum eDriftState{
+	enum eDriftState {
 		eDS_None,
 		eDS_DriftIn,
 		eDS_DriftHold,
 		eDS_DriftOut
 	}
 
-	enum eBoostState{
+	enum eBoostState {
 		eBS_None,
 		eBS_BoostStart,
 		eBS_BoostHold,
 		eBS_BoostEnd
 	}
 
-    public enum eTriggerType
-    {
-        eTT_HeadTrigger,
-        eTT_JetPackTrigger,
-        eTT_PlayerFeetTrigger
-    }
+	public enum eTriggerType
+	{
+		eTT_HeadTrigger,
+		eTT_JetPackTrigger,
+		eTT_PlayerFeetTrigger
+	}
 
-    public enum eCollisionType
-    {
-        eCT_DriftCollider
-    }
+	public enum eCollisionType
+	{
+		eCT_DriftCollider
+	}
 	#endregion
 
 
@@ -75,7 +76,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	public float m_fBoostForce;
 */
 
-	public float m_fThrustForce; 
+	public float m_fThrustForce;
 
 	public float m_fBoostDuration;
 	public float m_fDeathForce;
@@ -86,7 +87,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	public float m_fDamageKnockbackTime;
 	public float m_fDriftSpeedBonus;
 	public float m_fDriftTurnBonus;
-    public float m_fBoostSpeedBonus;
+	public float m_fBoostSpeedBonus;
 	public float m_fBoostMaxCapacity;
 	public float m_fBoostDrain;
 	public float m_fBoostRefill;
@@ -119,7 +120,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	private float m_fGravityValue;
 	private float m_fBoostTimer;
 	private bool m_bBoostHeld;
-    private bool m_bHasThrustedSinceLastLanding;
+	private bool m_bHasThrustedSinceLastLanding;
 	private float m_fBoostQuantity;
 	private eBoostState m_eBoostState;
 	private eCharacterState m_eCharacterState;
@@ -129,19 +130,19 @@ public class s_EntityPlayer : MonoBehaviour {
 	/*This property is passed used in conjunction with child colliders and their gameobjects. 
 	It is used when we wish to ignore a collision/trigger response in the children, but not in the main
 	player collider.*/
-	LayerMask m_CollisionLayersToIgnore; 
+	LayerMask m_CollisionLayersToIgnore;
 
 	private eJetpackState[] m_arrayEngineStatus;
 
-    private float m_fTimeDead;
-    private bool m_bDeathSkipInput;
+	private float m_fTimeDead;
+	private bool m_bDeathSkipInput;
 
-    private bool m_bShouldRecieveInput;
+	private bool m_bShouldRecieveInput;
 
 	private float m_fTimeThrusting;
-	private float m_fBoostRefillGrace; 
+	private float m_fBoostRefillGrace;
 	private bool m_bThrustThisFrame;
-    private bool m_bThrustFromDamage;
+	private bool m_bThrustFromDamage;
 	private float m_fGatheredRotationOther;
 	private float m_fGatheredRotationController;
 	private bool m_bAttemptedTurn;
@@ -149,14 +150,14 @@ public class s_EntityPlayer : MonoBehaviour {
 	private bool m_bVisible;
 	private bool m_bActive;
 	private bool m_bCreateRagDoll;
-    private bool m_bForceReset;
+	private bool m_bForceReset;
 
-    private Vector2 m_vecPortalLocation;
-    private Sequence m_EndLevelTweenSequence;
-    private Sequence m_EndLevelVelocitySequence;
+	private Vector2 m_vecPortalLocation;
+	private Sequence m_EndLevelTweenSequence;
+	private Sequence m_EndLevelVelocitySequence;
 
-	private List<GameObject> m_listFlames;
 	private GameObject m_RagDoll;
+	private s_Ragdoll m_ragDollScript;
 	private GameObject m_FollowObject;
 
 	private List<tk2dSpriteAnimator> m_listAnimators;
@@ -167,13 +168,19 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	private float m_fAngleBoostAccumulated;
 
+	//Components
 	private Rigidbody2D m_RigidBody2D;
+	private s_PlayerFeetTrigger m_playerFeetTrigger;
+	private List<tk2dSpriteAnimator> m_listFlameAnimators;
+
+	//Animations
+	private Dictionary<string, tk2dSpriteAnimationClip> m_dAnimationClips;
 
 	//Replay Data - TODO: Fix this up
 	public List<RecordedEvent> replayData;
 	private bool m_bIsReplay;
-    public float m_replayZValue;
-    public bool m_bReplayReachedEnd;
+	public float m_replayZValue;
+	public bool m_bReplayReachedEnd;
 	private int m_lastReplayActionIndex;
 
 	private Dictionary<tk2dSpriteAnimator, sAnimationCommand> m_dAnimationCommands;
@@ -183,15 +190,15 @@ public class s_EntityPlayer : MonoBehaviour {
 	//=====Previous Frame Variables
 	private eCharacterState m_ePrevCharacterState;
 	private bool m_bPrevVisible;
-    private Vector3 m_PrevPos;
-    private Vector3 m_PrevRot;
-    private Vector3 m_PrevScale;
+	private Vector3 m_PrevPos;
+	private Vector3 m_PrevRot;
+	private Vector3 m_PrevScale;
 
-    //=====Collision Tracking Variables
-    private Collider2D m_DamageTriggeringCollider;
-    private int m_CollisionIFrames;
+	//=====Collision Tracking Variables
+	private Collider2D m_DamageTriggeringCollider;
+	private int m_CollisionIFrames;
 
-    private bool m_PlayerStuck;
+	private bool m_PlayerStuck;
 
 
 
@@ -204,19 +211,19 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	#region Methods - Initialisation
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		m_fTimeThrusting = 0.0f;
 		m_fBoostRefillGrace = 0.8f;
 		m_bThrustThisFrame = false;
-        m_bThrustFromDamage = false;
-        m_fGravityValue = 9.81f;
+		m_bThrustFromDamage = false;
+		m_fGravityValue = 9.81f;
 		m_fCurrentMaxSpeed = m_fMaxSpeed;
 		m_eCharacterState = eCharacterState.eCS_Normal;
 		m_ePrevCharacterState = eCharacterState.eCS_Normal;
 		m_bPrevVisible = true;
-        m_PrevPos = Vector3.zero;
-        m_PrevRot = Vector3.zero;
-        m_PrevScale = new Vector3(1, 1, 1);
+		m_PrevPos = Vector3.zero;
+		m_PrevRot = Vector3.zero;
+		m_PrevScale = new Vector3(1, 1, 1);
 		m_bVisible = true;
 		m_bActive = true;
 		m_bCreateRagDoll = false;
@@ -232,59 +239,65 @@ public class s_EntityPlayer : MonoBehaviour {
 		m_fBoostQuantity = m_fBoostMaxCapacity;
 		m_bAttemptedTurn = false;
 		m_fAngleBoostAccumulated = 0;
-        m_fTimeDead = 0;
-        m_bHasThrustedSinceLastLanding = false;
-        m_bShouldRecieveInput = false;
-        m_EndLevelTweenSequence = null;
+		m_fTimeDead = 0;
+		m_bHasThrustedSinceLastLanding = false;
+		m_bShouldRecieveInput = false;
+		m_EndLevelTweenSequence = null;
 		m_velocityClampInterpolationSpeed = 100.0f;
 
-		m_listFlames = new List<GameObject>();
+		m_listFlameAnimators = new List<tk2dSpriteAnimator>();
 		m_listAnimators = new List<tk2dSpriteAnimator>();
-		m_arrayEngineStatus = new eJetpackState[2]{eJetpackState.eJS_Normal, eJetpackState.eJS_Normal};
+		m_arrayEngineStatus = new eJetpackState[2] { eJetpackState.eJS_Normal, eJetpackState.eJS_Normal };
 
+		m_dAnimationClips = new Dictionary<string, tk2dSpriteAnimationClip>();
 		m_dAnimationCommands = new Dictionary<tk2dSpriteAnimator, sAnimationCommand>();
 		m_dAnimationCommandsPrevious = new Dictionary<tk2dSpriteAnimator, sAnimationCommand>();
 
-        m_DamageTriggeringCollider = null;
-        m_CollisionIFrames = 0;
-        m_PlayerStuck = false;
+		m_DamageTriggeringCollider = null;
+		m_CollisionIFrames = 0;
+		m_PlayerStuck = false;
 
 		m_CollisionLayersToIgnore = LayerMask.GetMask("EndLevelPortal");
 
+		//Get Component References
 		m_RigidBody2D = GetComponent<Rigidbody2D>();
-		if(m_bIsReplay && m_RigidBody2D)
+		if (m_bIsReplay && m_RigidBody2D)
 		{
 			m_RigidBody2D.isKinematic = true;
 		}
 
+		m_playerFeetTrigger = GetComponentInChildren<s_PlayerFeetTrigger>();
 
 		CreateFlames();
 
 		IndexAnimators();
+		InitializeAnimationClips();
 
 		m_lastReplayActionIndex = 0;
 		m_bReplayReachedEnd = false;
-    }
+	}
 
-    private void CreateFlames()
+	private void CreateFlames()
 	{
-		GameObject _Flame1 = Instantiate(m_PrefabFlames, new Vector3(0.0f,0.0f,0.0f), Quaternion.identity) as GameObject ;
-		GameObject _Flame2 = Instantiate(m_PrefabFlames, new Vector3(0.0f,0.0f,0.0f), Quaternion.identity) as GameObject;
-		
+		GameObject _Flame1 = Instantiate(m_PrefabFlames, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity) as GameObject;
+		GameObject _Flame2 = Instantiate(m_PrefabFlames, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity) as GameObject;
+
 		_Flame1.transform.parent = transform;
 		_Flame2.transform.parent = transform;
-		
+
 		_Flame1.transform.localPosition = new Vector3(0.194f, -0.336f, 0.005f);
 		_Flame2.transform.localPosition = new Vector3(-0.163f, -0.336f, 0.005f);
-		
-		m_listFlames.Add(_Flame1);
-		m_listFlames.Add(_Flame2);
-		
+
+		tk2dSpriteAnimator _flame1Animator = _Flame1.GetComponent<tk2dSpriteAnimator>();
+		tk2dSpriteAnimator _flame2Animator = _Flame2.GetComponent<tk2dSpriteAnimator>();
+		m_listFlameAnimators.Add(_flame1Animator);
+		m_listFlameAnimators.Add(_flame2Animator);
+
 	}
-	
+
 	private void IndexAnimators()
 	{
-		
+
 		/*
 		 * Rather than tagging the component, this function pushes the animators into a list.
 		 * This list is used to determine which animator should be used when replaying game data. It 
@@ -292,28 +305,68 @@ public class s_EntityPlayer : MonoBehaviour {
 		 * */
 		tk2dSpriteAnimator _Animator = GetComponentInChildren<tk2dSpriteAnimator>();
 		m_listAnimators.Add(_Animator);
-		
-		
-		for(int i = 0; i < m_listFlames.Count; i++)
+
+
+		for (int i = 0; i < m_listFlameAnimators.Count; i++)
 		{
-			m_listAnimators.Add(m_listFlames[i].GetComponent<tk2dSpriteAnimator>());
+			m_listAnimators.Add(m_listFlameAnimators[i]);
 		}
-		
+
 		//Subscribe to animationcomplete event for all animators
-		for(int i = 0; i < m_listAnimators.Count; i++)
+		for (int i = 0; i < m_listAnimators.Count; i++)
 		{
 			m_listAnimators[i].AnimationCompleted += AnimationComplete;
 		}
-		
+
 	}
 
+	private void InitializeAnimationClips()
+	{
+		//Grab pointers to the animation clips so that we don't have to do lots of string comparisons each time we want to play one.
+
+		StringBuilder _stringBuilder = new StringBuilder();
+		tk2dSpriteAnimationClip _clip = null;
+
+		//Player Animations
+		tk2dSpriteAnimator _playerAnimator = GetAnimatorFromIndex(0);
+		if (_playerAnimator)
+		{
+			for(int i = 0; i < _playerAnimator.GetNumClips(); i++)
+			{
+				_clip = _playerAnimator.GetClipById(i);
+				if(_clip != null)
+				{
+					m_dAnimationClips[_clip.name] = _clip;
+					_clip = null;
+				}
+			}
+
+		}
+
+		//Flame Animations
+		//Note:: Since both flames share the same sprite, this should suffice for both
+		tk2dSpriteAnimator _flameAnimator = GetAnimatorFromIndex(1);
+		if(_flameAnimator)
+		{
+
+			for (int i = 0; i < _flameAnimator.GetNumClips(); i++)
+			{
+				_clip = _flameAnimator.GetClipById(i);
+				if (_clip != null)
+				{
+					m_dAnimationClips[_clip.name] = _clip;
+					_clip = null;
+				}
+			}
+		}
+	}
 	#endregion
 
 	#region Destroy
 
 	void OnDestroy()
 	{
-		if(m_RagDoll)
+		if (m_RagDoll)
 		{
 			Destroy(m_RagDoll);
 		}
@@ -328,147 +381,133 @@ public class s_EntityPlayer : MonoBehaviour {
 	}
 
 	#endregion
-	
-	#region Methods - GameUpdate
-	
-	void Update () {
 
-		if(m_bIsReplay)
+	#region Methods - GameUpdate
+
+	void Update() {
+
+		if (m_bIsReplay)
 		{
 			return;
 		}
 
-        ProcessGrounded();
-		
-		switch(m_eCharacterState)
-		{
-		    case eCharacterState.eCS_Normal:
-		    {
-			    ProcessBoost();
-			    ProcessThrust();
-			    ProcessDrag();
-			    //ProcessHeadCollisions();
-			
-			
-			    break;
-		    }
-			
-		    case eCharacterState.eCS_Dizzy:
-		    {
-			    //TurnBody(1.0f, m_fDizzyTurnValue, false);
-			    //ProcessHeadCollisions();
-			    //ProcessFeetCollision();
-			    m_bThrustThisFrame = false;
-			    m_fDizzyTimer -= Time.deltaTime;
-			    if(m_fDizzyTimer <= 0)
-			    {
-				    m_eCharacterState = eCharacterState.eCS_Normal;
-			    }
-			    break;
-		    }
-		    case eCharacterState.eCS_Damaged:
-		    {
-			    m_fDamageKnockbackTime -= Time.deltaTime;
-			    if(m_fDamageKnockbackTime <= 0)
-			    {
-				    m_bThrustFromDamage = true;
-			    }
-			    ProcessBoost();
-			    ProcessThrust();
-			    ProcessDrag();
-			    break;
-		    }
-			
-		    case eCharacterState.eCS_Broken:
-		    {
-			    break;
-		    }
+		ProcessGrounded();
 
-            case eCharacterState.eCS_LevelEnd:
-                {
-                    break;
-                }
+		switch (m_eCharacterState)
+		{
+			case eCharacterState.eCS_Normal:
+				{
+					ProcessBoost();
+					ProcessThrust();
+					ProcessDrag();
+					break;
+				}
+
+			case eCharacterState.eCS_Dizzy:
+				{
+					m_bThrustThisFrame = false;
+					m_fDizzyTimer -= Time.deltaTime;
+					if (m_fDizzyTimer <= 0)
+					{
+						m_eCharacterState = eCharacterState.eCS_Normal;
+					}
+					break;
+				}
+			case eCharacterState.eCS_Damaged:
+				{
+					m_fDamageKnockbackTime -= Time.deltaTime;
+					if (m_fDamageKnockbackTime <= 0)
+					{
+						m_bThrustFromDamage = true;
+					}
+					ProcessBoost();
+					ProcessThrust();
+					ProcessDrag();
+					break;
+				}
+
+			case eCharacterState.eCS_Broken:
+				{
+					break;
+				}
+
+			case eCharacterState.eCS_LevelEnd:
+				{
+					break;
+				}
 		}
-		
-		
-		//ProcessCollisions();
+
 		ProcessJetpackState();
-		
-		
-		if(m_bVisible)
+
+
+		if (m_bVisible)
 		{
 			UpdateAnimationState();
 		}
-		
+
 		ProcessDrift();
 
 		m_bAttemptedTurn = false;
 
-		
+
 	}
-	
-	
+
+
 	void FixedUpdate()
 	{
-        m_CollisionIFrames--;
-        if (m_bIsReplay)
+		m_CollisionIFrames--;
+		if (m_bIsReplay)
 		{
 			ProcessReplay();
 			//Increase replay frame-stamp
 			m_uFrameStamp++;
 			return;
 		}
-		
+
 		ApplyGravity(m_fTimeThrusting);
-		
-		
-		switch(m_eCharacterState)
+
+
+		switch (m_eCharacterState)
 		{
-		case eCharacterState.eCS_Normal:
-		case eCharacterState.eCS_Damaged:
-		{
-			if(m_eBoostState == eBoostState.eBS_BoostStart ||
-			   m_eBoostState == eBoostState.eBS_BoostHold)
-			{
-				if(CanUseBoost())
+			case eCharacterState.eCS_Normal:
+			case eCharacterState.eCS_Damaged:
 				{
-					ApplyBoost();
-					DrainBoost(m_fBoostDrain);
+					if (m_eBoostState == eBoostState.eBS_BoostStart ||
+					   m_eBoostState == eBoostState.eBS_BoostHold)
+					{
+						if (CanUseBoost())
+						{
+							ApplyBoost();
+							DrainBoost(m_fBoostDrain);
+						}
+
+					}
+					if (m_bThrustThisFrame || m_bThrustFromDamage)
+					{
+						ApplyThrust();
+					}
+					break;
 				}
-				
-			}
-			if(m_bThrustThisFrame || m_bThrustFromDamage)
-			{
-				ApplyThrust();
-			}
-			break;
 		}
-		}
-		
-		
+
+
 		LimitVelocity();
-		
 		//Apply rotation forces here;
 		ApplyRotation();
-		
-		if(m_FollowObject != null)
-		{
-			//this.transform.position = m_FollowObject.transform.position;
-		}
-		
+
 		RecordData();
 		//Increase non-replay frame stamp
 		m_uFrameStamp++;
 	}
 
-    void LateUpdate()
+	void LateUpdate()
 	{
-		if(m_bCreateRagDoll)
+		if (m_bCreateRagDoll)
 		{
 			CreateRagDoll();
 		}
 	}
-	
+
 	#endregion
 	#region Methods - Animation
 
@@ -487,14 +526,27 @@ public class s_EntityPlayer : MonoBehaviour {
 
 		tk2dSpriteAnimator _Animator = m_listAnimators[_iIndex];
 
-		if(_Animator)
+		if (_Animator)
 		{
 			return _Animator;
 		}
 		return null;
 	}
 
-	public void ChangeAnimation(tk2dSpriteAnimator _Animator, eAnimationCommands _eCommand, string _AnimationClip, int _iFrame = 0, float _fTime = 0, bool _bReplayCommand = false)
+	private int GetIndexFromAnimator(tk2dSpriteAnimator _Animator)
+	{
+		for (int i = 0; i < m_listAnimators.Count; i++)
+		{
+			if (_Animator == m_listAnimators[i])
+			{
+				return i;
+			}
+		}
+		return -1;
+
+	}
+
+	public void ChangeAnimation(tk2dSpriteAnimator _Animator, eAnimationCommands _eCommand, string _animationClipString, int _iFrame = 0, float _fTime = 0, bool _bReplayCommand = false)
 	{
 		/*
 		 * This function abstracts the setting of animation into a separate control structure that can be recorded.
@@ -503,80 +555,77 @@ public class s_EntityPlayer : MonoBehaviour {
 		 * as part of the regular update loop,however, an animation command list will be held for every animator that exists. 
 		 * The value commands in this list will be updated, so that when it comes to fixedupdate, only one animation can be recoreded per animator.
 		 * */
-		
+
 		//Do not process this animation data if we are currently in replay mode, and the command that has come through has NOT come from a replay.
-		if(m_bIsReplay && _bReplayCommand == false)
+		if (m_bIsReplay && _bReplayCommand == false)
 		{
 			return;
 		}
-		
-		switch(_eCommand)
+
+		//Return if this animator was not found in the list of animators
+		int _iAnimatorIndex = GetIndexFromAnimator(_Animator);
+		if(_iAnimatorIndex == -1)
 		{
-		case eAnimationCommands.Play:
+			return;
+		}
+		tk2dSpriteAnimationClip _animationClip = GetAnimationClipFromString(_animationClipString);
+
+		switch (_eCommand)
 		{
-			_Animator.Play(_AnimationClip);
-			_Animator.GetComponent<Renderer>().enabled = true;
-			break;
+			case eAnimationCommands.Play:
+				{
+					_Animator.Play(_animationClip);
+					_Animator.GetComponent<Renderer>().enabled = true;
+					break;
+				}
+			case eAnimationCommands.PlayFromFrame:
+				{
+					_Animator.PlayFromFrame(_animationClip, _iFrame);
+					break;
+				}
+
+			case eAnimationCommands.PlayFrom:
+				{
+					_Animator.PlayFrom(_animationClip, _fTime);
+					break;
+				}
+
+			case eAnimationCommands.Stop:
+				{
+					_Animator.Stop();
+					_Animator.GetComponent<Renderer>().enabled = false;
+
+					break;
+				}
+
+			case eAnimationCommands.Pause:
+				{
+					_Animator.Pause();
+					break;
+				}
+
+			case eAnimationCommands.Resume:
+				{
+					_Animator.Resume();
+					break;
+				}
+
+			case eAnimationCommands.SetFrame:
+				{
+					_Animator.SetFrame(_iFrame);
+					break;
+				}
 		}
-		case eAnimationCommands.PlayFromFrame:
-		{
-			_Animator.PlayFromFrame(_AnimationClip, _iFrame);
-			break;
-		}
-			
-		case eAnimationCommands.PlayFrom:
-		{
-			_Animator.PlayFrom(_AnimationClip, _fTime);
-			break;
-		}
-			
-		case eAnimationCommands.Stop:
-		{
-			_Animator.Stop();
-			_Animator.GetComponent<Renderer>().enabled = false;
-			
-			break;
-		}
-			
-		case eAnimationCommands.Pause:
-		{
-			_Animator.Pause();
-			break;
-		}
-			
-		case eAnimationCommands.Resume:
-		{
-			_Animator.Resume();
-			break;
-		}
-			
-		case eAnimationCommands.SetFrame:
-		{
-			_Animator.SetFrame(_iFrame);
-			break;
-		}
-		}
-		
-		int _iAnimatorIndex = 0;
-		
-		for(int i = 0; i < m_listAnimators.Count; i++)
-		{
-			if(_Animator == m_listAnimators[i])
-			{
-				_iAnimatorIndex = i;
-				break;
-			}
-		}
-		
+
 		sAnimationCommand _AnimationCommand;
 		_AnimationCommand.m_eCommand = _eCommand;
 		_AnimationCommand.m_pAnimator = _Animator;
 		_AnimationCommand.m_iAnimatorIndex = _iAnimatorIndex;
-		_AnimationCommand.m_sClipname = _AnimationClip;
+		_AnimationCommand.m_sClipname = _animationClipString;
 		_AnimationCommand.m_iFrame = _iFrame;
 		_AnimationCommand.m_fTime = _fTime;
-		
-		if(m_dAnimationCommands.ContainsKey(_Animator))
+
+		if (m_dAnimationCommands.ContainsKey(_Animator))
 		{
 			m_dAnimationCommands[_Animator] = _AnimationCommand;
 		}
@@ -584,40 +633,49 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			m_dAnimationCommands.Add(_Animator, _AnimationCommand);
 		}
-		
+
 	}
-	
+
 	private void AnimateFromCommand(sAnimationCommand _Command)
 	{
 		//Get the appropriate animator based on the recorded index
 		tk2dSpriteAnimator _Animator = GetAnimatorFromIndex(_Command.m_iAnimatorIndex);
-		if(_Animator)
+		if (_Animator)
 		{
 			_Command.m_pAnimator = _Animator;
-			
-			ChangeAnimation(_Command.m_pAnimator, 
-			                _Command.m_eCommand,
-			                _Command.m_sClipname,
-			                _Command.m_iFrame,
-			                _Command.m_fTime,
-			                true);
+
+			ChangeAnimation(_Command.m_pAnimator,
+							_Command.m_eCommand,
+							_Command.m_sClipname,
+							_Command.m_iFrame,
+							_Command.m_fTime,
+							true);
 		}
-		
-		
+	}
+
+	private tk2dSpriteAnimationClip GetAnimationClipFromString(string _animationClipString)
+	{
+		if(m_dAnimationClips.ContainsKey(_animationClipString))
+		{
+			return m_dAnimationClips[_animationClipString];
+		}
+		return null;
 	}
 
 	private void ProcessFlameAnimation( )
 	{
-		for(int i = 0; i < m_listFlames.Count; i++)
+		for(int i = 0; i < m_listFlameAnimators.Count; i++)
 		{
-			tk2dSpriteAnimator _pFlameAnim = m_listFlames[i].GetComponent<tk2dSpriteAnimator>();
-			if(m_bThrustThisFrame && m_eBoostState == eBoostState.eBS_None)
+			if (m_listFlameAnimators[i])
 			{
-				ChangeAnimation(_pFlameAnim, eAnimationCommands.Play, "JetpackFlames");
-			}
-			else if (m_eBoostState == eBoostState.eBS_None)
-			{
-				ChangeAnimation(_pFlameAnim, eAnimationCommands.Stop, "");
+				if (m_bThrustThisFrame && m_eBoostState == eBoostState.eBS_None)
+				{
+					ChangeAnimation(m_listFlameAnimators[i], eAnimationCommands.Play, "JetpackFlames");
+				}
+				else if (m_eBoostState == eBoostState.eBS_None)
+				{
+					ChangeAnimation(m_listFlameAnimators[i], eAnimationCommands.Stop, "");
+				}
 			}
 		}
 	}
@@ -625,10 +683,9 @@ public class s_EntityPlayer : MonoBehaviour {
 	private void ProcessLandingAnimation(tk2dSpriteAnimator _pAnimator)
 	{
 		//Check if feet have been triggered
-		s_PlayerFeetTrigger _pFeetTrigger = GetComponentInChildren<s_PlayerFeetTrigger>();
-		if(_pFeetTrigger)
+		if(m_playerFeetTrigger)
 		{
-			if(_pFeetTrigger.GetFeetTriggered())
+			if(m_playerFeetTrigger.GetFeetTriggered())
 			{
 
                 float _fRotationValue = m_RigidBody2D.rotation;
@@ -638,15 +695,14 @@ public class s_EntityPlayer : MonoBehaviour {
                     ChangeAnimation(_pAnimator, eAnimationCommands.Play, "LandingQuick");
 					m_eDriftState=eDriftState.eDS_None;
 					ActivateDriftCollider(false);
-                    _pFeetTrigger.SetFeetTriggered(false);
+					m_playerFeetTrigger.SetFeetTriggered(false);
 				}
                 else if (_fRotationValue >= 290 || _fRotationValue <= 70)
                 {
                     m_bHasThrustedSinceLastLanding = false;
-                    //ChangeAnimation(_pAnimator, eAnimationCommands.Play, "LandingQuick");
                     m_eDriftState = eDriftState.eDS_None;
                     ActivateDriftCollider(false);
-                    _pFeetTrigger.SetFeetTriggered(false);
+					m_playerFeetTrigger.SetFeetTriggered(false);
                 }
 
 			}
@@ -659,7 +715,6 @@ public class s_EntityPlayer : MonoBehaviour {
 		if(!_pAnimator.IsPlaying("LandingQuick") || m_bThrustThisFrame)
 		{
 			//Check for Movement, select flying animation
-			//if(Vector3.SqrMagnitude(Rigidbody2D.velocity - new Vector3(0.0f,0.0f,0.0f)) > 0.01f)
 			if(m_bGrounded == false)
 			{
                 switch (m_eCharacterState)
@@ -693,8 +748,6 @@ public class s_EntityPlayer : MonoBehaviour {
 
                                             }
                                         }
-
-                                        //_pAnimator.Play("FlyingNormal");
                                         break;
                                     }
                                 case eDriftState.eDS_DriftIn:
@@ -702,21 +755,17 @@ public class s_EntityPlayer : MonoBehaviour {
                                         if (_pAnimator.CurrentClip.name != "TuckIn")
                                         {
                                             ChangeAnimation(_pAnimator, eAnimationCommands.Play, "TuckIn");
-                                            //_pAnimator.Play("TuckIn");
                                         }
                                         break;
                                     }
                                 case eDriftState.eDS_DriftHold:
                                     {
                                         ChangeAnimation(_pAnimator, eAnimationCommands.Play, "TuckHold");
-                                        //_pAnimator.Play("TuckHold");
                                         break;
                                     }
                                 case eDriftState.eDS_DriftOut:
                                     {
                                         ChangeAnimation(_pAnimator, eAnimationCommands.Play, "TuckOut");
-
-                                        //_pAnimator.Play("TuckOut");
                                         break;
                                     }
                             }
@@ -726,8 +775,6 @@ public class s_EntityPlayer : MonoBehaviour {
                     case eCharacterState.eCS_Damaged:
                         {
                             ChangeAnimation(_pAnimator, eAnimationCommands.Play, "FlyingDanger");
-
-                            //_pAnimator.Play("FlyingDanger");
                             break;
                         }
                 }
@@ -749,7 +796,6 @@ public class s_EntityPlayer : MonoBehaviour {
                         else
                         {
                             ChangeAnimation(_pAnimator, eAnimationCommands.Play, "BalanceRight");
-
                         }
                     }
                     else
@@ -765,8 +811,8 @@ public class s_EntityPlayer : MonoBehaviour {
 	private void UpdateAnimationState()
 	{
 		// Get animatior
-		//Note: This seems MIGHTY sketchy. no way to validate that the sprite animator is the one that I actually think it is
-		tk2dSpriteAnimator _pAnimator =  GetComponentInChildren<tk2dSpriteAnimator>();
+		//TODO::Update this so that we are using something other than a random int to identify the player's animator.
+		tk2dSpriteAnimator _pAnimator = GetAnimatorFromIndex(0);
 		
 		switch(m_eCharacterState)
 		{
@@ -783,17 +829,19 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			if(m_eCharacterState == eCharacterState.eCS_Dizzy)
 			{
-				if(!_pAnimator.IsPlaying("DizzyHit"))
+				if(!_pAnimator.IsPlaying(GetAnimationClipFromString("DizzyHit")))
 				{
 					ChangeAnimation(_pAnimator, eAnimationCommands.Play, "DizzyLoop");
 				}
 				
 			}
 			
-			for(int i = 0; i < m_listFlames.Count; i++)
+			for(int i = 0; i < m_listFlameAnimators.Count; i++)
 			{
-				tk2dSpriteAnimator _pFlameAnim = m_listFlames[i].GetComponent<tk2dSpriteAnimator>();
-				ChangeAnimation(_pFlameAnim, eAnimationCommands.Stop, "");
+				if (m_listFlameAnimators[i])
+				{
+					ChangeAnimation(m_listFlameAnimators[i], eAnimationCommands.Stop, "");
+				}
 			}
 			break;
 		}
@@ -847,11 +895,12 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			if(m_eCharacterState != eCharacterState.eCS_Broken)
 			{
-				for(int i = 0; i < m_listFlames.Count; i++)
+				for(int i = 0; i < m_listFlameAnimators.Count; i++)
 				{
-					tk2dSpriteAnimator _pFlameAnim = m_listFlames[i].GetComponent<tk2dSpriteAnimator>();
-					//Charlie
-					ChangeAnimation(_pFlameAnim, eAnimationCommands.Play, "JetpackBoost_Loop");
+					if (m_listFlameAnimators[i])
+					{
+						ChangeAnimation(m_listFlameAnimators[i], eAnimationCommands.Play, "JetpackBoost_Loop");
+					}
 				}
 			}
 			break;
@@ -870,16 +919,6 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	#endregion
 	
-	// Update is called once per frame
-
-
-
-
-
-
-
-
-
 	#region Input
 
     public void SetShouldRecieveInput(bool _bShouldRecieve)
@@ -1019,9 +1058,6 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	#endregion
 
-
-
-
 	#region Methods - GamePlay
 
 	public bool GetShouldReset()
@@ -1041,8 +1077,7 @@ public class s_EntityPlayer : MonoBehaviour {
             //Increase dead timer
             m_fTimeDead += Time.deltaTime;
 
-            s_Ragdoll _sRagDoll = m_RagDoll.GetComponent<s_Ragdoll>();
-			if(_sRagDoll.GetAtRest())
+			if(m_ragDollScript.GetAtRest())
 			{
                 SetForceReset(true);
                 return true;
@@ -1067,9 +1102,6 @@ public class s_EntityPlayer : MonoBehaviour {
             SetForceReset(true);
             return true;
         }
-
-        //Debug.Log("GetShouldReset::Return false");
-
 
         return false;
 	}
@@ -1099,7 +1131,6 @@ public class s_EntityPlayer : MonoBehaviour {
         {
             m_bCreateRagDoll = true;
         }
-		//SetFollowObject(m_RagDoll);
 		SetActive(false);
 
 	}
@@ -1107,11 +1138,13 @@ public class s_EntityPlayer : MonoBehaviour {
 	private void CreateRagDoll()
 	{
 		m_RagDoll = Instantiate(m_PrefabRagdoll, this.transform.position, Quaternion.identity) as GameObject;
-		m_RagDoll.transform.rotation = this.transform.rotation;
-		m_RagDoll.GetComponent<Rigidbody2D>().AddForce(transform.up * -m_fDeathForce, ForceMode2D.Impulse);
-		m_RagDoll.GetComponent<Rigidbody2D>().AddTorque(0.2f, ForceMode2D.Impulse);
+		m_ragDollScript = m_RagDoll.GetComponent<s_Ragdoll>();
 
-		//SetFollowObject(m_RagDoll);
+		m_RagDoll.transform.rotation = this.transform.rotation;
+		Rigidbody2D _ragdollRigidBody = m_RagDoll.GetComponent<Rigidbody2D>();
+		_ragdollRigidBody.AddForce(transform.up * -m_fDeathForce, ForceMode2D.Impulse);
+		_ragdollRigidBody.AddTorque(0.2f, ForceMode2D.Impulse);
+
 		if (!m_bIsReplay)
 		{
 			s_EventManager.CameraSetTargetObjectEvent.Invoke(m_RagDoll);
@@ -1196,10 +1229,7 @@ public class s_EntityPlayer : MonoBehaviour {
             }
         }
 
-
-		
-		m_bActive = _bActive;
-		
+		m_bActive = _bActive;		
 	}
 	
     public void SetLevelCompleteState( Vector2 _vecPortalLocation)
@@ -1241,7 +1271,6 @@ public class s_EntityPlayer : MonoBehaviour {
 
     public void SetFollowObject( GameObject _FollowObject)
 	{
-		//transform.SetParent(_FollowObject.transform);
 		m_FollowObject = _FollowObject;
 	}
 	
@@ -1329,9 +1358,6 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			m_fAngleBoostAccumulated = 0.0f;
 		}
-
-
-
 	}
 
 
@@ -1367,7 +1393,7 @@ public class s_EntityPlayer : MonoBehaviour {
 				_fTimeThrusting = 0;
 			}
 			//Add force in a downwards direction
-			//Multiply my 1-Timethrusting so that after an elapsed period of time, we stop applying gravity.
+			//Multiply by 1-Timethrusting so that after an elapsed period of time, we stop applying gravity.
 			float _fForceMultiplier = (-(m_fGravityValue *m_fGravityMultiplier) * (1 - _fTimeThrusting) );
 			
 			m_RigidBody2D.AddForce(Vector3.up * _fForceMultiplier);
@@ -1392,11 +1418,8 @@ public class s_EntityPlayer : MonoBehaviour {
 		//We determine the rotation to be applied by the value that has come from the controler plus the value that is set by other sources (Such as being damaged)
 		float _fAppliedRotation = m_fGatheredRotationController + m_fGatheredRotationOther;
 
-        AccumulateBoostRotation(_fAppliedRotation);// * Time.fixedDeltaTime);
-
-		//Vector3 eulerAngleVelocity = new Vector3(0, 0, _fAppliedRotation);
-		//Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity);
-		m_RigidBody2D.MoveRotation(m_RigidBody2D.rotation + _fAppliedRotation);// *Time.fixedDeltaTime);
+        AccumulateBoostRotation(_fAppliedRotation);
+		m_RigidBody2D.MoveRotation(m_RigidBody2D.rotation + _fAppliedRotation);
 
 		if (_fAppliedRotation == 0)
 		{
@@ -1425,24 +1448,22 @@ public class s_EntityPlayer : MonoBehaviour {
 			else
 			{
 				m_bAttemptedTurn = true;
-
-
-
+				//Todo::Replace that integer with a value that explicitly relates to the animator for the player
 				tk2dSpriteAnimator _Animator = GetAnimatorFromIndex(0);
 
-                if (!_Animator.IsPlaying("BalanceLeft") && !_Animator.IsPlaying("BalanceRight"))
+                if (!_Animator.IsPlaying(GetAnimationClipFromString("BalanceLeft")) && !_Animator.IsPlaying(GetAnimationClipFromString("BalanceRight")))
                 {
 
                     if (_fAxisValue < 0)
                     {
-                        if (!_Animator.IsPlaying("CantWalkRight"))
+                        if (!_Animator.IsPlaying(GetAnimationClipFromString("CantWalkRight")))
                         {
                             ChangeAnimation(_Animator, eAnimationCommands.Play, "CantWalkRight", 0, 0);
                         }
                     }
                     else
                     {
-                        if (!_Animator.IsPlaying("CantWalkLeft") && !_Animator.IsPlaying("BalanceRight"))
+                        if (!_Animator.IsPlaying(GetAnimationClipFromString("CantWalkLeft")) && !_Animator.IsPlaying(GetAnimationClipFromString("BalanceRight")))
                         {
                             ChangeAnimation(_Animator, eAnimationCommands.Play, "CantWalkLeft", 0, 0);
                         }
@@ -1506,7 +1527,6 @@ public class s_EntityPlayer : MonoBehaviour {
 	{
 		//m_velocityClampInterpolationSpeed should always be trying to reach a value of 100. The value will be reset when collisions occur to allow for smoother collision response
 		m_velocityClampInterpolationSpeed = Mathf.Lerp(m_velocityClampInterpolationSpeed, 100.0f, Time.fixedDeltaTime);
-		Debug.Log("m_velocityClampInterpolationSpeed" + m_velocityClampInterpolationSpeed.ToString());
 	}
 	private void ApplyBoost()
 	{
@@ -1520,33 +1540,41 @@ public class s_EntityPlayer : MonoBehaviour {
 
 		if(m_fBoostTimer <= 0 && m_eBoostState != eBoostState.eBS_None)
 		{
-			if(m_bBoostHeld)
+			if (m_bBoostHeld)
 			{
+				//If we are holding boost, set the state
 				m_eBoostState = eBoostState.eBS_BoostHold;
 
-				for(int i = 0; i < m_listFlames.Count; i++)
+				//Then update the animators to play the appropriate animation
+				for (int i = 0; i < m_listFlameAnimators.Count; i++)
 				{
-					tk2dSpriteAnimator _pFlameAnim = m_listFlames[i].GetComponent<tk2dSpriteAnimator>();
-					if(!_pFlameAnim.IsPlaying("JetpackBoost_Loop"))
+					if (m_listFlameAnimators[i])
 					{
-						//Charlie
-						ChangeAnimation(_pFlameAnim, eAnimationCommands.Play, "JetpackBoost_Loop");
+						if (!m_listFlameAnimators[i].IsPlaying(GetAnimationClipFromString("JetpackBoost_Loop")))
+						{
+							ChangeAnimation(m_listFlameAnimators[i], eAnimationCommands.Play, "JetpackBoost_Loop");
+						}
 					}
 				}
 			}
 			else
 			{
-				if(m_eBoostState != eBoostState.eBS_BoostEnd)
+				if (m_eBoostState != eBoostState.eBS_BoostEnd)
 				{
+					//If we are not holding boost and our booststate was not already in the boost end state, set it
 					m_eBoostState = eBoostState.eBS_BoostEnd;
 
-					for(int i = 0; i < m_listFlames.Count; i++)
+					//Then update the animators to play the approriate animation
+					for (int i = 0; i < m_listFlameAnimators.Count; i++)
 					{
-						tk2dSpriteAnimator _pFlameAnim = m_listFlames[i].GetComponent<tk2dSpriteAnimator>();
-						ChangeAnimation(_pFlameAnim, eAnimationCommands.Play, "JetpackBoost_End");
+						if (m_listFlameAnimators[i])
+						{
+							ChangeAnimation(m_listFlameAnimators[i], eAnimationCommands.Play, "JetpackBoost_End");
+						}
 					}
 				}
 			}
+
 		}
 	}
 
@@ -1570,12 +1598,10 @@ public class s_EntityPlayer : MonoBehaviour {
 				//Set max speed to boost speed
 				m_fCurrentMaxSpeed = m_fMaxSpeedBoost;
 				
-				///Do Boost Animation
-				for(int i = 0; i < m_listFlames.Count; i++)
+				//Do Boost Animation
+				for(int i = 0; i < m_listFlameAnimators.Count; i++)
 				{
-					//Charlie
-					tk2dSpriteAnimator _pFlameAnim = m_listFlames[i].GetComponent<tk2dSpriteAnimator>();
-					ChangeAnimation(_pFlameAnim, eAnimationCommands.Play, "JetpackBoost_Start");
+					ChangeAnimation(m_listFlameAnimators[i], eAnimationCommands.Play, "JetpackBoost_Start");
 				}
 
 				m_eBoostState = eBoostState.eBS_BoostStart;
@@ -1624,7 +1650,6 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			m_fTimeThrusting += Time.deltaTime;
 			m_fBoostRefillGrace += Time.deltaTime;
-
 		}
 		else
 		{
@@ -1633,15 +1658,12 @@ public class s_EntityPlayer : MonoBehaviour {
 			{
 				//Cap time back to something reasonable so we dont drift without gravity forever
 				m_fTimeThrusting = Mathf.Clamp(m_fTimeThrusting,0.0f,1.0f);
-
-
 				m_fTimeThrusting -= Time.deltaTime;
 			}
 			else
 			{
 				m_fTimeThrusting = 0;
 			}
-			//Rigidbody2D.drag = 2.0f;
 			
 		}
 		
@@ -1697,19 +1719,6 @@ public class s_EntityPlayer : MonoBehaviour {
 	}
 
 	#endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
 	#region Methods - Collision
 	private void ActivateDriftCollider(bool _bActivate)
@@ -1820,17 +1829,13 @@ public class s_EntityPlayer : MonoBehaviour {
 	}
 
 	private void ProcessGrounded()
-	{
-		
+	{		
 		m_bGrounded = false;
 		
-		s_PlayerFeetTrigger _pFeetTrigger = GetComponentInChildren<s_PlayerFeetTrigger>();
-		if(_pFeetTrigger)
+		if(m_playerFeetTrigger)
 		{
-			if(_pFeetTrigger.GetFeetTriggerStay())
+			if(m_playerFeetTrigger.GetFeetTriggerStay())
 			{
-
-                //if(GetComponent<Rigidbody2D>().velocity.sqrMagnitude < 0.01f)
                 //Get the difference between the world up-vector and the character's up vector in order to determine orientation.
                 float upVecDiff = Vector2.Angle(Vector2.up, transform.up);
                 if (upVecDiff < 4.0f) 
@@ -1870,7 +1875,6 @@ public class s_EntityPlayer : MonoBehaviour {
 
     public void OnPlayerStuck()
     {
-        Debug.Log("OnPlayerStuck");
         //If the player is stuck, apply death
         m_PlayerStuck = true;
         ApplyDeath();
@@ -1927,16 +1931,13 @@ public class s_EntityPlayer : MonoBehaviour {
         m_eCharacterState = eCharacterState.eCS_Dizzy;
         m_eBoostState = eBoostState.eBS_None;
 
-        //Change Animation
-        tk2dSpriteAnimator _pAnimator = GetComponentInChildren<tk2dSpriteAnimator>();
-        //_pAnimator.Play("DizzyHit");
+		//Change Animation
+		//TODO: Replace int for something that more appropriately identifies the player's animator
+		tk2dSpriteAnimator _pAnimator = GetAnimatorFromIndex(0);
         ChangeAnimation(_pAnimator, eAnimationCommands.Play, "DizzyHit");
-
 
 		//Change Drag of Rigidbody2D to mimic falling
 		m_RigidBody2D.drag = m_noThrustDrag;
-
-
     }
 
     public bool GetShouldIgnore(Collider2D collider)
@@ -1997,7 +1998,7 @@ public class s_EntityPlayer : MonoBehaviour {
 			}
 		}
 
-		//Update previousl locaiton/roataion/scale values
+		//Update previous locaiton/roataion/scale values
 		m_PrevPos = rigidbodyPos;
 		m_PrevRot = rigidbodyRot;
 		m_PrevRot = rigidbodyRot;
@@ -2037,16 +2038,13 @@ public class s_EntityPlayer : MonoBehaviour {
 					}
 				}
 
-
-
-                //Regardless of whether the command is different or not, we should record the NEW command as the "last" command
-                m_dAnimationCommandsPrevious[_Entry.Key] = _ThisCommand;
-
-				if(_bCanAddCommand)
+				if (_bCanAddCommand)
 				{
 					s_GameplayRecorder.instance.AddAction(m_uFrameStamp, RecordActions.AnimationChange, _ThisCommand);
 				}
 
+				//Regardless of whether the command is different or not, we should record the NEW command as the "last" command for future comparisons
+				m_dAnimationCommandsPrevious[_Entry.Key] = _ThisCommand;
 			}
 			else
 			{
@@ -2062,12 +2060,21 @@ public class s_EntityPlayer : MonoBehaviour {
 		}
 
 
+
+		/*
+		 * Note: The following is not needed, as entries are never removed from m_dAnimationCommands after they are initially added.
+		 * At the moment it is likely unnecessary to remove them due to the small number of entries in the dictionary 
+		 * (Overhead of constantly adding/removing not worth it for the time it takes to iterate over the dictionary), however
+		 * if more animators are added then it may be sensible to remove them.
+		 * 
+		 * Keeping this code in comments incase it needs to be re-implemented.
+		 * 
         //TODO: Avoid add/removing unnecessarily by using a flag within the struct to dictate whether or not
         //it can be immediately overridden next time there is a valid command
 
         // We now need to clear out commands in the "last" dictionary that were NOT updated this frame
 
-        enumerator = m_dAnimationCommands.GetEnumerator();
+        enumerator = m_dAnimationCommandsPrevious.GetEnumerator();
         while (enumerator.MoveNext())
         {
             KeyValuePair<tk2dSpriteAnimator, sAnimationCommand> _Entry = enumerator.Current;
@@ -2077,7 +2084,7 @@ public class s_EntityPlayer : MonoBehaviour {
 			{
 				m_dAnimationCommandsPrevious.Remove(_Animator);
 			}
-		}
+		}*/
 	}
 
 	private void RecordState()

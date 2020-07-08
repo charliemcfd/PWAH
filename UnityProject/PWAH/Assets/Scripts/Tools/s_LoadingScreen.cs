@@ -41,17 +41,6 @@ public class s_LoadingScreen : MonoBehaviour {
         }
 
         StartCoroutine(AsynchronousLoad(_sScene));
-
-        
-
-        //Set XY of this so that it is centered under the camera
-
-        GameObject _goCamera = GameSystemPointers.instance.m_Camera.gameObject;
-        if(_goCamera)
-        {
-            //m_AnchorScript.tk2dCamera = _goCamera;
-            //transform.position = new Vector3(_goCamera.transform.position.x, _goCamera.transform.position.y, this.transform.position.z);
-        }
     }
 
     protected void CloseLoadingScreen()
@@ -77,9 +66,7 @@ public class s_LoadingScreen : MonoBehaviour {
         {
             // [0, 0.9] > [0, 1]
             float progress = Mathf.Clamp01(ao.progress / 0.9f);
-            Debug.Log("Loading progress: " + (progress * 100) + "%");
-
-            
+            //Debug.Log("Loading progress: " + (progress * 100) + "%");
 
             // Loading completed
             if (ao.progress == 0.9f)
@@ -94,7 +81,6 @@ public class s_LoadingScreen : MonoBehaviour {
                         m_bFiredLoadCompleteEvent = true;
                     }
 
-                    Debug.Log("Press a key to start");
                     if (Input.anyKey)
                     {
                         ao.allowSceneActivation = true;

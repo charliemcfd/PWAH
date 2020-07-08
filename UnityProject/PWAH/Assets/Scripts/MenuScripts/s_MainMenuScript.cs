@@ -49,7 +49,6 @@ public class s_MainMenuScript : s_BaseMenuScript {
     // Use this for initialization
     void Start () {
         base.Start();
-        Debug.Log("Created Main Menu Script");
 
         m_StringBuilder = new StringBuilder();
 
@@ -150,7 +149,6 @@ public class s_MainMenuScript : s_BaseMenuScript {
 
     public void ButttonClicked( tk2dUIItem _ClickedItem)
     {
-        Debug.Log(_ClickedItem.name);
 
         if(_ClickedItem.gameObject == m_KeybindButton_Thrust)
         {
