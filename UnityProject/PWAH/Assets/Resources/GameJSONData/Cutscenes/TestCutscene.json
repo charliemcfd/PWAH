@@ -4,7 +4,7 @@
       "GameAction": "eGA_MOVE",
       "StartTime": 1.0,
       "Duration": 3.0,
-      "PositionX": 10
+      "PositionX": 4
     },
     {
       "GameAction": "eGA_ROTATE",
@@ -52,7 +52,7 @@
       "GameAction": "eGA_MOVE",
       "StartTime": 2.0,
       "Duration": 3.0,
-      "PositionX": 10
+      "PositionX": 5
     }
   ],
   "Camera" : [
@@ -65,9 +65,16 @@
   },
   {
     "GameAction": "eGA_ROTATE",
-    "StartTime": 6.0,
+    "StartTime": 8.0,
     "Duration": 2.0,
     "Rotation": 90,
+    "RotateMode" :"FastBeyond360"
+  },
+  {
+    "GameAction": "eGA_ROTATE",
+    "StartTime": 11.0,
+    "Duration": 2.0,
+    "Rotation": 0,
     "RotateMode" :"FastBeyond360"
   }
   ]

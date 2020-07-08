@@ -283,17 +283,9 @@ public class s_GameActionManager : MonoBehaviour {
     }
 
     public void ParseJSON(string _sFilePath)
-    {
-        if (File.Exists(_sFilePath))
-        {
-            string _sEncodedString;
-            using (StreamReader _Reader = new StreamReader(_sFilePath, Encoding.Default))
-            {
-                _sEncodedString = _Reader.ReadToEnd();
-                _Reader.Close();
-            }
-
-            JSONObject _JSONObject = new JSONObject(_sEncodedString);
+    {      
+			TextAsset _JSONString = Resources.Load<TextAsset>(_sFilePath);
+			JSONObject _JSONObject = new JSONObject(_JSONString.text);
 
             try
             {
@@ -513,13 +505,6 @@ public class s_GameActionManager : MonoBehaviour {
                 Debug.LogError("Error Parsing Cutscene file: " + _sFilePath + " Exception: " + e.ToString() );
             }
 
-            Debug.Log("Successfully Loaded Cutscene JSON file");
-
-        }
-        else
-        {
-            Debug.LogError("The following file does not exist: " + _sFilePath);
-        }
     }
 
     protected void ChangeAnimation(tk2dSpriteAnimator _Animator, eAnimationCommands _eCommand, string _AnimationClip, int _iFrame = 0, float _fTime = 0)

@@ -92,9 +92,9 @@ public class s_EntityPlayer : MonoBehaviour {
 	public float m_fBoostDrain;
 	public float m_fBoostRefill;
 
-	public float m_thrustDrag = 6.0f;
-	public float m_noThrustDrag = 2.0f;
-	public float m_driftDrag = 0.6f;
+	public float m_fThrustDrag = 6.0f;
+	public float m_fNoThrustDrag = 2.0f;
+	public float m_fDriftDrag = 0.6f;
 
 	//===Public Components
 	public GameObject m_goMainCharacter;
@@ -124,7 +124,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	private float m_fBoostQuantity;
 	private eBoostState m_eBoostState;
 	private eCharacterState m_eCharacterState;
-	private float m_velocityClampInterpolationSpeed; //1-100 scale, 100 = instant
+	private float m_fVelocityClampInterpolationSpeed; //1-100 scale, 100 = instant
 
 	//Collision
 	/*This property is passed used in conjunction with child colliders and their gameobjects. 
@@ -179,9 +179,8 @@ public class s_EntityPlayer : MonoBehaviour {
 	//Replay Data - TODO: Fix this up
 	public List<RecordedEvent> replayData;
 	private bool m_bIsReplay;
-	public float m_replayZValue;
 	public bool m_bReplayReachedEnd;
-	private int m_lastReplayActionIndex;
+	private int m_iLastReplayActionIndex;
 
 	private Dictionary<tk2dSpriteAnimator, sAnimationCommand> m_dAnimationCommands;
 	private Dictionary<tk2dSpriteAnimator, sAnimationCommand> m_dAnimationCommandsPrevious;
@@ -196,11 +195,9 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	//=====Collision Tracking Variables
 	private Collider2D m_DamageTriggeringCollider;
-	private int m_CollisionIFrames;
+	private int m_iCollisionIFrames;
 
 	private bool m_PlayerStuck;
-
-
 
 	//TODO: Replace this with something neater later so that the input manager can be queried to find out if buttons are currently being pressed.
 	bool m_bDriftHeld;
@@ -243,7 +240,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		m_bHasThrustedSinceLastLanding = false;
 		m_bShouldRecieveInput = false;
 		m_EndLevelTweenSequence = null;
-		m_velocityClampInterpolationSpeed = 100.0f;
+		m_fVelocityClampInterpolationSpeed = 100.0f;
 
 		m_listFlameAnimators = new List<tk2dSpriteAnimator>();
 		m_listAnimators = new List<tk2dSpriteAnimator>();
@@ -254,7 +251,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		m_dAnimationCommandsPrevious = new Dictionary<tk2dSpriteAnimator, sAnimationCommand>();
 
 		m_DamageTriggeringCollider = null;
-		m_CollisionIFrames = 0;
+		m_iCollisionIFrames = 0;
 		m_PlayerStuck = false;
 
 		m_CollisionLayersToIgnore = LayerMask.GetMask("EndLevelPortal");
@@ -273,7 +270,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		IndexAnimators();
 		InitializeAnimationClips();
 
-		m_lastReplayActionIndex = 0;
+		m_iLastReplayActionIndex = 0;
 		m_bReplayReachedEnd = false;
 	}
 
@@ -455,7 +452,7 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		m_CollisionIFrames--;
+		m_iCollisionIFrames--;
 		if (m_bIsReplay)
 		{
 			ProcessReplay();
@@ -712,7 +709,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	private void ProcessFlyingAnimation(tk2dSpriteAnimator _pAnimator)
 	{
 		
-		if(!_pAnimator.IsPlaying("LandingQuick") || m_bThrustThisFrame)
+		if(!_pAnimator.IsPlaying(GetAnimationClipFromString("LandingQuick")) || m_bThrustThisFrame)
 		{
 			//Check for Movement, select flying animation
 			if(m_bGrounded == false)
@@ -1517,7 +1514,7 @@ public class s_EntityPlayer : MonoBehaviour {
 			if(m_RigidBody2D.isKinematic == false)
 			{
  				Vector3 clampedVelocityVector = Vector3.ClampMagnitude(m_RigidBody2D.velocity, _fAmmendedMaxSpeed);
-				Vector3 interpolatedVelocityVector = Vector3.Lerp(m_RigidBody2D.velocity, clampedVelocityVector, Time.fixedDeltaTime * m_velocityClampInterpolationSpeed);
+				Vector3 interpolatedVelocityVector = Vector3.Lerp(m_RigidBody2D.velocity, clampedVelocityVector, Time.fixedDeltaTime * m_fVelocityClampInterpolationSpeed);
    				m_RigidBody2D.velocity = interpolatedVelocityVector;
 			}
 		}
@@ -1526,7 +1523,7 @@ public class s_EntityPlayer : MonoBehaviour {
 	private void InterpolateClampSpeed()
 	{
 		//m_velocityClampInterpolationSpeed should always be trying to reach a value of 100. The value will be reset when collisions occur to allow for smoother collision response
-		m_velocityClampInterpolationSpeed = Mathf.Lerp(m_velocityClampInterpolationSpeed, 100.0f, Time.fixedDeltaTime);
+		m_fVelocityClampInterpolationSpeed = Mathf.Lerp(m_fVelocityClampInterpolationSpeed, 100.0f, Time.fixedDeltaTime);
 	}
 	private void ApplyBoost()
 	{
@@ -1682,11 +1679,11 @@ public class s_EntityPlayer : MonoBehaviour {
 				
 				if(m_bThrustThisFrame)
 				{
-					m_RigidBody2D.drag = m_thrustDrag;
+					m_RigidBody2D.drag = m_fThrustDrag;
 				}
 				else
 				{
-					m_RigidBody2D.drag = m_driftDrag;
+					m_RigidBody2D.drag = m_fDriftDrag;
 				}
 				break;
 			}
@@ -1695,11 +1692,11 @@ public class s_EntityPlayer : MonoBehaviour {
 			{
 				if(m_bThrustThisFrame)
 				{
-					m_RigidBody2D.drag = m_thrustDrag;
+					m_RigidBody2D.drag = m_fThrustDrag;
 				}
 				else
 				{
-					m_RigidBody2D.drag = m_noThrustDrag;
+					m_RigidBody2D.drag = m_fNoThrustDrag;
 				}
 				break;
 			}
@@ -1709,11 +1706,11 @@ public class s_EntityPlayer : MonoBehaviour {
 		{
 			if(m_bThrustThisFrame)
 			{
-				m_RigidBody2D.drag = m_thrustDrag;
+				m_RigidBody2D.drag = m_fThrustDrag;
 			}
 			else
 			{
-				m_RigidBody2D.drag = m_noThrustDrag;
+				m_RigidBody2D.drag = m_fNoThrustDrag;
 			}
 		}
 	}
@@ -1733,23 +1730,23 @@ public class s_EntityPlayer : MonoBehaviour {
 
 	private void ProcessCollisions(Collider2D other)
 	{
-        bool _LeftCollision = m_LeftTrigger.GetTriggered();
-        bool _RightCollision = m_RightTrigger.GetTriggered();
+        bool _bLeftCollision = m_LeftTrigger.GetTriggered();
+        bool _bRightCollision = m_RightTrigger.GetTriggered();
 
         //If collision has happened on both triggers simultaneously
-        if(_LeftCollision && _RightCollision)
+        if(_bLeftCollision && _bRightCollision)
         {
             ApplyDeath();
             return;
         }
-        else if ( _LeftCollision || _RightCollision)
+        else if (_bLeftCollision || _bRightCollision)
 		{
-            int numItemsInTrigger = _LeftCollision ? m_LeftTrigger.GetNumItemsInTrigger() : m_RightTrigger.GetNumItemsInTrigger();
+            int _inumItemsInTrigger = _bLeftCollision ? m_LeftTrigger.GetNumItemsInTrigger() : m_RightTrigger.GetNumItemsInTrigger();
             //Prevents the character from instantly being put into the death state if two collisions occur on the same trigger before the collision volume can depenetrate.
-            if (m_eCharacterState == eCharacterState.eCS_Damaged && numItemsInTrigger <= 1)
+            if (m_eCharacterState == eCharacterState.eCS_Damaged && _inumItemsInTrigger <= 1)
             {
-                bool stillTouchingDamageTriggeringCollider = _LeftCollision ? m_RightTrigger.IsTouching(m_DamageTriggeringCollider) : m_LeftTrigger.IsTouching(m_DamageTriggeringCollider);
-                if (!stillTouchingDamageTriggeringCollider && m_CollisionIFrames <= 0)
+                bool _bstillTouchingDamageTriggeringCollider = _bLeftCollision ? m_RightTrigger.IsTouching(m_DamageTriggeringCollider) : m_LeftTrigger.IsTouching(m_DamageTriggeringCollider);
+                if (!_bstillTouchingDamageTriggeringCollider && m_iCollisionIFrames <= 0)
                 {
                     ApplyDeath();
                     return;
@@ -1763,14 +1760,14 @@ public class s_EntityPlayer : MonoBehaviour {
 
 		if(m_eCharacterState != eCharacterState.eCS_Broken)
 		{
-			if(_LeftCollision)
+			if(_bLeftCollision)
 			{
 				m_arrayEngineStatus[(int)eJetpackID.eJID_Left] = eJetpackState.eJS_Broken;
 				m_eCharacterState = eCharacterState.eCS_Damaged;
 				
 				CreateSmallExplosion(m_LeftTrigger.transform.position);			
 			}
-			if(_RightCollision)
+			if(_bRightCollision)
 			{
 				m_arrayEngineStatus[(int)eJetpackID.eJID_Right] = eJetpackState.eJS_Broken;
 				m_eCharacterState = eCharacterState.eCS_Damaged;
@@ -1788,18 +1785,18 @@ public class s_EntityPlayer : MonoBehaviour {
 				Vector2 _applyforce = _direction * _velocityRecorder.GetRecordedVelocity().sqrMagnitude;
 				m_RigidBody2D.AddForce(_applyforce, ForceMode2D.Impulse);
 			}
-			else if(_LeftCollision)
+			else if(_bLeftCollision)
 			{
 				m_RigidBody2D.AddForce(transform.right * m_fDamageKnockbackForce, ForceMode2D.Impulse);
 
 			}
-			else if(_RightCollision)
+			else if(_bRightCollision)
 			{
 				m_RigidBody2D.AddForce(transform.right * -m_fDamageKnockbackForce, ForceMode2D.Impulse);
 			}
 
-			m_velocityClampInterpolationSpeed = 5.0f;
-			m_CollisionIFrames = 20;
+			m_fVelocityClampInterpolationSpeed = 5.0f;
+			m_iCollisionIFrames = 20;
             m_DamageTriggeringCollider = other;
 
             //If both broken, go straight to broken
@@ -1837,8 +1834,8 @@ public class s_EntityPlayer : MonoBehaviour {
 			if(m_playerFeetTrigger.GetFeetTriggerStay())
 			{
                 //Get the difference between the world up-vector and the character's up vector in order to determine orientation.
-                float upVecDiff = Vector2.Angle(Vector2.up, transform.up);
-                if (upVecDiff < 4.0f) 
+                float _fUpVecDiff = Vector2.Angle(Vector2.up, transform.up);
+                if (_fUpVecDiff < 4.0f) 
                 {
                     m_bGrounded = true;
 				}	
@@ -1875,6 +1872,11 @@ public class s_EntityPlayer : MonoBehaviour {
 
     public void OnPlayerStuck()
     {
+		if(m_bIsReplay)
+		{
+			//Replay players can't be stuck.
+			return;
+		}
         //If the player is stuck, apply death
         m_PlayerStuck = true;
         ApplyDeath();
@@ -1937,7 +1939,7 @@ public class s_EntityPlayer : MonoBehaviour {
         ChangeAnimation(_pAnimator, eAnimationCommands.Play, "DizzyHit");
 
 		//Change Drag of Rigidbody2D to mimic falling
-		m_RigidBody2D.drag = m_noThrustDrag;
+		m_RigidBody2D.drag = m_fNoThrustDrag;
     }
 
     public bool GetShouldIgnore(Collider2D collider)
@@ -1986,22 +1988,22 @@ public class s_EntityPlayer : MonoBehaviour {
 		//Test all previous transform variables against current to see if there is a change. Only record the positional movement if a change has occurred.
 		//TODO: Optimize variables so that conversion to vector3 is not necessary.
 
-		Vector3 rigidbodyPos = new Vector3(m_RigidBody2D.position.x, m_RigidBody2D.position.y, this.transform.position.z);
-		Vector3 rigidbodyRot = new Vector3(0, 0, m_RigidBody2D.rotation);
-		if (m_PrevPos != rigidbodyPos
-			|| m_PrevRot != rigidbodyRot
+		Vector3 _rigidbodyPos = new Vector3(m_RigidBody2D.position.x, m_RigidBody2D.position.y, this.transform.position.z);
+		Vector3 _rigidbodyRot = new Vector3(0, 0, m_RigidBody2D.rotation);
+		if (m_PrevPos != _rigidbodyPos
+			|| m_PrevRot != _rigidbodyRot
 			|| m_PrevScale != this.transform.localScale)
 		{
 			if (m_uFrameStamp > 0)
 			{
-				s_GameplayRecorder.instance.AddAction(m_uFrameStamp, RecordActions.PlayerMovement, rigidbodyPos, rigidbodyRot, transform.localScale.x, transform.localScale.y);
+				s_GameplayRecorder.instance.AddAction(m_uFrameStamp, RecordActions.PlayerMovement, _rigidbodyPos, _rigidbodyRot, transform.localScale.x, transform.localScale.y);
 			}
 		}
 
 		//Update previous locaiton/roataion/scale values
-		m_PrevPos = rigidbodyPos;
-		m_PrevRot = rigidbodyRot;
-		m_PrevRot = rigidbodyRot;
+		m_PrevPos = _rigidbodyPos;
+		m_PrevRot = _rigidbodyRot;
+		m_PrevRot = _rigidbodyRot;
 		m_PrevScale = this.transform.localScale;
 	}
 
@@ -2150,7 +2152,7 @@ public class s_EntityPlayer : MonoBehaviour {
 		 * Note that this method requires and assumes that the actions in the array be added in a time-stamp correct order. If any timestamps are out of order
 		 * then the system will fail and action execution will not be able to occur.
 		 */
-		for (int _iAction = m_lastReplayActionIndex; _iAction < replayData.Count; _iAction++)
+		for (int _iAction = m_iLastReplayActionIndex; _iAction < replayData.Count; _iAction++)
         {
             if (m_uFrameStamp == replayData[_iAction].time)
 			{
@@ -2175,7 +2177,7 @@ public class s_EntityPlayer : MonoBehaviour {
             }
 			else
 			{
-				m_lastReplayActionIndex = _iAction;
+				m_iLastReplayActionIndex = _iAction;
 				break;
 			}
 

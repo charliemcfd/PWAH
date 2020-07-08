@@ -8,7 +8,7 @@ public class s_Ragdoll : MonoBehaviour {
 	private bool m_bShouldStop;
     private bool m_bFirstImpactOccurred;
 	public float m_fMaxSpeed;
-    public float m_lowVelocityTimer;
+    public float m_fLowVelocityTimer;
 
 	//Component references
 	protected Rigidbody2D m_rigidBody2D;
@@ -25,7 +25,7 @@ public class s_Ragdoll : MonoBehaviour {
 		m_bShouldStop = false;
         m_bFirstImpactOccurred = false;
 
-        m_lowVelocityTimer = 0;
+		m_fLowVelocityTimer = 0;
 
 		m_rigidBody2D = GetComponent<Rigidbody2D>();
 		if(!m_rigidBody2D)
@@ -75,8 +75,8 @@ public class s_Ragdoll : MonoBehaviour {
 			float _fVelocityMagnitude = m_rigidBody2D.velocity.magnitude;
 			if (_fVelocityMagnitude <= 0.3f && !m_bShouldStop && m_bFirstImpactOccurred)
 			{
-				m_lowVelocityTimer += Time.deltaTime;
-				if (m_lowVelocityTimer > 0.075f)
+				m_fLowVelocityTimer += Time.deltaTime;
+				if (m_fLowVelocityTimer > 0.075f)
 				{
 					//If we are not yet playing the clip that tranisitions us to the resting animation
 					if (!m_spriteAnimator.IsPlaying(m_deathHitToRestClip))
@@ -99,7 +99,7 @@ public class s_Ragdoll : MonoBehaviour {
 			}
 			else if (_fVelocityMagnitude > 0.1f)
 			{
-				m_lowVelocityTimer = 0.0f;
+				m_fLowVelocityTimer = 0.0f;
 			}
 		}
 

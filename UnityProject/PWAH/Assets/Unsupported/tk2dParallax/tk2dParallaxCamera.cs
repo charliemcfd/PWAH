@@ -65,30 +65,36 @@ public class tk2dParallaxCamera : MonoBehaviour
 			if (layer.transform != null)
 			{
                 layer.transform.position = new Vector3(rootPosition.x + rootOffset.x * layer.speedX, rootPosition.y + rootOffset.y * layer.speedY, rootPosition.z);
-            }
+			}
         }		
 	}
 	
 	// Update is called once per frame
 	void LateUpdate () 
 	{
+		//PWAH
 		//UpdateParallaxPositions();
+		//~PWAH
 	}
 
 	public void UpdateParallaxPositions()
 	{
 		Vector3 rootOffset = transform.position - rootPosition;
-		foreach (var layer in layers)
+		//PWAH
+		for(int i = 0; i < layers.Length; i++)
 		{
-			if (layer.transform != null)
+			if (layers[i].transform != null)
 			{
-				float unperfectX = rootPosition.x + rootOffset.x * layer.speedX;
-				float unperfectY = rootPosition.y + rootOffset.y * layer.speedY;
-				layer.transform.position = CalculatePixelPerfectPosition(unperfectX, unperfectY, layer.transform.position);
+				float unperfectX = rootPosition.x + rootOffset.x * layers[i].speedX;
+				float unperfectY = rootPosition.y + rootOffset.y * layers[i].speedY;
+				layers[i].transform.position = CalculatePixelPerfectPosition(unperfectX, unperfectY, layers[i].transform.position);
+				layers[i].transform.rotation = transform.rotation;
 			}
 		}
+		//~PWAH
 	}
 
+	//PWAH
     protected Vector3 CalculatePixelPerfectPosition(float unperfectPositionX, float unperfectPositionY, Vector3 oldPosition)
     {
 		//Calculate the position in pixel-space (Still  a floating point number at this point)
@@ -122,4 +128,5 @@ public class tk2dParallaxCamera : MonoBehaviour
 		return new Vector3(newX, newY, oldPosition.z); //Z should never change.
 
     }
+	//~PWAH
 }

@@ -404,7 +404,7 @@ public class s_InputManager : MonoBehaviour {
 	
 	
 	// NOTE: Depding on project, it may be preferable to have this within Update, rather than FixedUpdate. 
-	void FixedUpdate () {   
+	void FixedUpdate () {
 
 		ClearInputs();
 
@@ -461,38 +461,41 @@ public class s_InputManager : MonoBehaviour {
                         //Clear stringbuilder
                         m_StringBuilder.Remove(0, m_StringBuilder.Length);
 
+						float _fAxisOffset = 0.0f;
+
+						//Make new stirng
+						m_StringBuilder.Append("Axis_");
+						m_StringBuilder.Append(i);
+
+						//Hack for Xbox controler on Windows, as triggers are -1 whilst at rest (And also at 0 until input provided?!)
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_XBOXONE
 
-                        //Hacky skip for Xbox axis 3 and 6 (triggers -1 to +1)
-                        if (i == 3 || i == 6)
+						//Hacky skip for Xbox axis 3 and 6 (triggers -1 to +1)
+						if (i == 3 || i == 6)
                         {
                             bool _bXbox = false;
                             for ( int j = 0; j < Input.GetJoystickNames().Length; j++)
                             {
                                 if (Input.GetJoystickNames()[j].Contains("Xbox"))
                                 {
-                                    _bXbox = true;
+									//It is unlikely that a user will be able to get an exact value of zero when depressing a trigger so this
+									//should be fine. Add an offset so that the axis presents "zero" whilst not pressed.
+									if(Input.GetAxis(m_StringBuilder.ToString()) != 0.0f)
+									{
+										_fAxisOffset = 1.0f;
+									}
                                 }
                             }
 
-                            if(_bXbox)
-                            {
-                                continue;
-                            }
+
                         }
 #endif
+						//Attempt to create new binds
 
-                        //Make new stirng
-                        m_StringBuilder.Append("Axis_");
-                        m_StringBuilder.Append(i);
+						bool _bCreatedBind = CreateBindFromInput(eBindType.eBT_Axis,_fAxisOffset);
 
-                        //Attempt to create new binds
-
-                        bool _bCreatedBind = CreateBindFromInput(eBindType.eBT_Axis);
-
-
-                        //If the bind was created, Bail and reset state
-                        if(_bCreatedBind)
+						//If the bind was created, Bail and reset state
+						if (_bCreatedBind)
                         {
                             ExitBindingProcess();
                             return;
@@ -752,7 +755,7 @@ public class s_InputManager : MonoBehaviour {
         m_eNextMenuCommand = _eCommand;
     }
 
-    private bool CreateBindFromInput(eBindType _eBindType)
+	private bool CreateBindFromInput(eBindType _eBindType, float _fAxisOffset = 0)
     {
         //Returns true if a new bind was created (Which signals that the state should change from creating a bind)
 
@@ -772,8 +775,8 @@ public class s_InputManager : MonoBehaviour {
         {
             case eBindType.eBT_Axis:
                 {
-
-                    if (Input.GetAxis(m_StringBuilder.ToString()) > 0.01)
+					float _fAxisInput = Input.GetAxis(m_StringBuilder.ToString()) + _fAxisOffset;
+					if (_fAxisInput > 0.01)
                     {
                         //===Positive Axis Bind
                         _Bind.m_eBindType = eBindType.eBT_Axis;
@@ -784,7 +787,7 @@ public class s_InputManager : MonoBehaviour {
 
 
                     }
-                    else if (Input.GetAxis(m_StringBuilder.ToString()) < -0.01)
+                    else if (_fAxisInput < -0.01)
                     {
                         //===Negative Axis Bind
                         _Bind.m_eBindType = eBindType.eBT_Axis;
@@ -981,140 +984,142 @@ public class s_InputManager : MonoBehaviour {
     {
         string path = null;
 
-#if UNITY_EDITOR
-        path = "Assets/Resources/GameJSONData/KeyBinds.json";
-        if (!File.Exists("Assets/Resources/GameJSONData/KeyBinds.json"))
-        {
-            SetDefaultKeyBinds();
-            return;
-        }
-#elif UNITY_STANDALONE
-        // You cannot add a subfolder, at least it does not work for me
+		TextAsset _JSONString = Resources.Load<TextAsset>("GameJSONData/KeyBinds");
+		if (_JSONString)
+		{
+			JSONObject _JSONObject = new JSONObject(_JSONString.text);
 
-        path =  Application.persistentDataPath + "_Data/Resources/KeyBinds.json";
+			//#if UNITY_EDITOR
+			//        path = "Assets/Resources/GameJSONData/KeyBinds.json";
+			//        if (!File.Exists("Assets/Resources/GameJSONData/KeyBinds.json"))
+			//        {
+			//            SetDefaultKeyBinds();
+			//            return;
+			//        }
+			//#elif UNITY_STANDALONE
+			//        // You cannot add a subfolder
 
-        Debug.Log("Full Data Path: " + path);
+			//        path =  Application.persistentDataPath + "_Data/Resources/KeyBinds.json";
 
-        if (!File.Exists(path))
-        {
-            SetDefaultKeyBinds();
-            return;
-        }
-#endif
-        string _sEncodedString;
-        using (StreamReader _Reader = new StreamReader(path, Encoding.Default))
-        {
-            _sEncodedString = _Reader.ReadToEnd();
-            _Reader.Close();
-        }
+			//        Debug.Log("Full Data Path: " + path);
 
-        JSONObject _JSONObject = new JSONObject(_sEncodedString);
+			//        if (!File.Exists(path))
+			//        {
+			//            SetDefaultKeyBinds();
+			//            return;
+			//        }
+			//#endif
 
-        //=========Game Binds
-        {
-            JSONObject _GameBindObject = new JSONObject(JSONObject.Type.OBJECT);
-            if (_JSONObject.GetField("GameBinds"))
-            {
-                _GameBindObject = _JSONObject.GetField("GameBinds");
-            }
+			//=========Game Binds
+			{
+				JSONObject _GameBindObject = new JSONObject(JSONObject.Type.OBJECT);
+				if (_JSONObject.GetField("GameBinds"))
+				{
+					_GameBindObject = _JSONObject.GetField("GameBinds");
+				}
 
-            for (int i = 0; i < (int)eInputCommand_Game.eIC_Game_MAX; i++)
-            {
-                JSONObject _BindArray = _GameBindObject[((eInputCommand_Game)i).ToString()];
-                for (int j = 0; j < _BindArray.Count; j++)
-                {
-                    JSONObject _IndividualBind = _BindArray[j];
+				for (int i = 0; i < (int)eInputCommand_Game.eIC_Game_MAX; i++)
+				{
+					JSONObject _BindArray = _GameBindObject[((eInputCommand_Game)i).ToString()];
+					for (int j = 0; j < _BindArray.Count; j++)
+					{
+						JSONObject _IndividualBind = _BindArray[j];
 
-                    sKeyBind _RetrievedBind = new sKeyBind();
+						sKeyBind _RetrievedBind = new sKeyBind();
 
-                    try
-                    {
-                        if (_IndividualBind.GetField("BindType"))
-                        {
-                            _RetrievedBind.m_eBindType = ((eBindType)_IndividualBind.GetField("BindType").n);
-                        }
+						try
+						{
+							if (_IndividualBind.GetField("BindType"))
+							{
+								_RetrievedBind.m_eBindType = ((eBindType)_IndividualBind.GetField("BindType").n);
+							}
 
-                        if (_IndividualBind.GetField("Positive"))
-                        {
-                            _RetrievedBind.m_bPositive = _IndividualBind.GetField("Positive").b;
-                        }
+							if (_IndividualBind.GetField("Positive"))
+							{
+								_RetrievedBind.m_bPositive = _IndividualBind.GetField("Positive").b;
+							}
 
-                        if (_IndividualBind.GetField("BindName"))
-                        {
-                            _RetrievedBind.m_sBindName = _IndividualBind.GetField("BindName").str;
-                        }
+							if (_IndividualBind.GetField("BindName"))
+							{
+								_RetrievedBind.m_sBindName = _IndividualBind.GetField("BindName").str;
+							}
 
-                        if (_IndividualBind.GetField("KeyCode"))
-                        {
-                            _RetrievedBind.m_KeyCode = ((KeyCode)_IndividualBind.GetField("KeyCode").n);
-                        }
+							if (_IndividualBind.GetField("KeyCode"))
+							{
+								_RetrievedBind.m_KeyCode = ((KeyCode)_IndividualBind.GetField("KeyCode").n);
+							}
 
-                        m_dGameBinds[(eInputCommand_Game)i].Add(_RetrievedBind);
+							m_dGameBinds[(eInputCommand_Game)i].Add(_RetrievedBind);
 
-                    }
-                    catch
-                    {
-                        Debug.LogError("Missing JSON field");
+						}
+						catch
+						{
+							Debug.LogError("Missing JSON field");
 
-                    }
-                }
-            }
-        }
+						}
+					}
+				}
+			}
 
-        //=========Menu Binds
-        {
-            JSONObject _MenuBindObject = new JSONObject(JSONObject.Type.OBJECT);
-            if (_JSONObject.GetField("MenuBinds"))
-            {
-                _MenuBindObject = _JSONObject.GetField("MenuBinds");
-            }
+			//=========Menu Binds
+			{
+				JSONObject _MenuBindObject = new JSONObject(JSONObject.Type.OBJECT);
+				if (_JSONObject.GetField("MenuBinds"))
+				{
+					_MenuBindObject = _JSONObject.GetField("MenuBinds");
+				}
 
-            for (int i = 0; i < (int)eInputCommand_Menu.eIC_Menu_MAX; i++)
-            {
-                JSONObject _BindArray = _MenuBindObject[((eInputCommand_Menu)i).ToString()];
-                for (int j = 0; j < _BindArray.Count; j++)
-                {
-                    JSONObject _IndividualBind = _BindArray[j];
+				for (int i = 0; i < (int)eInputCommand_Menu.eIC_Menu_MAX; i++)
+				{
+					JSONObject _BindArray = _MenuBindObject[((eInputCommand_Menu)i).ToString()];
+					for (int j = 0; j < _BindArray.Count; j++)
+					{
+						JSONObject _IndividualBind = _BindArray[j];
 
-                    sKeyBind _RetrievedBind = new sKeyBind();
+						sKeyBind _RetrievedBind = new sKeyBind();
 
-                    try
-                    {
-                        if (_IndividualBind.GetField("BindType"))
-                        {
-                            _RetrievedBind.m_eBindType = ((eBindType)_IndividualBind.GetField("BindType").n);
-                        }
+						try
+						{
+							if (_IndividualBind.GetField("BindType"))
+							{
+								_RetrievedBind.m_eBindType = ((eBindType)_IndividualBind.GetField("BindType").n);
+							}
 
-                        if (_IndividualBind.GetField("Positive"))
-                        {
-                            _RetrievedBind.m_bPositive = _IndividualBind.GetField("Positive").b;
-                        }
+							if (_IndividualBind.GetField("Positive"))
+							{
+								_RetrievedBind.m_bPositive = _IndividualBind.GetField("Positive").b;
+							}
 
-                        if (_IndividualBind.GetField("BindName"))
-                        {
-                            _RetrievedBind.m_sBindName = _IndividualBind.GetField("BindName").str;
-                        }
+							if (_IndividualBind.GetField("BindName"))
+							{
+								_RetrievedBind.m_sBindName = _IndividualBind.GetField("BindName").str;
+							}
 
-                        if (_IndividualBind.GetField("KeyCode"))
-                        {
-                            _RetrievedBind.m_KeyCode = ((KeyCode)_IndividualBind.GetField("KeyCode").n);
-                        }
+							if (_IndividualBind.GetField("KeyCode"))
+							{
+								_RetrievedBind.m_KeyCode = ((KeyCode)_IndividualBind.GetField("KeyCode").n);
+							}
 
-                        m_dMenuBinds[(eInputCommand_Menu)i].Add(_RetrievedBind);
+							m_dMenuBinds[(eInputCommand_Menu)i].Add(_RetrievedBind);
 
-                    }
-                    catch
-                    {
-                        Debug.LogError("Missing JSON field");
+						}
+						catch
+						{
+							Debug.LogError("Missing JSON field");
 
-                    }
-                }
-            }
+						}
+					}
+				}
 
 
-        }
+			}
+		}
+		else
+		{
+			SetDefaultKeyBinds();
+		}
 
-    }
+	}
 
     #endregion
 

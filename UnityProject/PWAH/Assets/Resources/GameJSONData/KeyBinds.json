@@ -1,1 +1,125 @@
-{"GameBinds":{"eIC_Game_MoveLeft":[{"BindType":2,"Positive":false,"BindName":"Axis_1","KeyCode":0},{"BindType":1,"Positive":true,"BindName":"","KeyCode":97},{"BindType":1,"Positive":true,"BindName":"","KeyCode":276}],"eIC_Game_MoveRight":[{"BindType":2,"Positive":true,"BindName":"Axis_1","KeyCode":0},{"BindType":1,"Positive":true,"BindName":"","KeyCode":100},{"BindType":1,"Positive":true,"BindName":"","KeyCode":275}],"eIC_Game_Thrust":[{"BindType":0,"Positive":true,"BindName":"Button_0","KeyCode":0},{"BindType":1,"Positive":true,"BindName":"","KeyCode":32},{"BindType":1,"Positive":true,"BindName":"","KeyCode":119}],"eIC_Game_Boost":[{"BindType":2,"Positive":true,"BindName":"Axis_10","KeyCode":0},{"BindType":1,"Positive":true,"BindName":"","KeyCode":304}],"eIC_Game_Drift":[{"BindType":2,"Positive":true,"BindName":"Axis_9","KeyCode":0},{"BindType":1,"Positive":true,"BindName":"","KeyCode":306}]},"MenuBinds":{"eIC_Menu_MoveLeft":[],"eIC_Menu_MoveRight":[],"eIC_Menu_MoveUp":[],"eIC_Menu_MoveDown":[],"eIC_Menu_Select":[{"BindType":0,"Positive":true,"BindName":"Button_0","KeyCode":0}],"eIC_Menu_Back":[]}}
+{
+  "GameBinds": {
+    "eIC_Game_MoveLeft": [
+      {
+        "BindType": 2,
+        "Positive": false,
+        "BindName": "Axis_1",
+        "KeyCode": 0
+      },
+      {
+        "BindType": 1,
+        "Positive": true,
+        "BindName": "",
+        "KeyCode": 97
+      },
+      {
+        "BindType": 1,
+        "Positive": true,
+        "BindName": "",
+        "KeyCode": 276
+      }
+    ],
+    "eIC_Game_MoveRight": [
+      {
+        "BindType": 2,
+        "Positive": true,
+        "BindName": "Axis_1",
+        "KeyCode": 0
+      },
+      {
+        "BindType": 1,
+        "Positive": true,
+        "BindName": "",
+        "KeyCode": 100
+      },
+      {
+        "BindType": 1,
+        "Positive": true,
+        "BindName": "",
+        "KeyCode": 275
+      }
+    ],
+    "eIC_Game_Thrust": [
+      {
+        "BindType": 0,
+        "Positive": true,
+        "BindName": "Button_0",
+        "KeyCode": 0
+      },
+      {
+        "BindType": 1,
+        "Positive": true,
+        "BindName": "",
+        "KeyCode": 32
+      },
+      {
+        "BindType": 1,
+        "Positive": true,
+        "BindName": "",
+        "KeyCode": 119
+      }
+    ],
+    "eIC_Game_Boost": [
+      {
+        "BindType": 2,
+        "Positive": true,
+        "BindName": "Axis_10",
+        "KeyCode": 0
+      },
+      {
+        "BindType": 1,
+        "Positive": true,
+        "BindName": "",
+        "KeyCode": 304
+      },
+      {
+        "BindType": 2,
+        "Positive": true,
+        "BindName": "Axis_6",
+        "KeyCode": 0
+      }
+    ],
+    "eIC_Game_Drift": [
+      {
+        "BindType": 2,
+        "Positive": true,
+        "BindName": "Axis_9",
+        "KeyCode": 0
+      },
+      {
+        "BindType": 1,
+        "Positive": true,
+        "BindName": "",
+        "KeyCode": 306
+      },
+      {
+        "BindType": 2,
+        "Positive": true,
+        "BindName": "Axis_3",
+        "KeyCode": 0
+      }
+    ]
+  },
+  "MenuBinds": {
+    "eIC_Menu_MoveLeft": [],
+    "eIC_Menu_MoveRight": [],
+    "eIC_Menu_MoveUp": [],
+    "eIC_Menu_MoveDown": [],
+    "eIC_Menu_Select": [
+      {
+        "BindType": 0,
+        "Positive": true,
+        "BindName": "Button_0",
+        "KeyCode": 0
+      },
+      {
+        "BindType": 1,
+        "Positive": true,
+        "BindName": "",
+        "KeyCode": 32
+      }
+    ],
+    "eIC_Menu_Back": []
+  }
+}

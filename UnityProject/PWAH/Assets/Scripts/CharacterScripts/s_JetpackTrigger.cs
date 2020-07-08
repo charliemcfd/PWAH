@@ -5,14 +5,14 @@ public class s_JetpackTrigger : MonoBehaviour {
 
 	private bool m_bTriggered;
     private s_EntityPlayer m_PlayerScript;
-    private int m_itemsInTrigger;
+    private int m_iItemsInTrigger;
 	// Use this for initialization
 	void Start () {
 	
 		m_bTriggered = false;
         m_PlayerScript = GetComponentInParent<s_EntityPlayer>();
 
-        m_itemsInTrigger = 0;
+		m_iItemsInTrigger = 0;
 
 		if (!m_PlayerScript)
 		{
@@ -28,7 +28,7 @@ public class s_JetpackTrigger : MonoBehaviour {
 		{
 			return;
 		}
-        m_itemsInTrigger++;
+		m_iItemsInTrigger++;
 
 		m_bTriggered = true;
         m_PlayerScript.OnChildTriggerEnter(other, s_EntityPlayer.eTriggerType.eTT_JetPackTrigger);
@@ -41,7 +41,7 @@ public class s_JetpackTrigger : MonoBehaviour {
 		{
 			return;
 		}
-		m_itemsInTrigger--;
+		m_iItemsInTrigger--;
     }
 
 	public bool GetTriggered()
@@ -55,7 +55,7 @@ public class s_JetpackTrigger : MonoBehaviour {
 	}
     public int GetNumItemsInTrigger()
     {
-        return m_itemsInTrigger;
+        return m_iItemsInTrigger;
     }
 
     public bool IsTouching(Collider2D other)

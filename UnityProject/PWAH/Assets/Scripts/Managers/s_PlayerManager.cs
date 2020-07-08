@@ -126,7 +126,6 @@ public class s_PlayerManager : MonoBehaviour {
 				{
 					_ScriptPlayer.SetIsReplay(true);
 					_ScriptPlayer.replayData = s_GameplayRecorder.instance.GetEventsList(i);
-					_ScriptPlayer.m_replayZValue = -0.05f * i;
 
 					//TODO:: Error handling for getting back null replay data. I think just delete that instance of the player.
 				}

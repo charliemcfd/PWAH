@@ -46,7 +46,7 @@ public class s_PlayerSpawnScript : MonoBehaviour {
 
 	//Light Sprite renderers
 	private List<Renderer> m_lightSpriteRenderers;
-	private float m_lightSpriteCountReciprocal;
+	private float m_fLightSpriteCountReciprocal;
 
 	// Use this for initialization
 	void Start () {
@@ -115,7 +115,7 @@ public class s_PlayerSpawnScript : MonoBehaviour {
 			m_lightSpriteRenderers.Add(m_Light4.GetComponent<Renderer>());
 		}
 
-		m_lightSpriteCountReciprocal = 1.0f / (float)m_lightSpriteRenderers.Count;
+		m_fLightSpriteCountReciprocal = 1.0f / (float)m_lightSpriteRenderers.Count;
 	}
 
 
@@ -179,7 +179,7 @@ public class s_PlayerSpawnScript : MonoBehaviour {
 		//The calculation is based on dividing the maximum countdown time into equal sections based on the number of renderers. A reciprocal is used in order to avoid division.
 		for(int i = 0; i < m_lightSpriteRenderers.Count; i++)
 		{
-			if(m_lightSpriteRenderers[i].enabled && m_fCountDownTimer < (m_fCountDownTimerMax - (m_fCountDownTimerMax * ((i+1) * m_lightSpriteCountReciprocal))))
+			if(m_lightSpriteRenderers[i].enabled && m_fCountDownTimer < (m_fCountDownTimerMax - (m_fCountDownTimerMax * ((i+1) * m_fLightSpriteCountReciprocal))))
 			{
 				m_lightSpriteRenderers[i].enabled = false;
 			}
@@ -191,7 +191,6 @@ public class s_PlayerSpawnScript : MonoBehaviour {
     {
 		for (int i = 0; i < m_lightSpriteRenderers.Count; i++)
 		{
-
 			m_lightSpriteRenderers[i].enabled = true;
 		}
     }

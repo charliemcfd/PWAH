@@ -21,7 +21,6 @@ public class s_SmallSmoke : MonoBehaviour {
 
 	void AnimationComplete(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip)
 	{
-		//Instantiate(m_PrefabSmokeSprite, this.transform.position, Quaternion.identity);
 		Destroy(this.gameObject);
 	}
 

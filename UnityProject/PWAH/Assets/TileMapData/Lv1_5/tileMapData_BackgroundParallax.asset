@@ -481,7 +481,7 @@ MonoBehaviour:
     useColor: 1
     generateCollider: 1
     z: -0.6
-    unityLayer: 28
+    unityLayer: 29
     sortingLayerName: 
     sortingOrder: 0
     skipMeshGeneration: 0
@@ -492,7 +492,7 @@ MonoBehaviour:
     useColor: 1
     generateCollider: 1
     z: -0.5
-    unityLayer: 27
+    unityLayer: 28
     sortingLayerName: 
     sortingOrder: 0
     skipMeshGeneration: 0

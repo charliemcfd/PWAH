@@ -26,6 +26,8 @@ public class s_MainMenuScript : s_BaseMenuScript {
     public GameObject m_BoostBindText;
     public GameObject m_DriftBindText;
 
+	public GameObject m_ExampleText;
+
     //=Settings Elements
     public GameObject m_SettingsDoneButton;
 
@@ -34,7 +36,7 @@ public class s_MainMenuScript : s_BaseMenuScript {
     //=Main menu elements
     public GameObject m_PlayButton;
     public GameObject m_SettingsButton;
-
+	public GameObject m_ScriptedSequenceButton;
 
     //====Member Variables
     protected eMainMenuState m_eMainMenuState;
@@ -57,7 +59,10 @@ public class s_MainMenuScript : s_BaseMenuScript {
 
         m_eMainMenuState = eMainMenuState.eMMS_Front;
 
-        AddToMainMenuElementsList();
+		m_ExampleText.GetComponent<Renderer>().enabled = false;
+
+
+		AddToMainMenuElementsList();
         AddToKeybindElementsList();
 
         SetSettingsVisible(false);
@@ -74,6 +79,11 @@ public class s_MainMenuScript : s_BaseMenuScript {
         {
             m_ListMainMenuElements.Add(m_SettingsButton);
         }
+
+		if(m_ScriptedSequenceButton)
+		{
+			m_ListMainMenuElements.Add(m_ScriptedSequenceButton);
+		}
     }
 
     protected void AddToKeybindElementsList()
@@ -191,9 +201,17 @@ public class s_MainMenuScript : s_BaseMenuScript {
         }
         else if(_ClickedItem.gameObject == m_PlayButton)
         {
-            GameSystemPointers.instance.m_LoadingScreen.LoadScene("Level1");
+            GameSystemPointers.instance.m_LoadingScreen.LoadScene("Level1_Rework");
         }
-    }
+		else if(_ClickedItem.gameObject == m_ScriptedSequenceButton)
+		{
+			GameSystemPointers.instance.m_GameActionManager.ParseJSON("GameJSONData/Cutscenes/TestCutscene");
+			m_ListMainMenuElements.Remove(m_ScriptedSequenceButton);
+			Destroy(m_ScriptedSequenceButton);
+			m_ExampleText.GetComponent<Renderer>().enabled = true;
+
+		}
+	}
 
     public void SetSettingsVisible(bool _bVisible)
     {

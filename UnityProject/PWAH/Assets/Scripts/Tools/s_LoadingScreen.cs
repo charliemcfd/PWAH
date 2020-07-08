@@ -81,7 +81,8 @@ public class s_LoadingScreen : MonoBehaviour {
                         m_bFiredLoadCompleteEvent = true;
                     }
 
-                    if (Input.anyKey)
+					//Commening this out for now until visible prompt is on loading screen
+                    //if (Input.anyKey)
                     {
                         ao.allowSceneActivation = true;
                         CloseLoadingScreen();

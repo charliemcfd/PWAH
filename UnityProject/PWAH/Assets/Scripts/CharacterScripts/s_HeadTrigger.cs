@@ -6,10 +6,10 @@ public class s_HeadTrigger : MonoBehaviour {
 	private bool m_bTriggered;
 	private float m_fCollisionVelocity;
     // Number of fixed updates that the head trigger has had items present within it. If this exceeds a certain value the player should be determined to be "stuck" and should be destroyed
-    private float m_HeadTriggerActiveTimer; 
+    private float m_fHeadTriggerActiveTimer; 
     private s_EntityPlayer m_PlayerScript;
 
-    private int m_itemsInTrigger;
+    private int m_iItemsInTrigger;
     // Use this for initialization
     void Start () {
 		
@@ -17,7 +17,7 @@ public class s_HeadTrigger : MonoBehaviour {
 
         m_PlayerScript = GetComponentInParent<s_EntityPlayer>();
 
-        m_itemsInTrigger = 0;
+		m_iItemsInTrigger = 0;
 
 		if (!m_PlayerScript)
 		{
@@ -39,17 +39,17 @@ public class s_HeadTrigger : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if(m_itemsInTrigger > 0)
+        if(m_iItemsInTrigger > 0)
         {
-            m_HeadTriggerActiveTimer++;
-            if(m_HeadTriggerActiveTimer > 10)
+            m_fHeadTriggerActiveTimer++;
+            if(m_fHeadTriggerActiveTimer > 10)
             {
                 m_PlayerScript.OnPlayerStuck();
             }
         }
         else
         {
-            m_HeadTriggerActiveTimer = 0;
+            m_fHeadTriggerActiveTimer = 0;
         }
     }
 
@@ -60,7 +60,7 @@ public class s_HeadTrigger : MonoBehaviour {
 		{
 			return;
 		}
-        m_itemsInTrigger++;
+		m_iItemsInTrigger++;
         m_PlayerScript.OnChildTriggerEnter(other, s_EntityPlayer.eTriggerType.eTT_HeadTrigger);
 		m_bTriggered = true;
 	}
@@ -72,12 +72,12 @@ public class s_HeadTrigger : MonoBehaviour {
 		{
 			return;
 		}
-		m_itemsInTrigger--;
+		m_iItemsInTrigger--;
     }
 
     public int GetNumItemsInTrigger()
     {
-        return m_itemsInTrigger;
+        return m_iItemsInTrigger;
     }
 
 
