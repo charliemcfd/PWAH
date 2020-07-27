@@ -199,7 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8841471fbf612dd48977ef1bc7c90651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Collider: {fileID: 6156552}
 --- !u!61 &6156552
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -814,9 +813,7 @@ MonoBehaviour:
   m_fDoubleClickInterval: 1
   m_fThrustForce: 40
   m_fBoostDuration: 0.4
-  m_fBoostCooldown: 3
   m_fDeathForce: 5
-  m_fImpactTurn: 700
   m_fDamageKnockbackForce: 10
   m_fHeadImpactKnockbackForce: 4
   m_fMaxDizzytime: 1.5
@@ -828,9 +825,9 @@ MonoBehaviour:
   m_fBoostMaxCapacity: 100
   m_fBoostDrain: 0.5
   m_fBoostRefill: 15
-  m_thrustDrag: 6
-  m_noThrustDrag: 2
-  m_driftDrag: 0.6
+  m_fThrustDrag: 6
+  m_fNoThrustDrag: 2
+  m_fDriftDrag: 0.6
   m_goMainCharacter: {fileID: 112250}
   m_PrefabFlames: {fileID: 100000, guid: a7c4d906bc17bdf43a214d7616c28949, type: 3}
   m_PrefabRagdoll: {fileID: 100000, guid: ca25bb387e145b44c89287542a92c972, type: 3}
@@ -841,7 +838,6 @@ MonoBehaviour:
   m_LeftTrigger: {fileID: 11410492}
   m_RightTrigger: {fileID: 11440454}
   m_HeadTrigger: {fileID: 11445312}
-  m_replayZValue: 0
   m_bReplayReachedEnd: 0
 --- !u!50 &5081062
 Rigidbody2D:

@@ -59,6 +59,7 @@ public class s_CameraLimiter : MonoBehaviour {
 		if(m_TargetObject)
 		{
 			m_targetPosition = new Vector3(m_TargetObject.transform.position.x, m_TargetObject.transform.position.y, m_cameraZ);
+			Debug.Log("Target Pos " + m_targetPosition.x.ToString("F5")  + ", " + m_targetPosition.y.ToString("F5"));
 		}
 	}
 
@@ -89,9 +90,11 @@ public class s_CameraLimiter : MonoBehaviour {
 
 		//Update the position of the camera transform
         transform.position = result;
+		Debug.Log("Set Pos " + transform.position.x.ToString("F5") + ", " + transform.position.y.ToString("F5"));
+		Debug.Log("#####");
 	}
-	
-    protected float CalculatePixelPerfectPosition(float unperfectPosition)
+
+	protected float CalculatePixelPerfectPosition(float unperfectPosition)
     {
 		
 		//Calculate the position in pixel-space (Still  a floating point number at this point)

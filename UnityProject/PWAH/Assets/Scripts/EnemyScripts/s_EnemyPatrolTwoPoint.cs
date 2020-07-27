@@ -53,11 +53,11 @@ public class s_EnemyPatrolTwoPoint : MonoBehaviour
 		_TweenParams.SetEase(Ease.Linear);
 		//_TweenParams.SetRelative(true);
 		Sequence _movementSequence = DOTween.Sequence();
-		_movementSequence.Append(rigidBody.DOMove(transform.position + m_pointB,
+		_movementSequence.Append(transform.DOMove(transform.position + m_pointB,
 										m_AtoBTime)
 										.SetAs(_TweenParams));
 		_movementSequence.AppendInterval(m_pointAPauseTime).OnComplete(PlayAnimation);
-		_movementSequence.Append(rigidBody.DOMove(transform.position + m_pointA,
+		_movementSequence.Append(transform.DOMove(transform.position + m_pointA,
 												m_BtoATime)
 												.SetAs(_TweenParams));
 		_movementSequence.AppendInterval(m_pointBPauseTime).OnComplete(PlayAnimation);

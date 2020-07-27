@@ -1962,6 +1962,11 @@ public class s_EntityPlayer : MonoBehaviour {
 		return true;
     }
 
+	public bool IsGrounded()
+	{
+		return m_bGrounded;
+	}
+
 	#endregion
 
 

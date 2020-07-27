@@ -35,7 +35,6 @@ public class s_DoTweenVelocityRecorder : MonoBehaviour
 			m_velocity = (m_rigidbody2D.position - m_previousPosition) / Time.deltaTime;
 			m_previousPosition = m_rigidbody2D.position;
 		}
-
 	}
 
 	public Vector2 GetRecordedVelocity()
